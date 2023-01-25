@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bebop/config/routes/app_routes.dart';
+import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/injection_container.dart' as di;
 import 'package:flutter/material.dart';
@@ -105,7 +106,7 @@ class OnBoardingState extends State<OnBoardingScreen>
         return OnBoardingPage(
           number: 3,
           lightCardChild: const CryingLightCardContent(),
-          darkCardChild: const CryingCardContent(),
+          darkCardChild: const CryingDarkCardContent(),
           lightCardOffsetAnimation: _slideAnimationLightCard,
           darkCardOffsetAnimation: _slideAnimationDarkCard,
           textColumn: const CryingTextColumn(),
@@ -219,6 +220,7 @@ class OnBoardingState extends State<OnBoardingScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primary,
       body: Stack(
         children: <Widget>[
           SafeArea(

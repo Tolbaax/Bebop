@@ -1,8 +1,5 @@
-import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-
-import '../../../../core/utils/app_color.dart';
 
 class CardsStack extends StatelessWidget {
   final int pageNumber;
@@ -24,11 +21,11 @@ class CardsStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final darkCardWidth = context.width - 2 * 32.0;
-    final darkCardHeight = context.height / 3;
+    final darkCardWidth = MediaQuery.of(context).size.width - 2 * 32.0;
+    final darkCardHeight = MediaQuery.of(context).size.height / 3;
 
     return Padding(
-      padding: EdgeInsetsDirectional.only(top: isOddPageNumber ? 3.0.h : 6.0.h),
+      padding: EdgeInsets.only(top: isOddPageNumber ? 25.0 : 50.0),
       child: Stack(
         alignment: AlignmentDirectional.center,
         clipBehavior: Clip.none,
@@ -39,31 +36,31 @@ class CardsStack extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),
-              color: AppColors.primary.withOpacity(0.4),
+              color: AppColors.darkBlue,
               child: Container(
                 width: darkCardWidth,
                 height: darkCardHeight,
                 padding: EdgeInsets.only(
-                  top: !isOddPageNumber ? 10.0.h : 0.0,
-                  bottom: isOddPageNumber ? 10.0.h : 0.0,
+                  top: !isOddPageNumber ? 100.0 : 0.0,
+                  bottom: isOddPageNumber ? 100.0 : 0.0,
                 ),
-                child: darkCardChild,
+                child: Center(child: darkCardChild),
               ),
             ),
           ),
           Positioned(
-            top: !isOddPageNumber ? -3.0.h : null,
-            bottom: isOddPageNumber ? -3.0.h : null,
+            top: !isOddPageNumber ? -25.0 : null,
+            bottom: isOddPageNumber ? -25.0 : null,
             child: SlideTransition(
               position: lightCardOffsetAnimation,
               child: Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16.0),
                 ),
-                color: AppColors.primary.withOpacity(0.8),
+                color: AppColors.lightBlue,
                 child: Container(
-                  width: darkCardWidth * 0.208.w,
-                  height: darkCardHeight * 0.053.h,
+                  width: darkCardWidth * 0.8,
+                  height: darkCardHeight * 0.5,
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Center(child: lightCardChild),
                 ),

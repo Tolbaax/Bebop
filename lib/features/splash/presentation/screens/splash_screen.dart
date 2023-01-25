@@ -61,9 +61,7 @@ class _SplashScreenState extends State<SplashScreen>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                ImageAssets.babyLogo,
-              ),
+              Image.asset(ImageAssets.babyLogo),
               Text(
                 AppStrings.appName,
                 style: Theme.of(context).textTheme.bodyText1,

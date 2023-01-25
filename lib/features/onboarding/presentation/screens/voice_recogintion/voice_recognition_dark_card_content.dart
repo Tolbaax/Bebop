@@ -7,9 +7,6 @@ class VoiceRecognitionDarkCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Lottie.asset(
-      ImageAssets.voiceReco1,
-      reverse: true,
-    );
+    return Lottie.asset(ImageAssets.voiceReco1, reverse: true);
   }
 }

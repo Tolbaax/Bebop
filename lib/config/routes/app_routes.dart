@@ -1,4 +1,5 @@
 import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/features/login/presentation/screens/login_screen.dart';
 import 'package:bebop/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class AppRoutes {
 
       case Routes.login:
         return MaterialPageRoute(builder: (context) {
-          return OnBoardingScreen(screenHeight: context.height);
+          return LoginScreen(screenHeight: context.height);
         });
 
       default:

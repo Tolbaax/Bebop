@@ -1,7 +1,8 @@
 import 'dart:math';
 
-import 'package:bebop/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/app_color.dart';
 
 class OnBoardingPageIndicator extends StatelessWidget {
   final double angle;
@@ -16,7 +17,9 @@ class OnBoardingPageIndicator extends StatelessWidget {
   });
 
   Color _getPageIndicatorColor(int pageIndex) {
-    return currentPage > pageIndex ? AppColors.primary : AppColors.hint;
+    return currentPage > pageIndex
+        ? AppColors.white
+        : AppColors.white.withOpacity(0.25);
   }
 
   double get indicatorGap => pi / 12;

@@ -1,5 +1,5 @@
-import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../widgets/cards_stack.dart';
 
@@ -25,20 +25,14 @@ class OnBoardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(
-          height: context.height * 0.45,
-          width: double.infinity,
-          child: Align(
-            alignment: AlignmentDirectional.topCenter,
-            child: CardsStack(
-              pageNumber: number,
-              lightCardChild: lightCardChild,
-              darkCardChild: darkCardChild,
-              lightCardOffsetAnimation: lightCardOffsetAnimation,
-              darkCardOffsetAnimation: darkCardOffsetAnimation,
-            ),
-          ),
+        CardsStack(
+          pageNumber: number,
+          lightCardChild: lightCardChild,
+          darkCardChild: darkCardChild,
+          lightCardOffsetAnimation: lightCardOffsetAnimation,
+          darkCardOffsetAnimation: darkCardOffsetAnimation,
         ),
+        SizedBox(height: number % 2 == 1 ? 6.1.h : 3.h),
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 400),
           child: textColumn,

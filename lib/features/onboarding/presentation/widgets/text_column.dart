@@ -1,12 +1,16 @@
+import 'package:bebop/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/app_color.dart';
+import 'package:sizer/sizer.dart';
 
 class TextColumn extends StatelessWidget {
   final String title;
   final String text;
 
-  const TextColumn({super.key, required this.title, required this.text});
+  const TextColumn({
+    super.key,
+    required this.title,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,22 +20,18 @@ class TextColumn extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: AppColors.spaceCadet,
-            fontSize: 35.0,
-            fontWeight: FontWeight.w500,
-            letterSpacing: 2,
+            fontSize: 21.0.sp,
+            color: AppColors.white,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1,
           ),
         ),
-        const SizedBox(height: 15.0),
+        const SizedBox(height: 8.0),
         Text(
           text,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                fontSize: 20.0,
-                color: AppColors.spaceCadet.withOpacity(0.8),
-                wordSpacing: 2,
-                height: 1.5,
-              ),
+              color: AppColors.white, fontSize: 14.0.sp, height: 0.15.h),
         ),
       ],
     );

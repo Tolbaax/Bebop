@@ -19,4 +19,12 @@ class AppStrings {
   static const String title3 = 'Cry Translator';
   static const String desc3 =
       'Real-time crying translation Just record the crying for 10 seconds, and artificial intelligence interprets the cry and tells you what your baby needs.';
+
+  //Login
+  static const String welcome = 'Welcome to Bebop';
+  static const String username = 'Username';
+  static const String password = 'Password';
+  static const String login = 'Log In';
+  static const String signup = 'SignUp';
+  static const String forgetPassword = 'Forget Password?';
 }

@@ -1,13 +1,11 @@
-import 'package:bebop/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/utils/app_color.dart';
 
 class NextPageButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const NextPageButton({
-    super.key,
-    required this.onPressed,
-  });
+  const NextPageButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +13,11 @@ class NextPageButton extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       elevation: 0.0,
       shape: const CircleBorder(),
-      fillColor: AppColors.primary,
+      fillColor: AppColors.white,
       onPressed: onPressed,
-      child: const Icon(
+      child: Icon(
         Icons.arrow_forward,
-        color: Colors.white,
+        color: AppColors.primary,
         size: 32.0,
       ),
     );
