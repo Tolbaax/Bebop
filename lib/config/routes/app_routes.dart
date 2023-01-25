@@ -1,10 +1,9 @@
 import 'package:bebop/core/utils/media_query_values.dart';
-import 'package:bebop/features/login/login_screen.dart';
+import 'package:bebop/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/utils/app_strings.dart';
 import '../../features/onboarding/presentation/screens/onBoardingScreen.dart';
-import '../../features/splash/presentation/screens/splash_screen.dart';
 
 class Routes {
   static const String initialRoute = '/';
@@ -27,8 +26,9 @@ class AppRoutes {
 
       case Routes.login:
         return MaterialPageRoute(builder: (context) {
-          return LoginScreen(screenHeight: context.height);
+          return OnBoardingScreen(screenHeight: context.height);
         });
+
       default:
         return undefinedRoute();
     }

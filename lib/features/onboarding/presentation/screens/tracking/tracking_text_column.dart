@@ -1,3 +1,4 @@
+import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/text_column.dart';
@@ -8,8 +9,8 @@ class TrackingTextColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const TextColumn(
-      title: 'Vital Signs Tracking',
-      text: 'Be aware of how the \n measurements are changing',
+      title: AppStrings.title1,
+      text: AppStrings.desc1,
     );
   }
 }

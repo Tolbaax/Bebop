@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_color.dart';
@@ -28,11 +29,11 @@ class Header extends StatelessWidget {
         GestureDetector(
           onTap: onSkip,
           child: Text(
-            'Skip',
+            AppStrings.skip,
             style: Theme.of(context).textTheme.subtitle1!.copyWith(
                   color: AppColors.primary,
-                  fontFamily: '',
-                  fontSize: 18.0,
+                  fontFamily: AppStrings.defaultFont,
+                  fontSize: 16.0,
                 ),
           ),
         ),

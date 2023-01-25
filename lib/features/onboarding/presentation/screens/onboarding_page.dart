@@ -40,7 +40,7 @@ class OnBoardingPage extends StatelessWidget {
           ),
         ),
         AnimatedSwitcher(
-          duration: const Duration(milliseconds: 350),
+          duration: const Duration(milliseconds: 400),
           child: textColumn,
         ),
       ],

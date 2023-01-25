@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:bebop/config/routes/app_routes.dart';
+import 'package:bebop/core/utils/app_strings.dart';
+import 'package:bebop/injection_container.dart' as di;
 import 'package:flutter/material.dart';
 
+import '../../../../core/network/local/cache_helper.dart';
 import '../widgets/header.dart';
 import '../widgets/next_page_button.dart';
 import '../widgets/onboarding_page_indicator.dart';
@@ -207,6 +210,9 @@ class OnBoardingState extends State<OnBoardingScreen>
 
   Future<void> _goToLogin() async {
     await _rippleAnimationController.forward();
+    di
+        .sl<CacheHelper>()
+        .saveData(key: AppStrings.isBoarding, value: AppStrings.isBoarding);
     Navigator.pushReplacementNamed(context, Routes.login);
   }
 

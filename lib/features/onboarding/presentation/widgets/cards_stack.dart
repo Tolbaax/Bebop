@@ -1,5 +1,6 @@
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../../../core/utils/app_color.dart';
 
@@ -27,7 +28,7 @@ class CardsStack extends StatelessWidget {
     final darkCardHeight = context.height / 3;
 
     return Padding(
-      padding: EdgeInsets.only(top: isOddPageNumber ? 25.0 : 50.0),
+      padding: EdgeInsetsDirectional.only(top: isOddPageNumber ? 3.0.h : 6.0.h),
       child: Stack(
         alignment: AlignmentDirectional.center,
         clipBehavior: Clip.none,
@@ -38,21 +39,21 @@ class CardsStack extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),
-              color: AppColors.primary.withOpacity(0.5),
+              color: AppColors.primary.withOpacity(0.4),
               child: Container(
                 width: darkCardWidth,
                 height: darkCardHeight,
                 padding: EdgeInsets.only(
-                  top: !isOddPageNumber ? 70.0 : 0.0,
-                  bottom: isOddPageNumber ? 70.0 : 0.0,
+                  top: !isOddPageNumber ? 10.0.h : 0.0,
+                  bottom: isOddPageNumber ? 10.0.h : 0.0,
                 ),
                 child: darkCardChild,
               ),
             ),
           ),
           Positioned(
-            top: !isOddPageNumber ? -30.0 : null,
-            bottom: isOddPageNumber ? -30.0 : null,
+            top: !isOddPageNumber ? -3.0.h : null,
+            bottom: isOddPageNumber ? -3.0.h : null,
             child: SlideTransition(
               position: lightCardOffsetAnimation,
               child: Card(
@@ -61,8 +62,8 @@ class CardsStack extends StatelessWidget {
                 ),
                 color: AppColors.primary.withOpacity(0.8),
                 child: Container(
-                  width: darkCardWidth * 0.8,
-                  height: darkCardHeight * 0.45,
+                  width: darkCardWidth * 0.208.w,
+                  height: darkCardHeight * 0.053.h,
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Center(child: lightCardChild),
                 ),
