@@ -27,4 +27,10 @@ class AppStrings {
   static const String login = 'Log In';
   static const String signup = 'SignUp';
   static const String forgetPassword = 'Forget Password?';
+  static const String noAccount = 'Don\'t have an account?';
+
+  //Forget Password
+  static const String forgetPassDesc =
+      'Don\'t worry! it happens. Please enter the address associated with your account.';
+  static const String submit = 'Submit';
 }

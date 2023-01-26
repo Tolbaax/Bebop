@@ -24,6 +24,8 @@ dependencies:
   dartz: ^0.10.1
   get_it: ^7.2.0
   internet_connection_checker: ^1.0.0+1
+  font_awesome_flutter: ^10.3.0
+  flutter_svg: ^1.1.6
 
 
 

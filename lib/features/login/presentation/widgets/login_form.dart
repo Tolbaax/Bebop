@@ -1,57 +1,69 @@
 import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/features/login/presentation/cubit/login_cubit.dart';
+import 'package:bebop/features/login/presentation/widgets/dont_have_account.dart';
 import 'package:bebop/features/login/presentation/widgets/forget_pass_button.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bebop/features/login/presentation/widgets/social_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import 'custom_button.dart';
-import 'custom_input_field.dart';
+import '../../../../core/widgets/custom_button.dart';
+import '../../../../core/widgets/custom_input_field.dart';
 import 'divider.dart';
 import 'fade_slide_transition.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   final Animation<double> animation;
 
   const LoginForm({super.key, required this.animation});
 
   @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  @override
   Widget build(BuildContext context) {
     final height = context.height - context.toPadding;
-    final space = height > 650 ? 16.0 : 8.0;
+    final space = height > 650 ? 2.0.h : 1.0.h;
+    final LoginCubit cubit = LoginCubit.get(context);
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.0.sp),
       child: Column(
         children: [
           FadeSlideTransition(
-            animation: animation,
-            additionalOffset: 0.0,
+            animation: widget.animation,
+            additionalOffset: space,
             child: const CustomInputField(
               label: AppStrings.username,
+              textInputAction: TextInputAction.next,
               prefixIcon: Icons.person,
             ),
           ),
           SizedBox(height: space),
           FadeSlideTransition(
-            animation: animation,
+            animation: widget.animation,
             additionalOffset: space,
-            child: const CustomInputField(
+            child: CustomInputField(
               label: AppStrings.password,
               prefixIcon: Icons.lock,
-              suffixIcon: CupertinoIcons.eye_slash_fill,
-              obscureText: true,
+              suffixIcon: cubit.suffix,
+              obscureText: cubit.isPassword,
+              suffixTab: () {
+                cubit.changeVisibility();
+              },
             ),
           ),
           FadeSlideTransition(
-            animation: animation,
-            additionalOffset: 2 * space,
+            animation: widget.animation,
+            additionalOffset: 1.5 * space,
             child: const ForgetPasswordButton(),
           ),
           SizedBox(height: 3.5.h),
           FadeSlideTransition(
-            animation: animation,
+            animation: widget.animation,
             additionalOffset: 2 * space,
             child: CustomButton(
               color: AppColors.primary,
@@ -60,9 +72,21 @@ class LoginForm extends StatelessWidget {
           ),
           SizedBox(height: 3.h),
           FadeSlideTransition(
-            animation: animation,
-            additionalOffset: 4 * space,
+            animation: widget.animation,
+            additionalOffset: 3 * space,
             child: const DividerLine(),
+          ),
+          SizedBox(height: 2.0.h),
+          FadeSlideTransition(
+            animation: widget.animation,
+            additionalOffset: 4 * space,
+            child: const SocialSignUp(),
+          ),
+          SizedBox(height: 2.0.h),
+          FadeSlideTransition(
+            animation: widget.animation,
+            additionalOffset: 5 * space,
+            child: const DonTHaveAccount(),
           ),
         ],
       ),

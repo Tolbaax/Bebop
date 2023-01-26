@@ -1,8 +1,11 @@
-import 'package:bebop/core/utils/app_color.dart';
-import 'package:bebop/features/login/presentation/widgets/header.dart';
+import 'package:bebop/features/login/presentation/cubit/login_cubit.dart';
+import 'package:bebop/features/login/presentation/cubit/login_states.dart';
+import 'package:bebop/features/login/presentation/widgets/login_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../core/utils/app_color.dart';
 import '../widgets/custom_clippers/blue_top_clipper.dart';
 import '../widgets/custom_clippers/grey_top_clipper.dart';
 import '../widgets/custom_clippers/white_top_clipper.dart';
@@ -31,59 +34,37 @@ class LoginState extends State<LoginScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 2000),
     );
 
     final fadeSlideTween = Tween<double>(begin: 0.0, end: 1.0);
     _headerTextAnimation = fadeSlideTween.animate(CurvedAnimation(
       parent: _animationController,
-      curve: const Interval(
-        0.0,
-        0.6,
-        curve: Curves.easeInOut,
-      ),
+      curve: const Interval(0.0, 0.6, curve: Curves.easeInOut),
     ));
     _formElementAnimation = fadeSlideTween.animate(CurvedAnimation(
       parent: _animationController,
-      curve: const Interval(
-        0.7,
-        1.0,
-        curve: Curves.easeInOut,
-      ),
+      curve: const Interval(0.7, 1.0, curve: Curves.easeInOut),
     ));
 
-    final clipperOffsetTween = Tween<double>(
-      begin: widget.screenHeight,
-      end: 0.0,
-    );
+    final clipperOffsetTween =
+        Tween<double>(begin: widget.screenHeight, end: 0.0);
     _blueTopClipperAnimation = clipperOffsetTween.animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: const Interval(
-          0.2,
-          0.7,
-          curve: Curves.easeInOut,
-        ),
+        curve: const Interval(0.2, 0.7, curve: Curves.easeInOut),
       ),
     );
     _greyTopClipperAnimation = clipperOffsetTween.animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: const Interval(
-          0.35,
-          0.7,
-          curve: Curves.easeInOut,
-        ),
+        curve: const Interval(0.35, 0.7, curve: Curves.easeInOut),
       ),
     );
     _whiteTopClipperAnimation = clipperOffsetTween.animate(
       CurvedAnimation(
         parent: _animationController,
-        curve: const Interval(
-          0.5,
-          0.7,
-          curve: Curves.easeInOut,
-        ),
+        curve: const Interval(0.5, 0.7, curve: Curves.easeInOut),
       ),
     );
 
@@ -98,63 +79,69 @@ class LoginState extends State<LoginScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: AppColors.white,
-      body: Stack(
-        children: <Widget>[
-          AnimatedBuilder(
-            animation: _whiteTopClipperAnimation,
-            builder: (_, Widget? child) {
-              return ClipPath(
-                clipper: WhiteTopClipper(
-                  yOffset: _whiteTopClipperAnimation.value,
-                ),
-                child: child,
-              );
-            },
-            child: Container(color: AppColors.grey),
-          ),
-          AnimatedBuilder(
-            animation: _greyTopClipperAnimation,
-            builder: (_, Widget? child) {
-              return ClipPath(
-                clipper: GreyTopClipper(
-                  yOffset: _greyTopClipperAnimation.value,
-                ),
-                child: child,
-              );
-            },
-            child: Container(color: AppColors.primary),
-          ),
-          AnimatedBuilder(
-            animation: _blueTopClipperAnimation,
-            builder: (_, Widget? child) {
-              return ClipPath(
-                clipper: BlueTopClipper(
-                  yOffset: _blueTopClipperAnimation.value,
-                ),
-                child: child,
-              );
-            },
-            child: Container(color: AppColors.white),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 23.0.sp),
-              child: Column(
-                children: [
-                  Header(animation: _headerTextAnimation),
-                  const SizedBox(
-                    height: 150,
-                  ),
-                  LoginForm(animation: _formElementAnimation),
-                ],
+    return BlocConsumer<LoginCubit, LoginStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        final LoginCubit cubit = LoginCubit.get(context);
+        return Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: AppColors.white,
+          body: Stack(
+            children: <Widget>[
+              AnimatedBuilder(
+                animation: _whiteTopClipperAnimation,
+                builder: (_, Widget? child) {
+                  return ClipPath(
+                    clipper: WhiteTopClipper(
+                      yOffset: _whiteTopClipperAnimation.value,
+                    ),
+                    child: child,
+                  );
+                },
+                child: Container(color: AppColors.grey),
               ),
-            ),
+              AnimatedBuilder(
+                animation: _greyTopClipperAnimation,
+                builder: (_, Widget? child) {
+                  return ClipPath(
+                    clipper: GreyTopClipper(
+                      yOffset: _greyTopClipperAnimation.value,
+                    ),
+                    child: child,
+                  );
+                },
+                child: Container(color: AppColors.primary),
+              ),
+              AnimatedBuilder(
+                animation: _blueTopClipperAnimation,
+                builder: (_, Widget? child) {
+                  return ClipPath(
+                    clipper: BlueTopClipper(
+                      yOffset: _blueTopClipperAnimation.value,
+                    ),
+                    child: child,
+                  );
+                },
+                child: Container(color: AppColors.white),
+              ),
+              SafeArea(
+                child: Padding(
+                  padding: EdgeInsetsDirectional.only(top: 4.0.h),
+                  child: Column(
+                    children: [
+                      LoginHeader(animation: _headerTextAnimation),
+                      SizedBox(
+                        height: 19.0.h,
+                      ),
+                      LoginForm(animation: _formElementAnimation),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

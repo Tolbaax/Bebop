@@ -1,7 +1,9 @@
 import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/features/forget_password/forget_password_screen.dart';
 import 'package:bebop/features/login/presentation/screens/login_screen.dart';
 import 'package:bebop/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../core/utils/app_strings.dart';
 import '../../features/onboarding/presentation/screens/onBoardingScreen.dart';
@@ -10,6 +12,7 @@ class Routes {
   static const String initialRoute = '/';
   static const String onBoarding = '/onBoarding';
   static const String login = '/login';
+  static const String forgetPassword = '/forgetPassword';
 }
 
 class AppRoutes {
@@ -29,6 +32,12 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) {
           return LoginScreen(screenHeight: context.height);
         });
+
+      case Routes.forgetPassword:
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          child: const ForgetPasswordScreen(),
+        );
 
       default:
         return undefinedRoute();

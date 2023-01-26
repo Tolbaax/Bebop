@@ -11,20 +11,20 @@ ThemeData appTheme() {
     fontFamily: AppStrings.crimsonProFont,
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       centerTitle: true,
       elevation: 0.0,
       backgroundColor: Colors.transparent,
-      titleTextStyle: const TextStyle(
+      titleTextStyle: TextStyle(
         color: Colors.black,
         fontSize: 30.0,
         fontFamily: AppStrings.crimsonProFont,
         fontWeight: FontWeight.w500,
       ),
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: AppColors.primary.withOpacity(0.9),
-        statusBarBrightness: Brightness.light,
-      ),
+      // systemOverlayStyle: SystemUiOverlayStyle(
+      //   statusBarColor: AppColors.primary.withOpacity(0.9),
+      //   statusBarBrightness: Brightness.light,
+      // ),
     ),
     textTheme: TextTheme(
       bodyText1: TextStyle(

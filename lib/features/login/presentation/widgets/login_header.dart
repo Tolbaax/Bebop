@@ -7,13 +7,10 @@ import '../../../../core/utils/app_color.dart';
 import '../../../../core/utils/app_strings.dart';
 import 'fade_slide_transition.dart';
 
-class Header extends StatelessWidget {
+class LoginHeader extends StatelessWidget {
   final Animation<double> animation;
 
-  const Header({
-    super.key,
-    required this.animation,
-  });
+  const LoginHeader({super.key, required this.animation});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +19,19 @@ class Header extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Transform.rotate(
-            angle: -pi / 4,
-            child: Icon(
-              Icons.format_bold,
-              color: AppColors.primary,
-              size: 33.0.sp,
+          FadeSlideTransition(
+            animation: animation,
+            additionalOffset: 0.0,
+            child: Transform.rotate(
+              angle: -pi / 4,
+              child: Icon(
+                Icons.format_bold,
+                color: AppColors.primary,
+                size: 32.0.sp,
+              ),
             ),
           ),
-          SizedBox(height: 2.h),
+          SizedBox(height: 1.2.h),
           FadeSlideTransition(
             animation: animation,
             additionalOffset: 0.0,
@@ -38,12 +39,12 @@ class Header extends StatelessWidget {
               AppStrings.welcome,
               style: Theme.of(context).textTheme.headline5!.copyWith(
                     color: AppColors.black,
-                    fontWeight: FontWeight.w600,
+                    fontFamily: AppStrings.guyonGazeboFont,
                     wordSpacing: 2,
                   ),
             ),
           ),
-          SizedBox(height: 0.7.h),
+          SizedBox(height: 0.5.h),
           FadeSlideTransition(
             animation: animation,
             additionalOffset: 16.0,

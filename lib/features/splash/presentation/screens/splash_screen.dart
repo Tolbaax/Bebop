@@ -18,15 +18,15 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late final _controller = AnimationController(
-      duration: const Duration(milliseconds: 1800), vsync: this)
+      duration: const Duration(milliseconds: 1900), vsync: this)
     ..repeat(reverse: true);
   late final Animation<double> _animation =
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn);
 
   late Timer _timer;
 
   // use shared preferences to open app in right screen only
-  final isBoarding = di.sl<CacheHelper>().getData(key: 'AppStrings.isBoarding');
+  final isBoarding = di.sl<CacheHelper>().getData(key: AppStrings.isBoarding);
 
   _goNext() {
     if (isBoarding != null) {
