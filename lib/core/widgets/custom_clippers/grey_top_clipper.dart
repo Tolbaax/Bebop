@@ -7,12 +7,12 @@ class GreyTopClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) => Path()
-    ..lineTo(0.0, 265.0 + yOffset)
+    ..lineTo(0.0, 225.0 + yOffset)
     ..quadraticBezierTo(
       size.width / 2,
-      285.0 + yOffset,
+      245.0 + yOffset,
       size.width,
-      185.0 + yOffset,
+      145.0 + yOffset,
     )
     ..lineTo(size.width, 0.0)
     ..close();

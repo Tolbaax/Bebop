@@ -6,11 +6,7 @@ class TextColumn extends StatelessWidget {
   final String title;
   final String text;
 
-  const TextColumn({
-    super.key,
-    required this.title,
-    required this.text,
-  });
+  const TextColumn({super.key, required this.title, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +26,7 @@ class TextColumn extends StatelessWidget {
         Text(
           text,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.subtitle1!.copyWith(
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
               color: AppColors.white, fontSize: 14.0.sp, height: 0.15.h),
         ),
       ],

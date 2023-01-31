@@ -1,12 +1,13 @@
-import 'dart:async';
-
 import 'package:bebop/core/network/local/cache_helper.dart';
+import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
+import 'package:bebop/core/utils/assets_manager.dart';
 import 'package:bebop/injection_container.dart' as di;
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../../../config/routes/app_routes.dart';
-import '../../../../core/utils/assets_manager.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,13 +18,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  late final _controller = AnimationController(
-      duration: const Duration(milliseconds: 1900), vsync: this)
-    ..repeat(reverse: true);
-  late final Animation<double> _animation =
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn);
-
-  late Timer _timer;
+  late final AnimationController _controller;
 
   // use shared preferences to open app in right screen only
   final isBoarding = di.sl<CacheHelper>().getData(key: AppStrings.isBoarding);
@@ -36,38 +31,49 @@ class _SplashScreenState extends State<SplashScreen>
     }
   }
 
-  _startDelay() =>
-      _timer = Timer(const Duration(milliseconds: 2000), () => _goNext());
-
   @override
   void initState() {
-    _startDelay();
     super.initState();
+    _controller = AnimationController(vsync: this);
   }
 
   @override
   void dispose() {
-    _timer.cancel();
-    _controller.dispose();
     super.dispose();
+    _controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: FadeTransition(
-          opacity: _animation,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(ImageAssets.babyLogo),
-              Text(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Lottie.asset(
+              ImageAssets.logo,
+              controller: _controller,
+              height: 50.h,
+              width: double.infinity,
+              onLoaded: (composition) {
+                _controller
+                  ..duration = composition.duration
+                  ..forward().then((value) {
+                    _goNext();
+                  });
+              },
+            ),
+            Align(
+              heightFactor: 0.0.h,
+              child: Text(
                 AppStrings.appName,
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: AppColors.primary,
+                      fontSize: 50.sp,
+                    ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

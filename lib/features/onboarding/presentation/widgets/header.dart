@@ -20,7 +20,7 @@ class Header extends StatelessWidget {
           angle: -pi / 4,
           child: Icon(
             Icons.format_bold,
-            color: Colors.white,
+            color: AppColors.white,
             size: 33.0.sp,
           ),
         ),
@@ -28,7 +28,7 @@ class Header extends StatelessWidget {
           onTap: onSkip,
           child: Text(
             AppStrings.skip,
-            style: Theme.of(context).textTheme.subtitle1!.copyWith(
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: AppColors.white,
                 ),
           ),

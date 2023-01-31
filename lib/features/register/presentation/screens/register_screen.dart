@@ -1,6 +1,7 @@
-import 'package:bebop/features/login/presentation/cubit/login_cubit.dart';
-import 'package:bebop/features/login/presentation/cubit/login_states.dart';
-import 'package:bebop/features/login/presentation/widgets/login_header.dart';
+import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
+import 'package:bebop/features/register/presentation/cubit/register_states.dart';
+import 'package:bebop/features/register/presentation/widgets/register_form.dart';
+import 'package:bebop/features/register/presentation/widgets/register_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -10,22 +11,19 @@ import '../../../../core/widgets/custom_clippers/blue_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/grey_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/white_top_clipper.dart';
 import '../../../../injection_container.dart';
-import '../widgets/login_form.dart';
 
-class LoginScreen extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   final double screenHeight;
 
-  const LoginScreen({super.key, required this.screenHeight});
+  const RegisterScreen({super.key, required this.screenHeight});
 
   @override
-  LoginState createState() => LoginState();
+  RegisterState createState() => RegisterState();
 }
 
-class LoginState extends State<LoginScreen>
+class RegisterState extends State<RegisterScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
-  late final Animation<double> _headerTextAnimation;
-  late final Animation<double> _formElementAnimation;
   late final Animation<double> _whiteTopClipperAnimation;
   late final Animation<double> _blueTopClipperAnimation;
   late final Animation<double> _greyTopClipperAnimation;
@@ -35,18 +33,8 @@ class LoginState extends State<LoginScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 2350),
+      duration: const Duration(milliseconds: 0),
     );
-
-    final fadeSlideTween = Tween<double>(begin: 0.0, end: 1.0);
-    _headerTextAnimation = fadeSlideTween.animate(CurvedAnimation(
-      parent: _animationController,
-      curve: const Interval(0.0, 0.6, curve: Curves.easeInOut),
-    ));
-    _formElementAnimation = fadeSlideTween.animate(CurvedAnimation(
-      parent: _animationController,
-      curve: const Interval(0.7, 1.0, curve: Curves.easeInOut),
-    ));
 
     final clipperOffsetTween =
         Tween<double>(begin: widget.screenHeight, end: 0.0);
@@ -81,8 +69,8 @@ class LoginState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<LoginCubit>(),
-      child: BlocConsumer<LoginCubit, LoginStates>(
+      create: (context) => sl<RegisterCubit>(),
+      child: BlocConsumer<RegisterCubit, RegisterStates>(
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
@@ -132,11 +120,11 @@ class LoginState extends State<LoginScreen>
                       padding: EdgeInsetsDirectional.only(top: 4.0.h),
                       child: Column(
                         children: [
-                          LoginHeader(animation: _headerTextAnimation),
+                          const RegisterHeader(),
                           SizedBox(
-                            height: 23.5.h,
+                            height: 20.0.h,
                           ),
-                          LoginForm(animation: _formElementAnimation),
+                          const RegisterForm(),
                         ],
                       ),
                     ),

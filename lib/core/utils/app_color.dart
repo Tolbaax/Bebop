@@ -2,7 +2,7 @@ import 'package:bebop/core/utils/hex_color.dart';
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color primary = HexColor('306EFF');
+  static Color primary = HexColor('582F71');
   static Color lightBlue = HexColor('4985FD');
   static Color darkBlue = HexColor('1046B3');
   static Color white = HexColor('FFFFFF');

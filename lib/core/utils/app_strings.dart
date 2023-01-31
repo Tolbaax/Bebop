@@ -22,12 +22,17 @@ class AppStrings {
 
   //Login
   static const String welcome = 'Welcome to Bebop';
+  static const String name = 'Name';
   static const String username = 'Username';
   static const String password = 'Password';
-  static const String login = 'Log In';
+  static const String confirmPassword = 'Confirm Password';
+  static const String login = 'LogIn';
   static const String signup = 'SignUp';
   static const String forgetPassword = 'Forget Password?';
   static const String noAccount = 'Don\'t have an account?';
+  static const String haveAccount = 'Already have an account?';
+  static const String welcomeDesc =
+      'The way to your child\'s health, safety and care';
 
   //Forget Password
   static const String forgetPassDesc =

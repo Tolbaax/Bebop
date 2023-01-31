@@ -1,12 +1,11 @@
-import 'package:bebop/config/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/utils/app_color.dart';
 import '../../../../core/utils/app_strings.dart';
 
-class DonTHaveAccount extends StatelessWidget {
-  const DonTHaveAccount({Key? key}) : super(key: key);
+class HaveAccount extends StatelessWidget {
+  const HaveAccount({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class DonTHaveAccount extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          AppStrings.noAccount,
+          AppStrings.haveAccount,
           style: ThemeData()
               .textTheme
               .displayLarge!
@@ -28,10 +27,10 @@ class DonTHaveAccount extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, Routes.signup);
+            Navigator.pop(context);
           },
           child: Text(
-            AppStrings.signup,
+            AppStrings.login,
             style: ThemeData()
                 .textTheme
                 .displayLarge!
