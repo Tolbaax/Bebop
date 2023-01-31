@@ -16,14 +16,15 @@ import '../../../../core/widgets/divider.dart';
 import '../../../../core/widgets/social_signup.dart';
 import 'have_account.dart';
 
-class RegisterForm extends StatefulWidget {
-  const RegisterForm({super.key});
+class RegisterForm extends StatelessWidget {
+  final Animation<Offset> nameOffsetAnimation;
+  final Animation<Offset> confirmPassOffsetAnimation;
+  const RegisterForm({
+    super.key,
+    required this.nameOffsetAnimation,
+    required this.confirmPassOffsetAnimation,
+  });
 
-  @override
-  State<RegisterForm> createState() => _RegisterFormState();
-}
-
-class _RegisterFormState extends State<RegisterForm> {
   @override
   Widget build(BuildContext context) {
     final btnController = RoundedLoadingButtonController();
@@ -38,10 +39,13 @@ class _RegisterFormState extends State<RegisterForm> {
           padding: EdgeInsets.symmetric(horizontal: 24.0.sp),
           child: Column(
             children: [
-              const CustomInputField(
-                label: AppStrings.name,
-                textInputAction: TextInputAction.next,
-                prefixIcon: Icons.person,
+              SlideTransition(
+                position: nameOffsetAnimation,
+                child: const CustomInputField(
+                  label: AppStrings.name,
+                  textInputAction: TextInputAction.next,
+                  prefixIcon: Icons.person,
+                ),
               ),
               SizedBox(height: space),
               const CustomInputField(
@@ -60,14 +64,17 @@ class _RegisterFormState extends State<RegisterForm> {
                 },
               ),
               SizedBox(height: space),
-              CustomInputField(
-                label: AppStrings.confirmPassword,
-                prefixIcon: Icons.lock,
-                suffixIcon: cubit.suffix2,
-                obscureText: cubit.isPassword2,
-                suffixTab: () {
-                  cubit.changeVisibility2();
-                },
+              SlideTransition(
+                position: confirmPassOffsetAnimation,
+                child: CustomInputField(
+                  label: AppStrings.confirmPassword,
+                  prefixIcon: Icons.lock,
+                  suffixIcon: cubit.suffix2,
+                  obscureText: cubit.isPassword2,
+                  suffixTab: () {
+                    cubit.changeVisibility2();
+                  },
+                ),
               ),
               SizedBox(height: 3.5.h),
               CustomRoundedLoadingButton(

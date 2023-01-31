@@ -56,7 +56,7 @@ class LoginForm extends StatelessWidget {
             additionalOffset: 2 * space,
             child: const ForgetPasswordButton(),
           ),
-          SizedBox(height: 3.5.h),
+          SizedBox(height: 5.75.h),
           FadeSlideTransition(
             animation: animation,
             additionalOffset: 3 * space,

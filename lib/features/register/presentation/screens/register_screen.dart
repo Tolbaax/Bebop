@@ -1,6 +1,5 @@
 import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
 import 'package:bebop/features/register/presentation/cubit/register_states.dart';
-import 'package:bebop/features/register/presentation/widgets/register_form.dart';
 import 'package:bebop/features/register/presentation/widgets/register_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +10,7 @@ import '../../../../core/widgets/custom_clippers/blue_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/grey_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/white_top_clipper.dart';
 import '../../../../injection_container.dart';
+import '../widgets/register_form.dart';
 
 class RegisterScreen extends StatefulWidget {
   final double screenHeight;
@@ -22,11 +22,15 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class RegisterState extends State<RegisterScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late final AnimationController _animationController;
   late final Animation<double> _whiteTopClipperAnimation;
   late final Animation<double> _blueTopClipperAnimation;
   late final Animation<double> _greyTopClipperAnimation;
+
+  late final AnimationController _inputFiledAnimationController;
+  late Animation<Offset> _slideAnimationNameFiled;
+  late Animation<Offset> _slideAnimationConfirmPassFiled;
 
   @override
   void initState() {
@@ -58,12 +62,45 @@ class RegisterState extends State<RegisterScreen>
     );
 
     _animationController.forward();
+
+    _inputFiledAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 380),
+    );
+
+    _inputFiledAnimationController.forward();
+    _setCardsSlideInAnimation();
   }
 
   @override
   void dispose() {
     _animationController.dispose();
+    _inputFiledAnimationController.dispose();
     super.dispose();
+  }
+
+  void _setCardsSlideInAnimation() {
+    setState(() {
+      _slideAnimationNameFiled = Tween<Offset>(
+        begin: const Offset(3.0, .0),
+        end: Offset.zero,
+      ).animate(
+        CurvedAnimation(
+          parent: _inputFiledAnimationController,
+          curve: Curves.easeIn,
+        ),
+      );
+
+      _slideAnimationConfirmPassFiled = Tween<Offset>(
+        begin: const Offset(3.0, 0.0),
+        end: Offset.zero,
+      ).animate(
+        CurvedAnimation(
+          parent: _inputFiledAnimationController,
+          curve: Curves.easeIn,
+        ),
+      );
+    });
   }
 
   @override
@@ -124,7 +161,11 @@ class RegisterState extends State<RegisterScreen>
                           SizedBox(
                             height: 20.0.h,
                           ),
-                          const RegisterForm(),
+                          RegisterForm(
+                            nameOffsetAnimation: _slideAnimationNameFiled,
+                            confirmPassOffsetAnimation:
+                                _slideAnimationConfirmPassFiled,
+                          ),
                         ],
                       ),
                     ),
