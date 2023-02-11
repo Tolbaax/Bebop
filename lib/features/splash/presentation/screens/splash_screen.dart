@@ -48,30 +48,31 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Lottie.asset(
-              ImageAssets.logo,
-              controller: _controller,
-              height: 50.h,
-              width: double.infinity,
-              onLoaded: (composition) {
-                _controller
-                  ..duration = composition.duration
-                  ..forward().then((value) {
-                    _goNext();
-                  });
-              },
-            ),
-            Align(
-              heightFactor: 0.0.h,
-              child: Text(
-                AppStrings.appName,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: AppColors.primary,
-                      fontSize: 50.sp,
-                    ),
+            Padding(
+              padding: EdgeInsetsDirectional.only(bottom: 6.h, top: 8.h),
+              child: Lottie.asset(
+                ImageAssets.logo,
+                controller: _controller,
+                width: double.infinity,
+                onLoaded: (composition) {
+                  _controller
+                    ..duration = composition.duration
+                    ..forward().then(
+                      (value) {
+                        _goNext();
+                      },
+                    );
+                },
               ),
+            ),
+            Text(
+              AppStrings.appName,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: AppColors.primary,
+                    fontSize: 50.sp,
+                  ),
             ),
           ],
         ),

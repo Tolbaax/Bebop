@@ -17,7 +17,7 @@ class NextPageButton extends StatelessWidget {
       onPressed: onPressed,
       child: Icon(
         Icons.arrow_forward,
-        color: AppColors.primary,
+        color: AppColors.spaceCadet,
         size: 32.0,
       ),
     );

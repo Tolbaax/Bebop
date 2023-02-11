@@ -1,13 +1,14 @@
+import 'package:bebop/config/routes/app_routes.dart';
 import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/core/widgets/custom_button.dart';
 import 'package:bebop/features/login/presentation/cubit/login_cubit.dart';
 import 'package:bebop/features/login/presentation/widgets/dont_have_account.dart';
 import 'package:bebop/features/login/presentation/widgets/forget_pass_button.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_input_field.dart';
 import '../../../../core/widgets/divider.dart';
 import '../../../../core/widgets/social_signup.dart';
@@ -32,9 +33,10 @@ class LoginForm extends StatelessWidget {
             animation: animation,
             additionalOffset: space,
             child: const CustomInputField(
-              label: AppStrings.username,
+              label: AppStrings.email,
               textInputAction: TextInputAction.next,
-              prefixIcon: Icons.person,
+              prefixIcon: Icons.email,
+              keyboardType: TextInputType.emailAddress,
             ),
           ),
           SizedBox(height: space),
@@ -46,6 +48,7 @@ class LoginForm extends StatelessWidget {
               prefixIcon: Icons.lock,
               suffixIcon: cubit.suffix,
               obscureText: cubit.isPassword,
+              keyboardType: TextInputType.visiblePassword,
               suffixTab: () {
                 cubit.changeVisibility();
               },
@@ -61,8 +64,11 @@ class LoginForm extends StatelessWidget {
             animation: animation,
             additionalOffset: 3 * space,
             child: CustomButton(
-              color: AppColors.primary,
+              onTap: () {
+                Navigator.pushNamed(context, Routes.layout);
+              },
               text: AppStrings.login,
+              color: AppColors.primary,
             ),
           ),
           SizedBox(height: 3.h),

@@ -1,8 +1,8 @@
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/assets_manager.dart';
+import 'package:bebop/core/widgets/appbar_back_button.dart';
 import 'package:bebop/core/widgets/custom_button.dart';
 import 'package:bebop/core/widgets/custom_input_field.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
@@ -16,15 +16,7 @@ class ForgetPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            CupertinoIcons.back,
-            color: AppColors.black,
-          ),
-        ),
+        leading: const AppBarBackButton(),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -73,6 +65,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   ),
                   Center(
                     child: CustomButton(
+                      onTap: () {},
                       color: AppColors.primary,
                       text: AppStrings.submit,
                     ),

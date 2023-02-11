@@ -4,9 +4,7 @@ import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/core/widgets/rounded_loading_button.dart';
 import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
-import 'package:bebop/features/register/presentation/cubit/register_states.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:sizer/sizer.dart';
 
@@ -32,71 +30,72 @@ class RegisterForm extends StatelessWidget {
     final space = height > 650 ? 2.0.h : 1.0.h;
     final RegisterCubit cubit = RegisterCubit.get(context);
 
-    return BlocConsumer<RegisterCubit, RegisterStates>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0.sp),
-          child: Column(
-            children: [
-              SlideTransition(
-                position: nameOffsetAnimation,
-                child: const CustomInputField(
-                  label: AppStrings.name,
-                  textInputAction: TextInputAction.next,
-                  prefixIcon: Icons.person,
-                ),
-              ),
-              SizedBox(height: space),
-              const CustomInputField(
-                label: AppStrings.username,
-                textInputAction: TextInputAction.next,
-                prefixIcon: Icons.person,
-              ),
-              SizedBox(height: space),
-              CustomInputField(
-                label: AppStrings.password,
-                prefixIcon: Icons.lock,
-                suffixIcon: cubit.suffix1,
-                obscureText: cubit.isPassword1,
-                suffixTab: () {
-                  cubit.changeVisibility1();
-                },
-              ),
-              SizedBox(height: space),
-              SlideTransition(
-                position: confirmPassOffsetAnimation,
-                child: CustomInputField(
-                  label: AppStrings.confirmPassword,
-                  prefixIcon: Icons.lock,
-                  suffixIcon: cubit.suffix2,
-                  obscureText: cubit.isPassword2,
-                  suffixTab: () {
-                    cubit.changeVisibility2();
-                  },
-                ),
-              ),
-              SizedBox(height: 3.5.h),
-              CustomRoundedLoadingButton(
-                onPressed: () {
-                  btnController.success();
-                  Timer(const Duration(seconds: 1), () {
-                    Navigator.pushNamed(context, Routes.initialRoute);
-                  });
-                },
-                text: AppStrings.signup,
-                btnController: btnController,
-              ),
-              SizedBox(height: 3.h),
-              const DividerLine(),
-              SizedBox(height: 2.0.h),
-              const SocialSignUp(),
-              SizedBox(height: 2.0.h),
-              const HaveAccount(),
-            ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24.0.sp),
+      child: Column(
+        children: [
+          SlideTransition(
+            position: nameOffsetAnimation,
+            child: const CustomInputField(
+              label: AppStrings.name,
+              textInputAction: TextInputAction.next,
+              prefixIcon: Icons.person,
+              keyboardType: TextInputType.name,
+            ),
           ),
-        );
-      },
+          SizedBox(height: space),
+          const CustomInputField(
+            label: AppStrings.email,
+            textInputAction: TextInputAction.next,
+            prefixIcon: Icons.email,
+            keyboardType: TextInputType.emailAddress,
+          ),
+          SizedBox(height: space),
+          CustomInputField(
+            label: AppStrings.password,
+            prefixIcon: Icons.lock,
+            suffixIcon: cubit.suffix1,
+            obscureText: cubit.isPassword1,
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.visiblePassword,
+            suffixTab: () {
+              cubit.changeVisibility1();
+            },
+          ),
+          SizedBox(height: space),
+          SlideTransition(
+            position: confirmPassOffsetAnimation,
+            child: CustomInputField(
+              label: AppStrings.confirmPassword,
+              prefixIcon: Icons.lock,
+              suffixIcon: cubit.suffix2,
+              obscureText: cubit.isPassword2,
+              keyboardType: TextInputType.visiblePassword,
+              suffixTab: () {
+                cubit.changeVisibility2();
+              },
+            ),
+          ),
+          SizedBox(height: 3.5.h),
+          CustomRoundedLoadingButton(
+            onPressed: () {
+              btnController.success();
+              Future.delayed(const Duration(seconds: 1), () async {
+                await Navigator.pushNamed(context, Routes.babyRegister);
+                btnController.reset();
+              });
+            },
+            text: AppStrings.signup,
+            btnController: btnController,
+          ),
+          SizedBox(height: 3.h),
+          const DividerLine(),
+          SizedBox(height: 2.0.h),
+          const SocialSignUp(),
+          SizedBox(height: 2.0.h),
+          const HaveAccount(),
+        ],
+      ),
     );
   }
 }

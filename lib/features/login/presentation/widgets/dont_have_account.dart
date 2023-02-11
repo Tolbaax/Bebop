@@ -28,7 +28,7 @@ class DonTHaveAccount extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            Navigator.pushNamed(context, Routes.signup);
+            Navigator.pushNamed(context, Routes.register);
           },
           child: Text(
             AppStrings.signup,

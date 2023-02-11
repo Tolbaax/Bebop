@@ -9,7 +9,6 @@ import '../../../../core/utils/app_color.dart';
 import '../../../../core/widgets/custom_clippers/blue_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/grey_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/white_top_clipper.dart';
-import '../../../../injection_container.dart';
 import '../widgets/login_form.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -81,7 +80,7 @@ class LoginState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<LoginCubit>(),
+      create: (context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -134,7 +133,7 @@ class LoginState extends State<LoginScreen>
                         children: [
                           LoginHeader(animation: _headerTextAnimation),
                           SizedBox(
-                            height: 21.20.h,
+                            height: 22.20.h,
                           ),
                           LoginForm(animation: _formElementAnimation),
                         ],

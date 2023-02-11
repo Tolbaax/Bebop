@@ -9,7 +9,6 @@ import '../../../../core/utils/app_color.dart';
 import '../../../../core/widgets/custom_clippers/blue_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/grey_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/white_top_clipper.dart';
-import '../../../../injection_container.dart';
 import '../widgets/register_form.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -105,77 +104,74 @@ class RegisterState extends State<RegisterScreen>
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<RegisterCubit>(),
-      child: BlocConsumer<RegisterCubit, RegisterStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Scaffold(
-            resizeToAvoidBottomInset: false,
-            backgroundColor: AppColors.white,
-            body: Stack(
-              children: <Widget>[
-                AnimatedBuilder(
-                  animation: _whiteTopClipperAnimation,
-                  builder: (_, Widget? child) {
-                    return ClipPath(
-                      clipper: WhiteTopClipper(
-                        yOffset: _whiteTopClipperAnimation.value,
-                      ),
-                      child: child,
-                    );
-                  },
-                  child: Container(color: AppColors.grey),
-                ),
-                AnimatedBuilder(
-                  animation: _greyTopClipperAnimation,
-                  builder: (_, Widget? child) {
-                    return ClipPath(
-                      clipper: GreyTopClipper(
-                        yOffset: _greyTopClipperAnimation.value,
-                      ),
-                      child: child,
-                    );
-                  },
-                  child: Container(color: AppColors.primary),
-                ),
-                AnimatedBuilder(
-                  animation: _blueTopClipperAnimation,
-                  builder: (_, Widget? child) {
-                    return ClipPath(
-                      clipper: BlueTopClipper(
-                        yOffset: _blueTopClipperAnimation.value,
-                      ),
-                      child: child,
-                    );
-                  },
-                  child: Container(color: AppColors.white),
-                ),
-                SafeArea(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.only(top: 4.0.h),
-                      child: Column(
-                        children: [
-                          const RegisterHeader(),
-                          SizedBox(
-                            height: 20.0.h,
-                          ),
-                          RegisterForm(
-                            nameOffsetAnimation: _slideAnimationNameFiled,
-                            confirmPassOffsetAnimation:
-                                _slideAnimationConfirmPassFiled,
-                          ),
-                        ],
-                      ),
+    return BlocConsumer<RegisterCubit, RegisterStates>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: AppColors.white,
+          body: Stack(
+            children: <Widget>[
+              AnimatedBuilder(
+                animation: _whiteTopClipperAnimation,
+                builder: (_, Widget? child) {
+                  return ClipPath(
+                    clipper: WhiteTopClipper(
+                      yOffset: _whiteTopClipperAnimation.value,
+                    ),
+                    child: child,
+                  );
+                },
+                child: Container(color: AppColors.grey),
+              ),
+              AnimatedBuilder(
+                animation: _greyTopClipperAnimation,
+                builder: (_, Widget? child) {
+                  return ClipPath(
+                    clipper: GreyTopClipper(
+                      yOffset: _greyTopClipperAnimation.value,
+                    ),
+                    child: child,
+                  );
+                },
+                child: Container(color: AppColors.primary),
+              ),
+              AnimatedBuilder(
+                animation: _blueTopClipperAnimation,
+                builder: (_, Widget? child) {
+                  return ClipPath(
+                    clipper: BlueTopClipper(
+                      yOffset: _blueTopClipperAnimation.value,
+                    ),
+                    child: child,
+                  );
+                },
+                child: Container(color: AppColors.white),
+              ),
+              SafeArea(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.only(top: 4.0.h),
+                    child: Column(
+                      children: [
+                        const RegisterHeader(),
+                        SizedBox(
+                          height: 20.0.h,
+                        ),
+                        RegisterForm(
+                          nameOffsetAnimation: _slideAnimationNameFiled,
+                          confirmPassOffsetAnimation:
+                              _slideAnimationConfirmPassFiled,
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

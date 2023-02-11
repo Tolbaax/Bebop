@@ -5,8 +5,8 @@ import 'package:sizer/sizer.dart';
 class CustomInputField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
-  final String label;
-  final IconData prefixIcon;
+  final String? label;
+  final IconData? prefixIcon;
   final IconData? suffixIcon;
   final Function()? suffixTab;
   final bool obscureText;
@@ -16,8 +16,8 @@ class CustomInputField extends StatelessWidget {
     super.key,
     this.controller,
     this.keyboardType,
-    required this.label,
-    required this.prefixIcon,
+    this.label,
+    this.prefixIcon,
     this.obscureText = false,
     this.suffixIcon,
     this.suffixTab,
@@ -36,12 +36,14 @@ class CustomInputField extends StatelessWidget {
         hintText: label,
         hintStyle: TextStyle(
           color: AppColors.black.withOpacity(0.5),
-          fontSize: 11.0.sp,
+          fontSize: 11.5.sp,
         ),
-        prefixIcon: Icon(
-          prefixIcon,
-          color: AppColors.black.withOpacity(0.5),
-        ),
+        prefixIcon: prefixIcon != null
+            ? Icon(
+                prefixIcon,
+                color: AppColors.black.withOpacity(0.5),
+              )
+            : const SizedBox.shrink(),
         suffixIcon: (suffixIcon != null)
             ? InkWell(
                 onTap: suffixTab,

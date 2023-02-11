@@ -3,10 +3,19 @@ const String jsonPath = 'assets/json';
 
 class ImageAssets {
   //Images
-  static const String babyLogo = '$imgPath/baby_logo.png';
-  static const String babySleep = '$imgPath/baby_sleep.png';
   static const String google = '$imgPath/google_icon.svg';
   static const String facebook = '$imgPath/facebook.svg';
+  static const String babyHeight = '$imgPath/baby_height.svg';
+  static const String babyWeight = '$imgPath/baby_weight.svg';
+  static const String babyInfo = '$imgPath/baby_info.svg';
+  static const String homeLogo = '$imgPath/logo.png';
+  static const String baby1 = '$imgPath/baby1.jpg';
+  static const String baby2 = '$imgPath/baby2.jpg';
+  static const String baby3 = '$imgPath/baby3.jpg';
+  static const String baby4 = '$imgPath/baby4.jpg';
+  static const String baby5 = '$imgPath/baby5.jpg';
+  static const String baby6 = '$imgPath/baby6.jpg';
+  static const String baby7 = '$imgPath/baby7.jpg';
 
   //Json
   static const String voiceReco = '$jsonPath/voice_recognition.json';

@@ -33,7 +33,7 @@ class LoginHeader extends StatelessWidget {
                     ),
               ),
             ),
-            SizedBox(height: 2.h),
+            SizedBox(height: 1.0.h),
             FadeSlideTransition(
               animation: animation,
               additionalOffset: 16.0,
