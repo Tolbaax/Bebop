@@ -24,7 +24,7 @@ class CustomAppBar extends StatelessWidget {
                 EdgeInsetsDirectional.only(end: 10.sp, top: 6.sp, bottom: 5.sp),
             width: 11.w,
             decoration: BoxDecoration(
-              color: AppColors.hint.withOpacity(0.3),
+              color: AppColors.hint.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8.sp),
             ),
             child: Icon(

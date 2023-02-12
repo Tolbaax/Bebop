@@ -29,7 +29,7 @@ class CustomRoundedLoadingButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 17.sp,
+            fontSize: 15.sp,
             fontWeight: FontWeight.w500,
           ),
         ),

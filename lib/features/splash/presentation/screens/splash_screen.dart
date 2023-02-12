@@ -1,5 +1,4 @@
 import 'package:bebop/core/network/local/cache_helper.dart';
-import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/assets_manager.dart';
 import 'package:bebop/injection_container.dart' as di;
@@ -46,36 +45,29 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: EdgeInsetsDirectional.only(bottom: 6.h, top: 8.h),
-              child: Lottie.asset(
-                ImageAssets.logo,
-                controller: _controller,
-                width: double.infinity,
-                onLoaded: (composition) {
-                  _controller
-                    ..duration = composition.duration
-                    ..forward().then(
-                      (value) {
-                        _goNext();
-                      },
-                    );
-                },
-              ),
-            ),
-            Text(
-              AppStrings.appName,
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: AppColors.primary,
-                    fontSize: 50.sp,
-                  ),
-            ),
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset(
+            ImageAssets.logo,
+            height: 60.h,
+            controller: _controller,
+            width: double.infinity,
+            onLoaded: (composition) {
+              _controller
+                ..duration = composition.duration
+                ..forward().then(
+                  (value) {
+                    _goNext();
+                  },
+                );
+            },
+          ),
+          Text(
+            AppStrings.appName,
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ],
       ),
     );
   }

@@ -8,17 +8,17 @@ ThemeData appTheme() {
   return ThemeData(
     primaryColor: AppColors.primary,
     hintColor: AppColors.hint,
-    fontFamily: AppStrings.crimsonProFont,
+    fontFamily: AppStrings.muktaFont,
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       centerTitle: true,
       elevation: 0.0,
       backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
         color: Colors.black,
-        fontSize: 30.0,
-        fontFamily: AppStrings.crimsonProFont,
+        fontSize: 20.0.sp,
+        fontFamily: AppStrings.muktaFont,
         fontWeight: FontWeight.w500,
       ),
       // systemOverlayStyle: SystemUiOverlayStyle(
@@ -28,12 +28,27 @@ ThemeData appTheme() {
     ),
     textTheme: TextTheme(
       bodyLarge: TextStyle(
-        fontSize: 70.0,
-        height: 2.2,
+        fontSize: 56.5.sp,
         color: AppColors.primary,
         letterSpacing: 1,
         fontFamily: AppStrings.guyonGazeboFont,
         fontWeight: FontWeight.w500,
+      ),
+      titleMedium: TextStyle(
+        color: AppColors.white,
+        fontSize: 15.0.sp,
+        height: 0.18.h,
+      ),
+      titleLarge: TextStyle(
+        color: AppColors.black,
+        wordSpacing: 2.sp,
+        fontSize: 25.sp,
+        fontWeight: FontWeight.w500,
+      ),
+      titleSmall: TextStyle(
+        color: AppColors.black.withOpacity(0.5),
+        wordSpacing: 0.5.sp,
+        fontSize: 12.5.sp,
       ),
     ),
     tabBarTheme: TabBarTheme(

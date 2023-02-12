@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/utils/app_color.dart';
-import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/constants.dart';
 
 class CustomCarousalSlider extends StatefulWidget {
@@ -42,7 +41,6 @@ class _CustomCarousalSliderState extends State<CustomCarousalSlider> {
                   style: TextStyle(
                     color: AppColors.white,
                     fontWeight: FontWeight.w500,
-                    fontFamily: AppStrings.defaultFont,
                     fontSize: 12.0.sp,
                     shadows: [
                       Shadow(

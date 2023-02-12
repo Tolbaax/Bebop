@@ -76,7 +76,7 @@ class RegisterForm extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: 3.5.h),
+          SizedBox(height: 4.4.h),
           CustomRoundedLoadingButton(
             onPressed: () {
               btnController.success();
@@ -88,11 +88,11 @@ class RegisterForm extends StatelessWidget {
             text: AppStrings.signup,
             btnController: btnController,
           ),
-          SizedBox(height: 3.h),
+          SizedBox(height: 2.5.h),
           const DividerLine(),
-          SizedBox(height: 2.0.h),
+          SizedBox(height: 1.5.h),
           const SocialSignUp(),
-          SizedBox(height: 2.0.h),
+          SizedBox(height: 1.5.h),
           const HaveAccount(),
         ],
       ),

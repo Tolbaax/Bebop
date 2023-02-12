@@ -22,11 +22,11 @@ class HomeScreen extends StatelessWidget {
           children: [
             const CustomCarousalSlider(),
             SizedBox(
-              height: 3.5.h,
+              height: 3.0.h,
             ),
             const ToadyReminder(),
             SizedBox(
-              height: 4.5.h,
+              height: 4.0.h,
             ),
             const TipsForMom(),
           ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../core/utils/app_color.dart';
 import '../../../../core/utils/app_strings.dart';
 
 class RegisterHeader extends StatelessWidget {
@@ -16,15 +15,9 @@ class RegisterHeader extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 1.0.h),
             Text(
               AppStrings.signup,
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    color: AppColors.black,
-                    wordSpacing: 2,
-                    fontSize: 25.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),

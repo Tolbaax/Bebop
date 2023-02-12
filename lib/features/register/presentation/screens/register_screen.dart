@@ -156,7 +156,7 @@ class RegisterState extends State<RegisterScreen>
                       children: [
                         const RegisterHeader(),
                         SizedBox(
-                          height: 20.0.h,
+                          height: 19.5.h,
                         ),
                         RegisterForm(
                           nameOffsetAnimation: _slideAnimationNameFiled,

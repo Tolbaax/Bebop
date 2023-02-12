@@ -20,12 +20,9 @@ class _BabyWeightPageState extends State<BabyWeightPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 0.4.h,
-            ),
             SvgPicture.asset(
               height: 32.h,
               ImageAssets.babyWeight,
@@ -37,11 +34,11 @@ class _BabyWeightPageState extends State<BabyWeightPage> {
               AppStrings.whatsWeight,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 28.0.sp,
+                fontSize: 26.0.sp,
               ),
             ),
             SizedBox(
-              height: 8.h,
+              height: 3.5.h,
             ),
             Text(
               '${_value.toString().substring(0, 3)}kg',
@@ -52,7 +49,7 @@ class _BabyWeightPageState extends State<BabyWeightPage> {
               ),
             ),
             SizedBox(
-              height: 10.0.h,
+              height: 9.0.h,
               child: SfSlider(
                 value: _value,
                 min: 5.0,

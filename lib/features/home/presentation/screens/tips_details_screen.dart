@@ -1,4 +1,3 @@
-import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/features/home/data/models/tips_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -26,7 +25,6 @@ class TipsDetailsScreen extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 12.0.sp,
-                  fontFamily: AppStrings.defaultFont,
                   color: AppColors.black.withOpacity(0.85),
                 ),
               ),

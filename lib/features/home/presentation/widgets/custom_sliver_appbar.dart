@@ -1,4 +1,3 @@
-import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -47,7 +46,6 @@ class CustomSliverAppBar extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontFamily: AppStrings.defaultFont,
             fontSize: 13.0.sp,
             shadows: [
               Shadow(

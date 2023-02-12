@@ -36,6 +36,7 @@ dependencies:
   circular_reveal_animation: ^2.0.1
   flutter_speed_dial: ^6.2.0
   carousel_slider: ^4.2.1
+  syncfusion_flutter_charts: ^20.4.49
 
 
 dev_dependencies:
@@ -49,36 +50,29 @@ flutter:
   uses-material-design: true
 
   assets:
-     - assets/images/
-     - assets/json/
+    - assets/images/
+    - assets/json/
 
   fonts:
-     - family: Crimson Pro
-       fonts:
-         - asset: assets/fonts/CrimsonPro-Black.ttf
-           weight: 900
-         - asset: assets/fonts/CrimsonPro-ExtraBold.ttf
-           weight: 800
-         - asset: assets/fonts/CrimsonPro-Bold.ttf
-           weight: 700
-         - asset: assets/fonts/CrimsonPro-SemiBold.ttf
-           weight: 600
-         - asset: assets/fonts/CrimsonPro-Medium.ttf
-           weight: 500
-         - asset: assets/fonts/CrimsonPro-Regular.ttf
-           weight: 400
-         - asset: assets/fonts/CrimsonPro-light.ttf
-           weight: 300
-         - asset: assets/fonts/CrimsonPro-ExtraLight.ttf
-           weight: 200
+
+    - family: Mukta
+      fonts:
+        - asset: assets/fonts/Mukta-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Mukta-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Mukta-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Mukta-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Mukta-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Mukta-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Mukta-ExtraLight.ttf
+          weight: 200
 
 
-     - family: Guyon Gazebo
-       fonts:
-         - asset: assets/fonts/Gazebo DEMO.otf
-
-
-     - family: Wasser
-       fonts:
-         - asset: assets/fonts/wasser.ttf
-
+    - family: Guyon Gazebo
+      fonts:
+        - asset: assets/fonts/Gazebo DEMO.otf

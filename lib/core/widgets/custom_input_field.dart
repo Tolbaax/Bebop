@@ -31,8 +31,9 @@ class CustomInputField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
+      style: TextStyle(color: AppColors.black, fontSize: 12.0.sp),
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(16.0),
+        contentPadding: EdgeInsets.all(10.0.sp),
         hintText: label,
         hintStyle: TextStyle(
           color: AppColors.black.withOpacity(0.5),
@@ -42,6 +43,7 @@ class CustomInputField extends StatelessWidget {
             ? Icon(
                 prefixIcon,
                 color: AppColors.black.withOpacity(0.5),
+                size: 17.5.sp,
               )
             : const SizedBox.shrink(),
         suffixIcon: (suffixIcon != null)
@@ -50,6 +52,7 @@ class CustomInputField extends StatelessWidget {
                 radius: 0.0,
                 child: Icon(
                   suffixIcon,
+                  size: 17.5.sp,
                 ),
               )
             : null,

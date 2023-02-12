@@ -16,7 +16,7 @@ class TextColumn extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 21.0.sp,
+            fontSize: 22.0.sp,
             color: AppColors.white,
             fontWeight: FontWeight.w600,
             letterSpacing: 1,
@@ -26,8 +26,7 @@ class TextColumn extends StatelessWidget {
         Text(
           text,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              color: AppColors.white, fontSize: 14.0.sp, height: 0.15.h),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(),
         ),
       ],
     );

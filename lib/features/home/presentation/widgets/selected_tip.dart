@@ -1,4 +1,3 @@
-import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -50,10 +49,8 @@ class SelectedTip extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.symmetric(
-                  horizontal: 2.0.w,
-                  vertical: 2.5.sp,
-                ),
+                padding: EdgeInsetsDirectional.only(
+                    top: 2.5.sp, end: 5.0.sp, start: 5.0.sp),
                 child: Column(
                   children: [
                     SizedBox(
@@ -63,14 +60,10 @@ class SelectedTip extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: TextStyle(
-                          fontSize: 12.0.sp,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: AppStrings.defaultFont,
+                          fontSize: 13.0.sp,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 1.0.h,
                     ),
                     SizedBox(
                       width: 40.w,
@@ -82,12 +75,11 @@ class SelectedTip extends StatelessWidget {
                           fontSize: 9.0.sp,
                           fontWeight: FontWeight.w500,
                           color: AppColors.black.withOpacity(0.5),
-                          fontFamily: AppStrings.defaultFont,
                         ),
                       ),
                     ),
                     SizedBox(
-                      height: .8.h,
+                      height: 0.5.h,
                     ),
                     Align(
                       alignment: Alignment.bottomRight,
@@ -99,7 +91,6 @@ class SelectedTip extends StatelessWidget {
                           fontSize: 8.0.sp,
                           fontWeight: FontWeight.w500,
                           color: AppColors.black.withOpacity(0.5),
-                          fontFamily: AppStrings.defaultFont,
                         ),
                       ),
                     ),

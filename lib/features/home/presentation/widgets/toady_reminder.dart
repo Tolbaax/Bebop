@@ -19,9 +19,8 @@ class ToadyReminder extends StatelessWidget {
           Text(
             AppStrings.toadyReminder,
             style: TextStyle(
-              fontSize: 16.0.sp,
-              fontWeight: FontWeight.w500,
-              fontFamily: AppStrings.defaultFont,
+              fontSize: 18.0.sp,
+              fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(height: 1.8.h),

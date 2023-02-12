@@ -133,7 +133,7 @@ class LoginState extends State<LoginScreen>
                         children: [
                           LoginHeader(animation: _headerTextAnimation),
                           SizedBox(
-                            height: 22.20.h,
+                            height: 20.9.h,
                           ),
                           LoginForm(animation: _formElementAnimation),
                         ],

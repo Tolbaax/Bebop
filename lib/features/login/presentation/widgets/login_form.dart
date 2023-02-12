@@ -59,7 +59,7 @@ class LoginForm extends StatelessWidget {
             additionalOffset: 2 * space,
             child: const ForgetPasswordButton(),
           ),
-          SizedBox(height: 5.75.h),
+          SizedBox(height: 6.55.h),
           FadeSlideTransition(
             animation: animation,
             additionalOffset: 3 * space,
@@ -71,19 +71,19 @@ class LoginForm extends StatelessWidget {
               color: AppColors.primary,
             ),
           ),
-          SizedBox(height: 3.h),
+          SizedBox(height: 2.5.h),
           FadeSlideTransition(
             animation: animation,
             additionalOffset: 4 * space,
             child: const DividerLine(),
           ),
-          SizedBox(height: 2.0.h),
+          SizedBox(height: 1.5.h),
           FadeSlideTransition(
             animation: animation,
             additionalOffset: 5 * space,
             child: const SocialSignUp(),
           ),
-          SizedBox(height: 2.0.h),
+          SizedBox(height: 1.5.h),
           FadeSlideTransition(
             animation: animation,
             additionalOffset: 6 * space,

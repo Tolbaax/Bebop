@@ -21,7 +21,7 @@ class BabyInfoForm extends StatelessWidget {
             label: Text(
               AppStrings.name,
               style: TextStyle(
-                fontSize: 15.sp,
+                fontSize: 13.5.sp,
                 fontWeight: FontWeight.w500,
                 color: Colors.grey,
               ),
@@ -53,7 +53,7 @@ class BabyInfoForm extends StatelessWidget {
               label: Text(
                 AppStrings.birthdate,
                 style: TextStyle(
-                  fontSize: 15.sp,
+                  fontSize: 13.5.sp,
                   fontWeight: FontWeight.w500,
                   color: Colors.grey,
                 ),

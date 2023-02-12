@@ -3,9 +3,8 @@ class AppStrings {
   static const String noRouteFound = 'No Route Found';
 
   //Fonts
-  static const String defaultFont = '';
-  static const String crimsonProFont = 'Crimson Pro';
   static const String guyonGazeboFont = 'Guyon Gazebo';
+  static const String muktaFont = 'Mukta';
 
   //OnBoarding
   static const String isBoarding = 'isBoarding';
@@ -83,7 +82,7 @@ class AppStrings {
   static const String tipTitle4 = 'Create a safe sleep environment';
   static const String tipDesc1 =
       '1. Place the baby on his/her back to sleep to reduce the risk of Sudden Infant Death Syndrome (SIDS).'
-      '\n\n2. Always use a safety-approved crib, playpen, or bassinet for sleep and play. Make sure the crib has a tight-fitting mattress and no loose or broken parts.'
+      '\n2. Always use a safety-approved crib, playpen, or bassinet for sleep and play. Make sure the crib has a tight-fitting mattress and no loose or broken parts.'
       '\n\n3. Keep all objects, including toys, pillows, and loose bedding, out of the crib to prevent suffocation.'
       '\n\n4. Never leave a baby unattended on a changing table, bed, or any other high surface.'
       '\n\n5. Always use a safety belt when using a baby carrier or stroller.'
@@ -126,4 +125,11 @@ class AppStrings {
       '\n\n7. Maintain a comfortable room temperature: Keep the room where your baby sleeps at a comfortable temperature, between 68-72°F. Overheating has been linked to an increased risk of SID, so it\'s important to keep the room cool but not too cold.'
       '\n\n8. Monitor your baby\'s movements: Regularly check on your baby while they sleep to make sure they are breathing comfortably and not in distress.'
       '\n\n By following these tips, you can create a safe sleep environment that reduces the risk of sleep-related dangers for your baby.';
+
+  //Profile
+  static const String babyProfile = 'Baby Profile';
+  static const String height = 'Height';
+  static const String weight = 'Weight';
+  static const String lastMonth = 'Last Month';
+  static const String babyName = 'Ahmed Dyaa';
 }

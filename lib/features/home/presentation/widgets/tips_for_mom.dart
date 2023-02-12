@@ -21,9 +21,8 @@ class TipsForMom extends StatelessWidget {
               Text(
                 AppStrings.tipsForMoms,
                 style: TextStyle(
-                  fontSize: 16.0.sp,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: AppStrings.defaultFont,
+                  fontSize: 18.0.sp,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const Spacer(),
@@ -35,7 +34,6 @@ class TipsForMom extends StatelessWidget {
                     fontSize: 10.0.sp,
                     color: AppColors.black.withOpacity(0.4),
                     fontWeight: FontWeight.w500,
-                    fontFamily: AppStrings.defaultFont,
                   ),
                 ),
               ),
@@ -43,12 +41,12 @@ class TipsForMom extends StatelessWidget {
           ),
           SizedBox(height: 1.8.h),
           SizedBox(
-            height: 59.h,
+            height: 60.5.h,
             child: GridView.count(
               crossAxisCount: 2,
               crossAxisSpacing: 8.0.sp,
               mainAxisSpacing: 10.0.sp,
-              childAspectRatio: 0.84,
+              childAspectRatio: 0.79,
               physics: const NeverScrollableScrollPhysics(),
               children: List.generate(tips.length, (index) {
                 return SelectedTip(tipsModel: tips[index]);

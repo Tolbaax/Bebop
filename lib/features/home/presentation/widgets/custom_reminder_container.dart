@@ -26,7 +26,7 @@ class CustomReminder extends StatelessWidget {
           GestureDetector(
             onTap: onTap,
             child: Container(
-              height: context.height * 0.08,
+              height: context.height * 0.075,
               width: context.width * 0.17,
               decoration: BoxDecoration(
                 color: color,
@@ -36,6 +36,7 @@ class CustomReminder extends StatelessWidget {
                 child: Icon(
                   icon,
                   color: AppColors.white,
+                  size: 16.5.sp,
                 ),
               ),
             ),
@@ -52,9 +53,8 @@ class CustomReminder extends StatelessWidget {
                 maxLines: 1,
                 style: TextStyle(
                   overflow: TextOverflow.ellipsis,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 11.0.sp,
-                  fontFamily: '',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 11.5.sp,
                 ),
               ),
             ),

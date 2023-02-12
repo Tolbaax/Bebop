@@ -89,6 +89,7 @@ class _BabyRegisterScreenState extends State<BabyRegisterScreen> {
                       dotWidth: 12.0.w,
                       dotHeight: 0.9.h,
                       activeDotColor: AppColors.primary,
+                      dotColor: AppColors.black.withOpacity(0.25),
                     ),
                   ),
                   SizedBox(
