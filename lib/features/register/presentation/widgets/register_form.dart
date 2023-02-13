@@ -37,7 +37,7 @@ class RegisterForm extends StatelessWidget {
           SlideTransition(
             position: nameOffsetAnimation,
             child: const CustomInputField(
-              label: AppStrings.name,
+              hintText: AppStrings.name,
               textInputAction: TextInputAction.next,
               prefixIcon: Icons.person,
               keyboardType: TextInputType.name,
@@ -45,14 +45,14 @@ class RegisterForm extends StatelessWidget {
           ),
           SizedBox(height: space),
           const CustomInputField(
-            label: AppStrings.email,
+            hintText: AppStrings.email,
             textInputAction: TextInputAction.next,
             prefixIcon: Icons.email,
             keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(height: space),
           CustomInputField(
-            label: AppStrings.password,
+            hintText: AppStrings.password,
             prefixIcon: Icons.lock,
             suffixIcon: cubit.suffix1,
             obscureText: cubit.isPassword1,
@@ -66,7 +66,7 @@ class RegisterForm extends StatelessWidget {
           SlideTransition(
             position: confirmPassOffsetAnimation,
             child: CustomInputField(
-              label: AppStrings.confirmPassword,
+              hintText: AppStrings.confirmPassword,
               prefixIcon: Icons.lock,
               suffixIcon: cubit.suffix2,
               obscureText: cubit.isPassword2,

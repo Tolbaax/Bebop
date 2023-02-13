@@ -12,7 +12,7 @@ class ToadyReminder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 20.0.sp),
+      padding: EdgeInsetsDirectional.symmetric(horizontal: 17.0.sp),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

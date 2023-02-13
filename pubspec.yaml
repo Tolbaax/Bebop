@@ -28,7 +28,6 @@ dependencies:
   flutter_svg: ^1.1.6
   rounded_loading_button: ^2.1.0
   custom_sliding_segmented_control: ^1.7.4
-  liquid_progress_indicator: ^0.4.0
   intl: ^0.18.0
   syncfusion_flutter_sliders: ^20.4.48
   smooth_page_indicator: ^1.0.0+2
@@ -37,6 +36,7 @@ dependencies:
   flutter_speed_dial: ^6.2.0
   carousel_slider: ^4.2.1
   syncfusion_flutter_charts: ^20.4.49
+  image_picker: ^0.8.6+1
 
 
 dev_dependencies:

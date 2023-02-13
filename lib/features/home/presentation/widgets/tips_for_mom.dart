@@ -12,7 +12,7 @@ class TipsForMom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 20.0.sp),
+      padding: EdgeInsetsDirectional.symmetric(horizontal: 17.0.sp),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -32,7 +32,7 @@ class TipsForMom extends StatelessWidget {
                   AppStrings.viewMore,
                   style: TextStyle(
                     fontSize: 10.0.sp,
-                    color: AppColors.black.withOpacity(0.4),
+                    color: AppColors.black.withOpacity(0.5),
                     fontWeight: FontWeight.w500,
                   ),
                 ),

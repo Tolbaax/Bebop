@@ -37,7 +37,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                     'Forget\nPassword?',
                     style: TextStyle(
                       color: AppColors.black,
-                      fontSize: 35.0.sp,
+                      fontSize: 42.0.sp,
                       fontFamily: AppStrings.guyonGazeboFont,
                       fontWeight: FontWeight.w500,
                     ),
@@ -56,7 +56,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                     height: 6.0.h,
                   ),
                   const CustomInputField(
-                    label: 'Email',
+                    hintText: 'Email',
                     keyboardType: TextInputType.emailAddress,
                     prefixIcon: Icons.alternate_email,
                   ),

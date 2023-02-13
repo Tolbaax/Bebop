@@ -33,7 +33,7 @@ class LoginForm extends StatelessWidget {
             animation: animation,
             additionalOffset: space,
             child: const CustomInputField(
-              label: AppStrings.email,
+              hintText: AppStrings.email,
               textInputAction: TextInputAction.next,
               prefixIcon: Icons.email,
               keyboardType: TextInputType.emailAddress,
@@ -44,7 +44,7 @@ class LoginForm extends StatelessWidget {
             animation: animation,
             additionalOffset: 2 * space,
             child: CustomInputField(
-              label: AppStrings.password,
+              hintText: AppStrings.password,
               prefixIcon: Icons.lock,
               suffixIcon: cubit.suffix,
               obscureText: cubit.isPassword,

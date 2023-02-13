@@ -132,4 +132,17 @@ class AppStrings {
   static const String weight = 'Weight';
   static const String lastMonth = 'Last Month';
   static const String babyName = 'Ahmed Dyaa';
+  static const String myAlbums = 'My Albums';
+  static const String addMemory = 'Add Memory';
+
+  //crying
+  static const String cryAnalysis = 'Crying Analysis';
+  static const String translateDesc = 'Translate\nYour baby\'s crying';
+  static const String translate = 'Translate';
+  static const String cryTip1 = 'Keep the phone close to the baby.';
+  static const String cryTip2 = 'Please keep quiet around.';
+  static const String analysisHistory = 'Analysis History';
+  static const String tired = 'Tired';
+  static const String hungry = 'Hungry';
+  static const String stop = 'Stop';
 }
