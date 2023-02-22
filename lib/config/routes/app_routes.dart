@@ -7,8 +7,12 @@ import 'package:bebop/features/home/data/models/tips_model.dart';
 import 'package:bebop/features/home/presentation/screens/tips_details_screen.dart';
 import 'package:bebop/features/layout/presentation/cubit/cubit.dart';
 import 'package:bebop/features/layout/presentation/screens/layout_screen.dart';
+import 'package:bebop/features/location/presentation/cubit/map_cubit.dart';
+import 'package:bebop/features/location/presentation/screens/get_location_screen.dart';
+import 'package:bebop/features/location/presentation/screens/map_screen.dart';
 import 'package:bebop/features/login/presentation/screens/login_screen.dart';
 import 'package:bebop/features/profile/presentation/cubit/cubit.dart';
+import 'package:bebop/features/profile/presentation/screens/settings_screen.dart';
 import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
 import 'package:bebop/features/register/presentation/screens/register_screen.dart';
 import 'package:bebop/features/splash/presentation/screens/splash_screen.dart';
@@ -37,6 +41,9 @@ class Routes {
   static const String addMemory = '/addMemory';
   static const String cryTranslate = '/cryTranslate';
   static const String translateResult = '/translateResult';
+  static const String settings = '/settings';
+  static const String getLocation = '/getLocation';
+  static const String mapScreen = '/mapScreen';
 }
 
 class AppRoutes {
@@ -116,6 +123,27 @@ class AppRoutes {
           type: PageTransitionType.scale,
           alignment: Alignment.center,
           child: const TranslateResultScreen(),
+        );
+
+      case Routes.settings:
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          child: const SettingsScreen(),
+        );
+
+      case Routes.getLocation:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: const GetLocationScreen(),
+        );
+
+      case Routes.mapScreen:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: BlocProvider(
+            create: (context) => MapCubit(),
+            child: const MapScreen(),
+          ),
         );
 
       default:

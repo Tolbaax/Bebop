@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
   late final AnimationController _controller;
 
   // use shared preferences to open app in right screen only
-  final isBoarding = di.sl<CacheHelper>().getData(key: AppStrings.isBoarding);
+  final isBoarding = di.sl<CacheHelper>().getData(key: 'AppStrings.isBoarding');
 
   _goNext() {
     if (isBoarding != null) {

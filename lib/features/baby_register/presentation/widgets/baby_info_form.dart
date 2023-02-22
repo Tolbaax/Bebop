@@ -16,7 +16,7 @@ class BabyInfoForm extends StatelessWidget {
     return Column(
       children: [
         TextFormField(
-          style: TextStyle(fontSize: 14.sp),
+          style: TextStyle(fontSize: 13.sp, color: AppColors.black),
           decoration: InputDecoration(
             label: Text(
               AppStrings.name,
@@ -48,7 +48,7 @@ class BabyInfoForm extends StatelessWidget {
             controller: cubit.dateController,
             keyboardType: TextInputType.none,
             enabled: false,
-            style: TextStyle(fontSize: 14.sp),
+            style: TextStyle(fontSize: 13.sp, color: AppColors.black),
             decoration: InputDecoration(
               label: Text(
                 AppStrings.birthdate,

@@ -1,4 +1,4 @@
-import 'package:bebop/core/utils/app_color.dart';
+import 'package:bebop/core/utils/hex_color.dart';
 import 'package:flutter/material.dart';
 
 class CardsStack extends StatelessWidget {
@@ -36,7 +36,7 @@ class CardsStack extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),
-              color: AppColors.darkBlue,
+              color: HexColor('582F71'),
               child: Container(
                 width: darkCardWidth,
                 height: darkCardHeight,
@@ -57,7 +57,7 @@ class CardsStack extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16.0),
                 ),
-                color: AppColors.lightBlue,
+                color: HexColor('BD8FD9'),
                 child: Container(
                   width: darkCardWidth * 0.8,
                   height: darkCardHeight * 0.5,

@@ -1,3 +1,4 @@
+import 'package:bebop/config/routes/app_routes.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/core/widgets/appbar_back_button.dart';
@@ -112,6 +113,10 @@ class _BabyRegisterScreenState extends State<BabyRegisterScreen> {
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeIn,
                       );
+
+                      if(_currentIndex == 2){
+                        Navigator.pushNamed(context, Routes.layout);
+                      }
                     },
                     text: _currentIndex == 2
                         ? AppStrings.getStarted

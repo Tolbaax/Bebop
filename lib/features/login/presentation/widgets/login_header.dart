@@ -28,7 +28,7 @@ class LoginHeader extends StatelessWidget {
             ),
             FadeSlideTransition(
               animation: animation,
-              additionalOffset: 16.0,
+              additionalOffset: 8.0,
               child: Text(
                 AppStrings.welcomeDesc,
                 style: Theme.of(context).textTheme.titleSmall,

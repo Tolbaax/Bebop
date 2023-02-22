@@ -1,5 +1,6 @@
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/utils/app_color.dart';
@@ -21,10 +22,10 @@ ThemeData appTheme() {
         fontFamily: AppStrings.muktaFont,
         fontWeight: FontWeight.w500,
       ),
-      // systemOverlayStyle: SystemUiOverlayStyle(
-      //   statusBarColor: Colors.white,
-      //   statusBarBrightness: Brightness.light,
-      // ),
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: AppColors.primary.withOpacity(0.065),
+        statusBarBrightness: Brightness.light,
+      ),
     ),
     textTheme: TextTheme(
       bodyLarge: TextStyle(

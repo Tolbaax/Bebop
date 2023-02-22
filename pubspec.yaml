@@ -37,6 +37,10 @@ dependencies:
   carousel_slider: ^4.2.1
   syncfusion_flutter_charts: ^20.4.49
   image_picker: ^0.8.6+1
+  google_maps_flutter: ^2.2.3
+  geolocator: ^9.0.2
+  geocoding: ^2.0.5
+
 
 
 dev_dependencies:

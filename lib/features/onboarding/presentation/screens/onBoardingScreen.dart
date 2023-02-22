@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:bebop/config/routes/app_routes.dart';
-import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
+import 'package:bebop/core/utils/hex_color.dart';
 import 'package:bebop/injection_container.dart' as di;
 import 'package:flutter/material.dart';
 
@@ -220,7 +220,7 @@ class OnBoardingState extends State<OnBoardingScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.spaceCadet,
+      backgroundColor: HexColor('3D1853'),
       body: Stack(
         children: <Widget>[
           SafeArea(

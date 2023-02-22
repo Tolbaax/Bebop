@@ -17,10 +17,12 @@ class ImageAssets {
   static const String baby6 = '$imgPath/baby6.jpg';
   static const String baby7 = '$imgPath/baby7.jpg';
   static const String baby8 = '$imgPath/baby8.jpg';
+  static const String babyBottle = '$imgPath/baby_bottle.png';
+  static const String babyDiaper = '$imgPath/diaper.png';
+  static const String location = '$imgPath/location.svg';
 
   //Json
-  static const String voiceReco = '$jsonPath/voice_recognition.json';
-  static const String voiceReco1 = '$jsonPath/voice_recognition1.json';
+  static const String voiceReco = '$jsonPath/voice_recognition1.json';
   static const String babyFly = '$jsonPath/baby_fly.json';
   static const String sleep = '$jsonPath/baby_sleep.json';
   static const String forgetPassword = '$jsonPath/forget_password.json';

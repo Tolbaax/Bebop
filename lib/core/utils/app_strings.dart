@@ -145,4 +145,34 @@ class AppStrings {
   static const String tired = 'Tired';
   static const String hungry = 'Hungry';
   static const String stop = 'Stop';
+  static const String cryListening = 'Listening to baby\'s crying';
+  static const String translateTip =
+      'Place half A arm span from your baby\nplease';
+  static const String diaper = 'Diaper';
+  static const String hungryTips = 'Hungry Tips';
+  static const String hungryTip =
+      '1. Breast milk or formula: Breast milk or formula is the main source of nutrition for babies under six months of age.'
+      '\n2. Solid foods: Between six and 12 months of age, babies can begin eating solid foods. Start with pureed or mashed foods, such as fruits, vegetables, and cereals.'
+      '\n3. Offer small, frequent meals: Babies have small stomachs, so offer small meals frequently throughout the day.'
+      '\n4. Avoid sugary foods: Avoid giving babies foods high in sugar or salt, as this can be harmful to their health.'
+      '\n5. Offer water: Offer water to babies over six months old between meals.'
+      '\n6. Follow baby\'s cues: Pay attention to your baby\'s hunger cues, such as smacking lips, sucking fingers, or crying. Don\'t force them to eat if they\'re not hungry.'
+      '\n7. Be patient: It can take a while for babies to get used to new flavors and textures, so be patient and keep trying different foods.';
+  static const String cryingResult = 'Crying Result';
+  static const String settings = 'Settings';
+
+  //Settings
+  static const String userInformation = 'User Information';
+  static const String babyInformation = 'Baby Information';
+  static const String changePass = 'Change Password';
+  static const String language = 'Language';
+  static const String darkTheme = 'Dark Theme';
+  static const String contactUs = 'Contact Us';
+  static const String notification = 'Notification';
+  static const String logout = 'LogOut';
+  //Location
+  static const String getLocation = 'Get Baby Location';
+  static const String detectBabyLocation = 'Detect Your Baby Location';
+  static const String detectBabyLocationDesc =
+      'Your child’s safety is important\nWe are here to keep track of your\nchild location.';
 }

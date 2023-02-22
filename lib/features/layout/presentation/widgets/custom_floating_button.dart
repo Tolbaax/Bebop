@@ -1,3 +1,4 @@
+import 'package:bebop/config/routes/app_routes.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/material.dart';
@@ -64,6 +65,7 @@ class _CustomFloatingButtonState extends State<CustomFloatingButton>
             ],
           ),
           SpeedDialChild(
+            onTap: () => Navigator.pushNamed(context, Routes.getLocation),
             child: Icon(FontAwesomeIcons.locationDot, size: 16.0.sp),
             backgroundColor: AppColors.primary.withOpacity(0.8),
             foregroundColor: Colors.white,

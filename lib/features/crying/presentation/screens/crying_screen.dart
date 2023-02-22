@@ -1,4 +1,5 @@
 import 'package:bebop/core/utils/app_strings.dart';
+import 'package:bebop/features/crying/presentation/screens/all_analysis_history.dart';
 import 'package:bebop/features/crying/presentation/widgets/analysis_history_list.dart';
 import 'package:bebop/features/crying/presentation/widgets/custom_cry_row.dart';
 import 'package:bebop/features/crying/presentation/widgets/custom_translate_container.dart';
@@ -46,12 +47,21 @@ class CryingScreen extends StatelessWidget {
                     title: AppStrings.analysisHistory,
                   ),
                   const Spacer(),
-                  Text(
-                    AppStrings.viewMore,
-                    style: TextStyle(
-                      fontSize: 10.0.sp,
-                      color: AppColors.black.withOpacity(0.5),
-                      fontWeight: FontWeight.w500,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AllAnalysisHistory(),
+                          ));
+                    },
+                    child: Text(
+                      AppStrings.viewMore,
+                      style: TextStyle(
+                        fontSize: 10.0.sp,
+                        color: AppColors.black.withOpacity(0.5),
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
@@ -59,7 +69,9 @@ class CryingScreen extends StatelessWidget {
               SizedBox(
                 height: 2.0.h,
               ),
-              const AnalysisHistoryList(),
+              const Expanded(
+                child: AnalysisHistoryList(),
+              ),
             ],
           ),
         ),
