@@ -175,4 +175,11 @@ class AppStrings {
   static const String detectBabyLocation = 'Detect Your Baby Location';
   static const String detectBabyLocationDesc =
       'Your child’s safety is important\nWe are here to keep track of your\nchild location.';
+
+  //EHR
+  static const String heartRate = 'Heart Rate(BPM)';
+  static const String lastTime = 'Last 4 hours';
+  static const String beatsPer = 'beats per minute';
+  static const String bodyTemp = 'Body Temperature';
+  static const String bloodOxygen = 'Blood Oxygen';
 }

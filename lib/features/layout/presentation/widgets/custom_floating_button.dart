@@ -81,6 +81,7 @@ class _CustomFloatingButtonState extends State<CustomFloatingButton>
             ],
           ),
           SpeedDialChild(
+            onTap: () => Navigator.pushNamed(context, Routes.ehrScreen),
             child: Icon(FontAwesomeIcons.notesMedical, size: 18.0.sp),
             backgroundColor: AppColors.primary.withOpacity(0.7),
             foregroundColor: Colors.white,

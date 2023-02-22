@@ -20,6 +20,7 @@ class ImageAssets {
   static const String babyBottle = '$imgPath/baby_bottle.png';
   static const String babyDiaper = '$imgPath/diaper.png';
   static const String location = '$imgPath/location.svg';
+  static const String oxygen = '$imgPath/oxygen.png';
 
   //Json
   static const String voiceReco = '$jsonPath/voice_recognition1.json';
@@ -27,4 +28,5 @@ class ImageAssets {
   static const String sleep = '$jsonPath/baby_sleep.json';
   static const String forgetPassword = '$jsonPath/forget_password.json';
   static const String logo = '$jsonPath/logo.json';
+  static const String heartRate = '$jsonPath/heart_rate.json';
 }

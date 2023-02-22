@@ -2,6 +2,9 @@ import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/features/baby_register/presentation/screens/baby_register_screen.dart';
 import 'package:bebop/features/crying/presentation/screens/crying_translate_screen.dart';
 import 'package:bebop/features/crying/presentation/screens/translate_result_screen.dart';
+import 'package:bebop/features/ehr/presentation/screens/ehr_screen.dart';
+import 'package:bebop/features/ehr/presentation/screens/heart_rate_screen.dart';
+import 'package:bebop/features/ehr/presentation/screens/temp_screen.dart';
 import 'package:bebop/features/forget_password/forget_password_screen.dart';
 import 'package:bebop/features/home/data/models/tips_model.dart';
 import 'package:bebop/features/home/presentation/screens/tips_details_screen.dart';
@@ -44,6 +47,10 @@ class Routes {
   static const String settings = '/settings';
   static const String getLocation = '/getLocation';
   static const String mapScreen = '/mapScreen';
+  static const String ehrScreen = '/ehrScreen';
+  static const String heartRate = '/hearRate';
+  static const String temp = '/temp';
+  static const String oxygen = '/oxygen';
 }
 
 class AppRoutes {
@@ -144,6 +151,30 @@ class AppRoutes {
             create: (context) => MapCubit(),
             child: const MapScreen(),
           ),
+        );
+
+      case Routes.ehrScreen:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: const EHRScreen(),
+        );
+
+      case Routes.heartRate:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: const HeartRateScreen(),
+        );
+
+      case Routes.temp:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: const TemperatureScreen(),
+        );
+
+      case Routes.oxygen:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: const HeartRateScreen(),
         );
 
       default:

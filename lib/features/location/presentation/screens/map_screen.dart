@@ -19,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
 
   static const CameraPosition _kGoogle = CameraPosition(
     target: LatLng(31.0409, 31.3785),
-    zoom: 15,
+    zoom: 14.4746,
   );
 
   Set<Marker> markers = {};
@@ -48,7 +48,7 @@ class _MapScreenState extends State<MapScreen> {
         );
         CameraPosition cameraPosition = CameraPosition(
           target: LatLng(value.latitude, value.longitude),
-          zoom: 15.5,
+          zoom: 15,
         );
         final GoogleMapController controller = await _controller.future;
         controller

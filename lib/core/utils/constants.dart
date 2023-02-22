@@ -5,11 +5,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
 import 'app_color.dart';
 
 class Constants {
+  String todayDate = DateFormat('dd MMM yyyy').format(DateTime.now());
+
   static void showToast(
       {required String msg, Color? color, ToastGravity? gravity}) {
     Fluttertoast.showToast(
