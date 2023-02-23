@@ -4,6 +4,7 @@ import 'package:bebop/features/crying/presentation/screens/crying_translate_scre
 import 'package:bebop/features/crying/presentation/screens/translate_result_screen.dart';
 import 'package:bebop/features/ehr/presentation/screens/ehr_screen.dart';
 import 'package:bebop/features/ehr/presentation/screens/heart_rate_screen.dart';
+import 'package:bebop/features/ehr/presentation/screens/oxygen_screen.dart';
 import 'package:bebop/features/ehr/presentation/screens/temp_screen.dart';
 import 'package:bebop/features/forget_password/forget_password_screen.dart';
 import 'package:bebop/features/home/data/models/tips_model.dart';
@@ -174,7 +175,7 @@ class AppRoutes {
       case Routes.oxygen:
         return PageTransition(
           type: PageTransitionType.fade,
-          child: const HeartRateScreen(),
+          child: const OxygenScreen(),
         );
 
       default:

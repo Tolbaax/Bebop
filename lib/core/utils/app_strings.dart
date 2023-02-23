@@ -182,4 +182,5 @@ class AppStrings {
   static const String beatsPer = 'beats per minute';
   static const String bodyTemp = 'Body Temperature';
   static const String bloodOxygen = 'Blood Oxygen';
+  static const String doingGreat = 'Your Baby Doing Great!';
 }

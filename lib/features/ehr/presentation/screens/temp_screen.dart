@@ -104,6 +104,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
               tooltipBehavior: tooltipBehavior,
               series: _getGradientComparisonSeries(),
             ),
+            SizedBox(height: 2.0.h,),
             Padding(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 8.0.sp),
               child: Align(

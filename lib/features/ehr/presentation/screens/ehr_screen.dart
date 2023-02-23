@@ -52,6 +52,7 @@ class EHRScreen extends StatelessWidget {
               height: 3.5.h,
             ),
             CustomMeasurementCard(
+              onTap: () => Navigator.pushNamed(context, Routes.oxygen),
               title: AppStrings.bloodOxygen,
               text1: '90/60',
               text2: 'mmHg',

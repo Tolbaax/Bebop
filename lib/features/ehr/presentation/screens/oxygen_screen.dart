@@ -1,14 +1,14 @@
+import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/constants.dart';
 import 'package:bebop/core/widgets/appbar_back_button.dart';
 import 'package:bebop/features/ehr/presentation/widgets/custom_circle_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../core/utils/app_color.dart';
 import '../../../../core/utils/app_strings.dart';
 
-class HeartRateScreen extends StatelessWidget {
-  const HeartRateScreen({Key? key}) : super(key: key);
+class OxygenScreen extends StatelessWidget {
+  const OxygenScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class HeartRateScreen extends StatelessWidget {
             RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                text: 'Heart ',
+                text: 'Blood\n',
                 style: TextStyle(
                   fontSize: 24.0.sp,
                   color: AppColors.black,
@@ -34,16 +34,16 @@ class HeartRateScreen extends StatelessWidget {
                   letterSpacing: 2,
                 ),
                 children: const [
-                  TextSpan(text: 'Rate'),
+                  TextSpan(text: 'Pressure '),
                 ],
               ),
             ),
             SizedBox(
-              height: 12.5.h,
-            ),
-            const CustomCircleIndicator(text1: '72'),
-            SizedBox(
               height: 8.0.h,
+            ),
+            const CustomCircleIndicator(text1: '90/6'),
+            SizedBox(
+              height: 10.0.h,
             ),
             Text(
               AppStrings.doingGreat,
