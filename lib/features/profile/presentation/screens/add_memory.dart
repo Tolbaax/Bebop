@@ -11,6 +11,7 @@ import 'package:sizer/sizer.dart';
 
 class AddMemoryScreen extends StatelessWidget {
   final ProfileCubit cubit;
+
   const AddMemoryScreen({Key? key, required this.cubit}) : super(key: key);
 
   @override
@@ -66,6 +67,7 @@ class AddMemoryScreen extends StatelessWidget {
                       if (value.isEmpty) {
                         return 'Please enter title';
                       }
+                      return null;
                     },
                   ),
                   SizedBox(
@@ -83,6 +85,7 @@ class AddMemoryScreen extends StatelessWidget {
                             if (value.isEmpty) {
                               return 'Please select time';
                             }
+                            return null;
                           },
                         ),
                       ),
@@ -95,6 +98,7 @@ class AddMemoryScreen extends StatelessWidget {
                             if (value.isEmpty) {
                               return 'Please select date';
                             }
+                            return null;
                           },
                         ),
                       )
@@ -111,6 +115,7 @@ class AddMemoryScreen extends StatelessWidget {
                       if (value.isEmpty) {
                         return 'Please enter description';
                       }
+                      return null;
                     },
                   ),
                   SizedBox(

@@ -17,7 +17,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   late bool isNotification = false;
   late bool isDark = false;
-  String _selectedLanguage = 'English';
+  //String _selectedLanguage = 'English';
 
   @override
   Widget build(BuildContext context) {
