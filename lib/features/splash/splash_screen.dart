@@ -1,12 +1,12 @@
 import 'package:bebop/core/network/local/cache_helper.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/assets_manager.dart';
-import 'package:bebop/injection_container.dart' as di;
+import 'package:bebop/core/services/injection_container.dart' as di;
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../config/routes/app_routes.dart';
+import '../../config/routes/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
   late final AnimationController _controller;
 
   // use shared preferences to open app in right screen only
-  final isBoarding = di.sl<CacheHelper>().getData(key: 'AppStrings.isBoarding');
+  final isBoarding = di.sl<CacheHelper>().getData(key: AppStrings.isBoarding);
 
   _goNext() {
     if (isBoarding != null) {

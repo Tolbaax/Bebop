@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../core/utils/app_color.dart';
-import '../../../../core/utils/app_strings.dart';
+import '../../../../../core/utils/app_color.dart';
+import '../../../../../core/utils/app_strings.dart';
 
 class HaveAccount extends StatelessWidget {
   const HaveAccount({Key? key}) : super(key: key);

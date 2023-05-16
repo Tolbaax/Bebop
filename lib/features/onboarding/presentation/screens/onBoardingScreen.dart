@@ -1,16 +1,17 @@
 import 'dart:math';
-
+import 'package:bebop/core/functions/navigation.dart';
+import 'package:flutter/material.dart';
 import 'package:bebop/config/routes/app_routes.dart';
+import 'package:bebop/core/services/injection_container.dart' as di;
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/hex_color.dart';
-import 'package:bebop/injection_container.dart' as di;
-import 'package:flutter/material.dart';
+import 'package:bebop/core/network/local/cache_helper.dart';
 
-import '../../../../core/network/local/cache_helper.dart';
 import '../widgets/header.dart';
 import '../widgets/next_page_button.dart';
 import '../widgets/onboarding_page_indicator.dart';
 import '../widgets/ripple.dart';
+
 import 'crying/crying_card_content.dart';
 import 'crying/crying_light_card_content.dart';
 import 'crying/crying_text_column.dart';
@@ -214,7 +215,7 @@ class OnBoardingState extends State<OnBoardingScreen>
     di
         .sl<CacheHelper>()
         .saveData(key: AppStrings.isBoarding, value: AppStrings.isBoarding);
-    Navigator.pushReplacementNamed(context, Routes.login);
+    navigateAndReplace(context, Routes.login);
   }
 
   @override

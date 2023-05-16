@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "543370676803",
+    "project_id": "bebop-f16ad",
+    "storage_bucket": "bebop-f16ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543370676803:android:ccf669ed489137ac25a2f6",
+        "android_client_info": {
+          "package_name": "com.bebop.bebop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543370676803-10lm1csfc117eell3rbqr44hki9uhvr8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcRs-ouN0KxiAuvAS4PDklIaZqhVtiuHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543370676803-10lm1csfc117eell3rbqr44hki9uhvr8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,14 +1,34 @@
-import 'package:bebop/features/baby_register/presentation/cubit/baby_register_states.dart';
+import 'package:bebop/features/register/presentation/cubit/register_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/utils/app_color.dart';
 
-class BabyRegisterCubit extends Cubit<BabyRegisterStates> {
-  BabyRegisterCubit() : super(BabyRegisterInitialState());
+mixin RegisterMixin on Cubit<RegisterStates> {
 
-  static BabyRegisterCubit get(context) => BlocProvider.of(context);
+  //Change Visibility1
+  bool isPassword1 = true;
+  IconData suffix1 = Icons.visibility_off_outlined;
+
+  changeVisibility1() {
+    isPassword1 = !isPassword1;
+    suffix1 =
+    isPassword1 ? Icons.visibility_off_outlined : Icons.visibility_outlined;
+    emit(ChangeVisibilityState1());
+  }
+
+  //Change Visibility2
+  bool isPassword2 = true;
+  IconData suffix2 = Icons.visibility_off_outlined;
+
+  changeVisibility2() {
+    isPassword2 = !isPassword2;
+    suffix2 =
+    isPassword2 ? Icons.visibility_off_outlined : Icons.visibility_outlined;
+    emit(ChangeVisibilityState2());
+  }
+
   late int genderGroupValue = 0;
   late int relationshipGroupValue = 0;
   dynamic babyHeight = 40.0;

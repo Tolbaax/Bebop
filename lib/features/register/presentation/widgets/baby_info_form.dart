@@ -1,14 +1,14 @@
 import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
-import 'package:bebop/features/baby_register/presentation/cubit/baby_register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../cubit/register_cubit.dart';
 import 'custom_row.dart';
 import 'custom_sliding_segmented_control.dart';
 
 class BabyInfoForm extends StatelessWidget {
-  final BabyRegisterCubit cubit;
+  final RegisterCubit cubit;
   const BabyInfoForm({Key? key, required this.cubit}) : super(key: key);
 
   @override

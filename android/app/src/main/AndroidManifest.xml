@@ -7,7 +7,7 @@
     <application
         android:label="Bebop"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyArW9nbQBcJcE8cvzrcEsxN4a7xhj-L48U"/>
 

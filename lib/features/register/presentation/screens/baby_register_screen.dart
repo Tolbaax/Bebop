@@ -3,11 +3,8 @@ import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/core/widgets/appbar_back_button.dart';
 import 'package:bebop/core/widgets/custom_button.dart';
-import 'package:bebop/features/baby_register/presentation/cubit/baby_register_cubit.dart';
-import 'package:bebop/features/baby_register/presentation/cubit/baby_register_states.dart';
-import 'package:bebop/features/baby_register/presentation/widgets/baby_height_screen.dart';
-import 'package:bebop/features/baby_register/presentation/widgets/baby_info_page.dart';
-import 'package:bebop/features/baby_register/presentation/widgets/baby_weight_page.dart';
+import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
+import 'package:bebop/features/register/presentation/cubit/register_states.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +12,10 @@ import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../core/utils/app_color.dart';
+import '../widgets/baby_height_screen.dart';
+import '../widgets/baby_info_page.dart';
+import '../widgets/baby_weight_page.dart';
+
 
 class BabyRegisterScreen extends StatefulWidget {
   const BabyRegisterScreen({Key? key}) : super(key: key);
@@ -45,10 +46,10 @@ class _BabyRegisterScreenState extends State<BabyRegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<BabyRegisterCubit, BabyRegisterStates>(
+    return BlocConsumer<RegisterCubit, RegisterStates>(
       listener: (context, state) {},
       builder: (context, state) {
-        final cubit = BabyRegisterCubit.get(context);
+        final cubit = RegisterCubit.get(context);
         Future<bool> onWillPop() async {
           if (_pageController.page != 0) {
             _pageController.previousPage(

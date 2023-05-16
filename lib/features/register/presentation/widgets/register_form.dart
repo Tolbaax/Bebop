@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../config/routes/app_routes.dart';
-import '../../../../core/widgets/custom_input_field.dart';
-import '../../../../core/widgets/divider.dart';
-import '../../../../core/widgets/social_signup.dart';
+import '../../../../../config/routes/app_routes.dart';
+import '../../../../../core/widgets/custom_input_field.dart';
+import '../../../../../core/widgets/divider.dart';
+import '../../../../../core/widgets/social_signup.dart';
 import 'have_account.dart';
 
 class RegisterForm extends StatelessWidget {

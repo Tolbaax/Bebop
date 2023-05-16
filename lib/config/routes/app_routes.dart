@@ -1,7 +1,4 @@
 import 'package:bebop/core/utils/media_query_values.dart';
-import 'package:bebop/features/baby_register/presentation/screens/baby_register_screen.dart';
-import 'package:bebop/features/crying/presentation/screens/crying_translate_screen.dart';
-import 'package:bebop/features/crying/presentation/screens/translate_result_screen.dart';
 import 'package:bebop/features/ehr/presentation/screens/ehr_screen.dart';
 import 'package:bebop/features/ehr/presentation/screens/heart_rate_screen.dart';
 import 'package:bebop/features/ehr/presentation/screens/oxygen_screen.dart';
@@ -19,16 +16,18 @@ import 'package:bebop/features/profile/presentation/cubit/cubit.dart';
 import 'package:bebop/features/profile/presentation/screens/settings_screen.dart';
 import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
 import 'package:bebop/features/register/presentation/screens/register_screen.dart';
-import 'package:bebop/features/splash/presentation/screens/splash_screen.dart';
+import 'package:bebop/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/utils/app_strings.dart';
-import '../../features/baby_register/presentation/cubit/baby_register_cubit.dart';
+import '../../features/crying/presentation/screens/crying_translate_screen.dart';
+import '../../features/crying/presentation/screens/translate_result_screen.dart';
 import '../../features/onboarding/presentation/screens/onBoardingScreen.dart';
 import '../../features/profile/presentation/screens/add_memory.dart';
+import '../../features/register/presentation/screens/baby_register_screen.dart';
 
 class Routes {
   static const String initialRoute = '/';
@@ -92,7 +91,7 @@ class AppRoutes {
         return PageTransition(
           type: PageTransitionType.fade,
           child: BlocProvider(
-            create: (_) => BabyRegisterCubit(),
+            create: (context) => RegisterCubit(),
             child: const BabyRegisterScreen(),
           ),
         );

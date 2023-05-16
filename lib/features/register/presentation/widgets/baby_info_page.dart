@@ -1,12 +1,14 @@
 import 'package:bebop/core/utils/assets_manager.dart';
-import 'package:bebop/features/baby_register/presentation/cubit/baby_register_cubit.dart';
-import 'package:bebop/features/baby_register/presentation/widgets/baby_info_form.dart';
+import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 
+import 'baby_info_form.dart';
+
 class BabyInfoPage extends StatelessWidget {
-  final BabyRegisterCubit cubit;
+  final RegisterCubit cubit;
+
   const BabyInfoPage({Key? key, required this.cubit}) : super(key: key);
 
   @override

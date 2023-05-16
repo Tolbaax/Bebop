@@ -1,6 +1,5 @@
 import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
 import 'package:bebop/features/register/presentation/cubit/register_states.dart';
-import 'package:bebop/features/register/presentation/widgets/register_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -10,6 +9,7 @@ import '../../../../core/widgets/custom_clippers/blue_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/grey_top_clipper.dart';
 import '../../../../core/widgets/custom_clippers/white_top_clipper.dart';
 import '../widgets/register_form.dart';
+import '../widgets/register_header.dart';
 
 class RegisterScreen extends StatefulWidget {
   final double screenHeight;
