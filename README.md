@@ -1,4 +1,1 @@
-# bebop
-
-A new Flutter project.
-  
+# Bebop
