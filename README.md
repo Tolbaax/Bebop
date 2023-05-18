@@ -7,3 +7,4 @@
 
 - User registration and login with email and password
 - Firebase Authentication for secure and reliable authentication
+- 
