@@ -1,8 +1,11 @@
+import 'package:bebop/features/view/register/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 import 'config/routes/app_routes.dart';
 import 'config/themes/app_theme.dart';
+import 'core/services/injection_container.dart';
 import 'core/utils/app_strings.dart';
 
 class Bebop extends StatelessWidget {
@@ -11,11 +14,16 @@ class Bebop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: AppStrings.appName,
-        theme: appTheme(),
-        onGenerateRoute: AppRoutes.onGenerateRoute,
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => sl<RegisterCubit>()),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: AppStrings.appName,
+          theme: appTheme(),
+          onGenerateRoute: AppRoutes.onGenerateRoute,
+        ),
       );
     });
   }

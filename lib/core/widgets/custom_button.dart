@@ -5,6 +5,7 @@ import '../utils/app_color.dart';
 
 class CustomButton extends StatelessWidget {
   final GestureTapCallback? onTap;
+  final bool? condition;
   final Color color;
   final String text;
 
@@ -12,6 +13,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.text,
+    this.condition = false,
     required this.color,
   });
 
@@ -35,14 +37,19 @@ class CustomButton extends StatelessWidget {
           ],
         ),
         child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          child: condition!
+              ? CircularProgressIndicator(
+                  color: AppColors.white,
+                  strokeWidth: 2.5.sp,
+                )
+              : Text(
+                  text,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
         ),
       ),
     );

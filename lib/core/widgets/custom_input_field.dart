@@ -60,12 +60,11 @@ class CustomInputField extends StatelessWidget {
               )
             : null,
         suffixIcon: (suffixIcon != null)
-            ? InkWell(
+            ? GestureDetector(
                 onTap: suffixTab,
-                radius: 0.0,
                 child: Icon(
                   suffixIcon,
-                  size: 17.5.sp,
+                  size: 18.0.sp,
                 ),
               )
             : null,

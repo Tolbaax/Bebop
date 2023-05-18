@@ -1,33 +1,33 @@
 import 'package:bebop/core/utils/media_query_values.dart';
-import 'package:bebop/features/ehr/presentation/screens/ehr_screen.dart';
-import 'package:bebop/features/ehr/presentation/screens/heart_rate_screen.dart';
-import 'package:bebop/features/ehr/presentation/screens/oxygen_screen.dart';
-import 'package:bebop/features/ehr/presentation/screens/temp_screen.dart';
-import 'package:bebop/features/forget_password/forget_password_screen.dart';
-import 'package:bebop/features/home/data/models/tips_model.dart';
-import 'package:bebop/features/home/presentation/screens/tips_details_screen.dart';
-import 'package:bebop/features/layout/presentation/cubit/cubit.dart';
-import 'package:bebop/features/layout/presentation/screens/layout_screen.dart';
-import 'package:bebop/features/location/presentation/cubit/map_cubit.dart';
-import 'package:bebop/features/location/presentation/screens/get_location_screen.dart';
-import 'package:bebop/features/location/presentation/screens/map_screen.dart';
-import 'package:bebop/features/login/presentation/screens/login_screen.dart';
-import 'package:bebop/features/profile/presentation/cubit/cubit.dart';
-import 'package:bebop/features/profile/presentation/screens/settings_screen.dart';
-import 'package:bebop/features/register/presentation/cubit/register_cubit.dart';
-import 'package:bebop/features/register/presentation/screens/register_screen.dart';
-import 'package:bebop/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../core/services/injection_container.dart';
 import '../../core/utils/app_strings.dart';
-import '../../features/crying/presentation/screens/crying_translate_screen.dart';
-import '../../features/crying/presentation/screens/translate_result_screen.dart';
-import '../../features/onboarding/presentation/screens/onBoardingScreen.dart';
-import '../../features/profile/presentation/screens/add_memory.dart';
-import '../../features/register/presentation/screens/baby_register_screen.dart';
+import '../../features/view/crying/screens/crying_translate_screen.dart';
+import '../../features/view/crying/screens/translate_result_screen.dart';
+import '../../features/view/ehr/screens/ehr_screen.dart';
+import '../../features/view/ehr/screens/heart_rate_screen.dart';
+import '../../features/view/ehr/screens/oxygen_screen.dart';
+import '../../features/view/ehr/screens/temp_screen.dart';
+import '../../features/view/forget_password/forget_password_screen.dart';
+import '../../features/view/home/screens/tips_details_screen.dart';
+import '../../features/view/home/tips_model.dart';
+import '../../features/view/layout/cubit/cubit.dart';
+import '../../features/view/layout/screens/layout_screen.dart';
+import '../../features/view/location/cubit/map_cubit.dart';
+import '../../features/view/location/screens/get_location_screen.dart';
+import '../../features/view/location/screens/map_screen.dart';
+import '../../features/view/login/screens/login_screen.dart';
+import '../../features/view/onboarding/screens/onBoardingScreen.dart';
+import '../../features/view/profile/cubit/cubit.dart';
+import '../../features/view/profile/screens/add_memory.dart';
+import '../../features/view/profile/screens/settings_screen.dart';
+import '../../features/view/register/screens/baby_register_screen.dart';
+import '../../features/view/register/screens/register_screen.dart';
+import '../../features/view/splash/splash_screen.dart';
 
 class Routes {
   static const String initialRoute = '/';
@@ -81,19 +81,13 @@ class AppRoutes {
       case Routes.register:
         return PageTransition(
           type: PageTransitionType.fade,
-          child: BlocProvider(
-            create: (_) => RegisterCubit(),
-            child: RegisterScreen(screenHeight: 1.h),
-          ),
+          child: RegisterScreen(screenHeight: 1.h),
         );
 
       case Routes.babyRegister:
         return PageTransition(
           type: PageTransitionType.fade,
-          child: BlocProvider(
-            create: (context) => RegisterCubit(),
-            child: const BabyRegisterScreen(),
-          ),
+          child: const BabyRegisterScreen(),
         );
 
       case Routes.layout:
@@ -135,7 +129,13 @@ class AppRoutes {
       case Routes.settings:
         return PageTransition(
           type: PageTransitionType.rightToLeft,
-          child: const SettingsScreen(),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => sl<LayoutCubit>()),
+              BlocProvider(create: (_) => sl<ProfileCubit>()),
+            ],
+            child: const SettingsScreen(),
+          ),
         );
 
       case Routes.getLocation:

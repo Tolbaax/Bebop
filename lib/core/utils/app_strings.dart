@@ -39,6 +39,7 @@ class AppStrings {
   static const String submit = 'Submit';
 
   //Register
+  static const String uID = 'uID';
   static const String continu = 'Continue';
   static const String getStarted = 'Get Started';
   static const String gender = 'Gender';
@@ -169,7 +170,11 @@ class AppStrings {
   static const String darkTheme = 'Dark Theme';
   static const String contactUs = 'Contact Us';
   static const String notification = 'Notification';
-  static const String logout = 'LogOut';
+  static const String logout = 'Logout';
+  static const String cancel = 'cancel';
+  static const String checkInternet = 'Check Internet Connection!';
+  static const String noInternetAccess = 'No Internet Access!';
+
   //Location
   static const String getLocation = 'Get Baby Location';
   static const String detectBabyLocation = 'Detect Your Baby Location';
