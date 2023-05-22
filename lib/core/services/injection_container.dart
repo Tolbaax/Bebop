@@ -1,7 +1,5 @@
 import 'package:bebop/core/network/local/cache_helper.dart';
 import 'package:bebop/core/network/remote/network_info.dart';
-import 'package:bebop/features/view/layout/cubit/cubit.dart';
-import 'package:bebop/features/view/profile/cubit/cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -24,8 +22,10 @@ import '../../features/domain/usecases/auth/signout_usecase.dart';
 import '../../features/domain/usecases/auth/signup_usecase.dart';
 import '../../features/domain/usecases/user/get_current_uid_usecase.dart';
 import '../../features/domain/usecases/user/get_current_user_usecase.dart';
-import '../../features/view/login/cubit/login_cubit.dart';
-import '../../features/view/register/cubit/register_cubit.dart';
+import '../../features/presentation/view/layout/cubit/cubit.dart';
+import '../../features/presentation/view/login/cubit/login_cubit.dart';
+import '../../features/presentation/view/profile/cubit/cubit.dart';
+import '../../features/presentation/view/register/cubit/register_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -38,7 +38,7 @@ Future<void> init() async {
   sl.registerLazySingleton<LayoutCubit>(() => LayoutCubit());
   sl.registerLazySingleton<LoginCubit>(() => LoginCubit(sl()));
   sl.registerLazySingleton<RegisterCubit>(() => RegisterCubit(sl()));
-  sl.registerLazySingleton<ProfileCubit>(() => ProfileCubit(sl()));
+  sl.registerLazySingleton<ProfileCubit>(() => ProfileCubit(sl(), sl()));
 
   //Core
 

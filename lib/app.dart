@@ -1,4 +1,3 @@
-import 'package:bebop/features/view/register/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -7,6 +6,8 @@ import 'config/routes/app_routes.dart';
 import 'config/themes/app_theme.dart';
 import 'core/services/injection_container.dart';
 import 'core/utils/app_strings.dart';
+import 'features/presentation/view/profile/cubit/cubit.dart';
+import 'features/presentation/view/register/cubit/register_cubit.dart';
 
 class Bebop extends StatelessWidget {
   const Bebop({super.key});
@@ -17,6 +18,8 @@ class Bebop extends StatelessWidget {
       return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => sl<RegisterCubit>()),
+          BlocProvider(
+              create: (context) => sl<ProfileCubit>()..getCurrentUser()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
