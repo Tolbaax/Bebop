@@ -18,3 +18,6 @@
 - Firebase Crashlytics to handle errors
 - Bloc package for state management
 - Rive and Lottie for animations throughout the application.
+
+## Screenshots
+[Insert screenshots here]
