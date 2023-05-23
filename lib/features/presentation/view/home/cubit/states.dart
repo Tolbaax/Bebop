@@ -1,3 +1,3 @@
 abstract class HomeStates {}
 
-class HomeIntialState extends HomeStates {}
+class HomeInitialState extends HomeStates {}

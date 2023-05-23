@@ -15,7 +15,6 @@ class GetCurrentUserErrorState extends ProfileStates {}
 
 class GetCurrentUserSuccessState extends ProfileStates {}
 
-
 //SignOut States
 class SignOutLoadingState extends ProfileStates {}
 

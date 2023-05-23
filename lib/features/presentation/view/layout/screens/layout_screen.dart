@@ -1,3 +1,4 @@
+import 'package:bebop/features/presentation/view/profile/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -6,8 +7,26 @@ import '../cubit/states.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
 import '../widgets/custom_floating_button.dart';
 
-class LayoutScreen extends StatelessWidget {
+class LayoutScreen extends StatefulWidget {
   const LayoutScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LayoutScreen> createState() => _LayoutScreenState();
+}
+
+class _LayoutScreenState extends State<LayoutScreen> {
+  late ProfileCubit _profileCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _profileCubit = BlocProvider.of<ProfileCubit>(context);
+    getCurrentUser();
+  }
+
+  void getCurrentUser() {
+    _profileCubit.getCurrentUser();
+  }
 
   @override
   Widget build(BuildContext context) {

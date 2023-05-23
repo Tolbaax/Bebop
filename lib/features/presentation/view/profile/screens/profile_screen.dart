@@ -17,19 +17,27 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileCubit, ProfileStates>(
+    var user = ProfileCubit.get(context).userEntity;
+
+    return BlocConsumer<ProfileCubit, ProfileStates>(
+      listener: (context, state) {
+        if (state is GetCurrentUserSuccessState) {
+          user = ProfileCubit.get(context).userEntity;
+          print(user);
+        }
+      },
       builder: (context, state) {
         final cubit = ProfileCubit.get(context);
-        final userEntity = cubit.userEntity;
 
         return Scaffold(
           appBar: const ProfileAppBar(),
-          body: userEntity != null
+          body: user != null
               ? SingleChildScrollView(
                   child: Column(
                     children: [
                       Container(
-                        height: 17.0.h,
+                        height: 14.0.h,
+                        width: 14.0.h,
                         decoration: BoxDecoration(
                           color: AppColors.primary.withOpacity(0.7),
                           shape: BoxShape.circle,
@@ -39,16 +47,20 @@ class ProfileScreen extends StatelessWidget {
                           ),
                           image: const DecorationImage(
                             image: AssetImage(ImageAssets.baby1),
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
                       SizedBox(height: 1.0.h),
                       Text(
-                        userEntity.babyName,
-                        style: TextStyle(fontSize: 23.0.sp),
+                        user!.babyName,
+                        style: TextStyle(
+                          fontSize: 20.0.sp,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       SizedBox(height: 2.0.h),
-                      HeightWeightRow(user: userEntity),
+                      HeightWeightRow(user: user!),
                       SizedBox(height: 2.0.h),
                       const StackedLineChart(),
                       MyAlbums(cubit: cubit),

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../core/services/injection_container.dart';
 import '../../core/utils/app_strings.dart';
 import '../../features/presentation/view/crying/screens/crying_translate_screen.dart';
 import '../../features/presentation/view/crying/screens/translate_result_screen.dart';
@@ -94,7 +92,7 @@ class AppRoutes {
         return PageTransition(
           type: PageTransitionType.fade,
           child: BlocProvider(
-            create: (_) => LayoutCubit(),
+            create: (context) => LayoutCubit(),
             child: const LayoutScreen(),
           ),
         );
@@ -129,11 +127,8 @@ class AppRoutes {
       case Routes.settings:
         return PageTransition(
           type: PageTransitionType.rightToLeft,
-          child: MultiBlocProvider(
-            providers: [
-              BlocProvider(create: (_) => sl<LayoutCubit>()),
-              BlocProvider(create: (_) => sl<ProfileCubit>()),
-            ],
+          child: BlocProvider(
+            create: (context) => LayoutCubit(),
             child: const SettingsScreen(),
           ),
         );
