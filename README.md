@@ -7,7 +7,8 @@
 
 - User registration and login with email and password
 - Firebase Authentication for secure and reliable authentication
-- Today's Reminder mom-focused feature streamlines essential tasks for moms, including medication schedules,<br> baby feeding, and bathing routines, ensuring efficient organization and optimal care.
+- **Today's Reminder** mom-focused feature streamlines essential tasks for moms, including medication schedules,<br> baby feeding, and bathing routines, ensuring efficient organization and optimal care.
+- **Tips for Moms** feature within the app offers a wealth of valuable advice, practical tips, and insightful guidance,<br> all dedicated to supporting and empowering moms on their rewarding parenting journey.
 
 ## Technologies Used
 
