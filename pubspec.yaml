@@ -49,6 +49,8 @@ dependencies:
   syncfusion_flutter_gauges: ^20.4.51
   firebase_crashlytics: ^3.2.0
   connectivity_plus: ^4.0.0
+  cached_network_image: ^3.2.3
+  image_cropper: ^4.0.1
 
 
 

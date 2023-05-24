@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../components/appbar_back_button.dart';
+import '../../../components/buttons/appbar_back_button.dart';
 
 class TemperatureScreen extends StatefulWidget {
   const TemperatureScreen({Key? key}) : super(key: key);

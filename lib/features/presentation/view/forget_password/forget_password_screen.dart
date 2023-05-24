@@ -5,8 +5,8 @@ import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/utils/app_color.dart';
-import '../../components/appbar_back_button.dart';
-import '../../components/custom_button.dart';
+import '../../components/buttons/appbar_back_button.dart';
+import '../../components/buttons/custom_button.dart';
 import '../../components/custom_input_field.dart';
 
 class ForgetPasswordScreen extends StatelessWidget {

@@ -13,6 +13,8 @@ class CustomInputField extends StatelessWidget {
   final bool obscureText;
   final TextInputAction? textInputAction;
   final FormFieldValidator? validator;
+  final GestureTapCallback? onTap;
+  final bool enabled;
 
   const CustomInputField({
     super.key,
@@ -26,6 +28,8 @@ class CustomInputField extends StatelessWidget {
     this.suffixTab,
     this.textInputAction,
     this.validator,
+    this.onTap,
+    this.enabled = true,
   });
 
   @override
@@ -35,11 +39,14 @@ class CustomInputField extends StatelessWidget {
       obscureText: obscureText,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
+      onTap: onTap,
+      enabled: enabled,
       maxLines: keyboardType == TextInputType.multiline ? null : 1,
       validator: validator,
       style: TextStyle(color: AppColors.black, fontSize: 12.0.sp),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(10.0.sp),
+        contentPadding:
+            EdgeInsetsDirectional.symmetric(horizontal: 4.0.w, vertical: 0.0),
         hintText: hintText,
         labelText: labelText,
         labelStyle: TextStyle(
@@ -69,6 +76,10 @@ class CustomInputField extends StatelessWidget {
               )
             : null,
         focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12.0.sp),
+          borderSide: BorderSide(color: Colors.black.withOpacity(0.3)),
+        ),
+        disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.0.sp),
           borderSide: BorderSide(color: Colors.black.withOpacity(0.3)),
         ),

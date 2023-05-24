@@ -1,9 +1,10 @@
+import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/features/domain/entities/user_entity.dart';
+import 'package:bebop/features/presentation/components/profile_image/my_cached_net_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../core/utils/app_color.dart';
-import '../../../../../core/utils/assets_manager.dart';
 import '../../../components/loader.dart';
 import '../cubit/cubit.dart';
 import '../cubit/states.dart';
@@ -17,15 +18,10 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var user = ProfileCubit.get(context).userEntity;
+    UserEntity? user = ProfileCubit.get(context).userEntity;
 
     return BlocConsumer<ProfileCubit, ProfileStates>(
-      listener: (context, state) {
-        if (state is GetCurrentUserSuccessState) {
-          user = ProfileCubit.get(context).userEntity;
-          print(user);
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         final cubit = ProfileCubit.get(context);
 
@@ -35,34 +31,25 @@ class ProfileScreen extends StatelessWidget {
               ? SingleChildScrollView(
                   child: Column(
                     children: [
-                      Container(
-                        height: 14.0.h,
-                        width: 14.0.h,
-                        decoration: BoxDecoration(
-                          color: AppColors.primary.withOpacity(0.7),
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: AppColors.primary.withOpacity(0.6),
-                            width: 1.2.sp,
-                          ),
-                          image: const DecorationImage(
-                            image: AssetImage(ImageAssets.baby1),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
+                      MyCachedNetImage(
+                          imageUrl: user.profilePic, radius: 35.0.sp),
                       SizedBox(height: 1.0.h),
-                      Text(
-                        user!.babyName,
-                        style: TextStyle(
-                          fontSize: 20.0.sp,
-                          fontWeight: FontWeight.w500,
+                      SizedBox(
+                        width: context.width * 0.8,
+                        child: Text(
+                          user.babyName,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20.0.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                       SizedBox(height: 2.0.h),
-                      HeightWeightRow(user: user!),
+                      HeightWeightRow(user: user),
                       SizedBox(height: 2.0.h),
-                      const StackedLineChart(),
+                      StackedLineChart(),
                       MyAlbums(cubit: cubit),
                     ],
                   ),

@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/functions/app_dialogs.dart';
-import '../../../components/custom_button.dart';
+import '../../../components/buttons/custom_button.dart';
 import '../../../components/custom_input_field.dart';
 import '../../../components/divider.dart';
-import '../../../components/social_signup.dart';
+import '../../../components/buttons/social_signup.dart';
 import '../cubit/login_cubit.dart';
 import '../cubit/login_states.dart';
 import 'dont_have_account.dart';

@@ -2,6 +2,7 @@ import 'package:bebop/config/routes/app_routes.dart';
 import 'package:bebop/core/shared/common.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/features/presentation/view/login/cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,8 +15,8 @@ import '../../../../../core/services/injection_container.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../../data/datasources/auth/local/auth_local_data_sources.dart';
 import '../../../../domain/usecases/user/get_current_uid_usecase.dart';
-import '../../../components/appbar_back_button.dart';
-import '../../../components/custom_button.dart';
+import '../../../components/buttons/appbar_back_button.dart';
+import '../../../components/buttons/custom_button.dart';
 import '../cubit/register_cubit.dart';
 import '../cubit/register_states.dart';
 import '../widgets/baby_height_page.dart';
@@ -60,6 +61,7 @@ class _BabyRegisterScreenState extends State<BabyRegisterScreen> {
             print(sl<GetCurrentUIDUseCase>().toString());
             navigateAndRemove(context, Routes.layout);
             sl<RegisterCubit>().clearSignUpControllers();
+            sl<LoginCubit>().clearSignInControllers();
           });
         }
       },

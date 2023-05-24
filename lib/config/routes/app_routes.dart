@@ -1,4 +1,5 @@
 import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/features/presentation/view/settings/screens/baby_information_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
@@ -22,7 +23,7 @@ import '../../features/presentation/view/login/screens/login_screen.dart';
 import '../../features/presentation/view/onboarding/screens/onBoardingScreen.dart';
 import '../../features/presentation/view/profile/cubit/cubit.dart';
 import '../../features/presentation/view/profile/screens/add_memory.dart';
-import '../../features/presentation/view/profile/screens/settings_screen.dart';
+import '../../features/presentation/view/settings/screens/settings_screen.dart';
 import '../../features/presentation/view/register/screens/baby_register_screen.dart';
 import '../../features/presentation/view/register/screens/register_screen.dart';
 import '../../features/presentation/view/splash/splash_screen.dart';
@@ -49,6 +50,7 @@ class Routes {
   static const String heartRate = '/hearRate';
   static const String temp = '/temp';
   static const String oxygen = '/oxygen';
+  static const String babyInformation = '/babyInformation';
 }
 
 class AppRoutes {
@@ -131,6 +133,13 @@ class AppRoutes {
             create: (context) => LayoutCubit(),
             child: const SettingsScreen(),
           ),
+        );
+
+
+      case Routes.babyInformation:
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          child: const BabyInformationScreen(),
         );
 
       case Routes.getLocation:

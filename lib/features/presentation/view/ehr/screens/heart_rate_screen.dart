@@ -4,7 +4,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_color.dart';
 import '../../../../../core/utils/app_strings.dart';
-import '../../../components/appbar_back_button.dart';
+import '../../../components/buttons/appbar_back_button.dart';
 import '../widgets/custom_circle_indicator.dart';
 
 class HeartRateScreen extends StatelessWidget {

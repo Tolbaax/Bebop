@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_strings.dart';
-import '../../../components/appbar_back_button.dart';
+import '../../../components/buttons/appbar_back_button.dart';
 import '../widgets/custom_circle_indicator.dart';
 
 class OxygenScreen extends StatelessWidget {

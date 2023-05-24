@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 import '../../../../../config/routes/app_routes.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../../../core/utils/app_strings.dart';
-import '../../../components/custom_button.dart';
+import '../../../components/buttons/custom_button.dart';
 
 class CustomTranslateContainer extends StatelessWidget {
   const CustomTranslateContainer({Key? key}) : super(key: key);

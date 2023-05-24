@@ -3,7 +3,7 @@ import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../components/appbar_back_button.dart';
+import '../../../components/buttons/appbar_back_button.dart';
 import '../widgets/analysis_history_list.dart';
 
 class AllAnalysisHistory extends StatelessWidget {

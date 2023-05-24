@@ -9,10 +9,10 @@ import 'package:sizer/sizer.dart';
 import '../../../../../config/routes/app_routes.dart';
 import '../../../../../core/functions/app_dialogs.dart';
 import '../../../../../core/utils/app_color.dart';
-import '../../../components/custom_button.dart';
+import '../../../components/buttons/custom_button.dart';
 import '../../../components/custom_input_field.dart';
 import '../../../components/divider.dart';
-import '../../../components/social_signup.dart';
+import '../../../components/buttons/social_signup.dart';
 import '../cubit/register_cubit.dart';
 import 'have_account.dart';
 

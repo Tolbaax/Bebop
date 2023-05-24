@@ -4,10 +4,10 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_color.dart';
 
-
 class CustomSlidingSegmentedButton extends StatelessWidget {
-  final String text1, text2;
-  final ValueChanged onValueChanged;
+  final String text1;
+  final String text2;
+  final ValueChanged<int> onValueChanged;
   final int groupValue;
 
   const CustomSlidingSegmentedButton({
@@ -23,14 +23,8 @@ class CustomSlidingSegmentedButton extends StatelessWidget {
     return CustomSlidingSegmentedControl<int>(
       isStretch: true,
       children: {
-        0: buildSegment(
-          text: text1,
-          color: groupValue == 0 ? AppColors.white : AppColors.primary,
-        ),
-        1: buildSegment(
-          text: text2,
-          color: groupValue == 1 ? AppColors.white : AppColors.primary,
-        ),
+        0: buildSegment(text: text1, isSelected: groupValue == 0),
+        1: buildSegment(text: text2, isSelected: groupValue == 1),
       },
       decoration: BoxDecoration(
         color: AppColors.grey,
@@ -46,19 +40,18 @@ class CustomSlidingSegmentedButton extends StatelessWidget {
 
   Widget buildSegment({
     required String text,
-    required Color color,
-  }) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 13.0.sp,
-              fontWeight: FontWeight.w500,
-              color: color,
-            ),
-          ),
-        ],
-      );
+    required bool isSelected,
+  }) {
+    final textColor = isSelected ? AppColors.white : AppColors.primary;
+    return Center(
+      child: DefaultTextStyle(
+        style: TextStyle(
+          fontSize: 13.0.sp,
+          fontWeight: FontWeight.w500,
+          color: textColor,
+        ),
+        child: Text(text),
+      ),
+    );
+  }
 }

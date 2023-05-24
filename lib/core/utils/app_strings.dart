@@ -172,6 +172,7 @@ class AppStrings {
   static const String notification = 'Notification';
   static const String logout = 'Logout';
   static const String cancel = 'cancel';
+  static const String save = 'Save';
   static const String checkInternet = 'Check Internet Connection!';
   static const String noInternetAccess = 'No Internet Access!';
 

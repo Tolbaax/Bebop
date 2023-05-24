@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../core/utils/assets_manager.dart';
+import '../../../../core/utils/assets_manager.dart';
 
 class SocialSignUp extends StatelessWidget {
   const SocialSignUp({Key? key}) : super(key: key);

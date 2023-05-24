@@ -8,6 +8,8 @@ import 'register_states.dart';
 mixin RegisterMixin on Cubit<RegisterStates> {
   final nameController = TextEditingController();
   final babyNameController = TextEditingController();
+  final babyHeightController = TextEditingController();
+  final babyWeightController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();

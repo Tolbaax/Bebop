@@ -1,12 +1,12 @@
 import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
-import 'package:bebop/features/presentation/components/rounded_loading_button.dart';
+import 'package:bebop/features/presentation/components/buttons/rounded_loading_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../components/appbar_back_button.dart';
+import '../../../components/buttons/appbar_back_button.dart';
 import '../../../components/custom_input_field.dart';
 import '../cubit/cubit.dart';
 

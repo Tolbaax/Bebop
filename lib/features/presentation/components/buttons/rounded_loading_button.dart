@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../core/utils/app_color.dart';
+import '../../../../core/utils/app_color.dart';
 
 class CustomRoundedLoadingButton extends StatelessWidget {
   final VoidCallback? onPressed;

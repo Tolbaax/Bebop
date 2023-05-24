@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../components/appbar_back_button.dart';
-import '../../../components/custom_button.dart';
+import '../../../components/buttons/appbar_back_button.dart';
+import '../../../components/buttons/custom_button.dart';
 
 class GetLocationScreen extends StatefulWidget {
   const GetLocationScreen({Key? key}) : super(key: key);
