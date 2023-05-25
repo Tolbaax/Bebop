@@ -7,9 +7,11 @@
 
 - User registration and login with email and password
 - Firebase Authentication for secure and reliable authentication
-- **Today's Reminder** mom-focused feature streamlines essential tasks for moms, including medication schedules,<br> baby feeding, and bathing routines, ensuring efficient organization and optimal care.
-- **Tips for Moms** feature within the app offers a wealth of valuable advice, practical tips, and insightful guidance,<br> all dedicated to supporting and empowering moms on their rewarding parenting journey.
 - Monthly statistics of changes in weight and length of the child in synchronization charts.
+- Today's Reminder: Mom-focused feature streamlines essential tasks for moms, including medication schedules, baby feeding, and bathing routines, ensuring efficient organization and optimal care.
+- Tips for Moms: Feature within the app offers a wealth of valuable advice, practical tips, and insightful guidance, all dedicated to supporting and empowering moms on their rewarding parenting journey.
+- Memories: Mothers add and document memorable events, such as birthdays, holidays, first steps, or even everyday activities that hold sentimental value.
+
 
 ## Technologies Used
 
