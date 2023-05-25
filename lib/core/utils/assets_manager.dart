@@ -16,7 +16,6 @@ class ImageAssets {
   static const String baby5 = '$imgPath/baby5.jpg';
   static const String baby6 = '$imgPath/baby6.jpg';
   static const String baby7 = '$imgPath/baby7.jpg';
-  static const String baby8 = '$imgPath/baby8.jpg';
   static const String babyBottle = '$imgPath/baby_bottle.png';
   static const String babyDiaper = '$imgPath/diaper.png';
   static const String location = '$imgPath/location.svg';
