@@ -8,17 +8,14 @@ import '../../../../../core/utils/app_color.dart';
 
 class AddMemoryButton extends StatelessWidget {
   final ProfileCubit cubit;
+
   const AddMemoryButton({Key? key, required this.cubit}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          Routes.addMemory,
-          arguments: cubit,
-        );
+        Navigator.pushNamed(context, Routes.addMemory, arguments: cubit);
       },
       child: Container(
         margin: EdgeInsetsDirectional.all(5.0.sp),
