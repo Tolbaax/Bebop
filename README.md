@@ -39,4 +39,4 @@ topics such as feeding, sleep, and development milestones.
 [Insert screenshots here]
 
 ## What's Next?
- - [ ] Notifications for voice recognition warning,EHR warnings, reminder, daily tips, etc
+ - [ ] Notifications for voice recognition warning, EHR warnings, reminder, daily tips, etc
