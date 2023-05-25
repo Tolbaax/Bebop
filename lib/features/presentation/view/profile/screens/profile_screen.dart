@@ -30,6 +30,7 @@ class ProfileScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is GetCurrentUserSuccessState) {
           user = ProfileCubit.get(context).userEntity;
+          ProfileCubit.get(context).getMemories();
         }
 
         if (state is DeleteMemorySuccessState) {
