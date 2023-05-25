@@ -32,87 +32,104 @@ class MemoryScreen extends StatelessWidget {
 
           return Center(
             child: Padding(
-              padding: EdgeInsetsDirectional.symmetric(horizontal: 3.0.w),
+              padding: EdgeInsets.symmetric(horizontal: 3.0.w),
               child: Column(
                 children: [
                   Hero(
                     tag: memory.memoryId,
-                    child: Container(
-                      height: context.height * 0.43,
-                      decoration: BoxDecoration(
-                        color: AppColors.grey,
-                        borderRadius: BorderRadius.circular(10.0.sp),
-                        image: DecorationImage(
-                          image: NetworkImage(memory.memoryImageUrl),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
+                    child: _buildMemoryImage(context),
                   ),
                   Align(
                     alignment: AlignmentDirectional.centerEnd,
-                    child: Text(
-                      DateFormat.yMMMd('en_US').format(
-                        DateTime.parse(memory.publishTime),
-                      ),
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 13.0.sp,
-                      ),
-                    ),
+                    child: _buildPublishDate(),
                   ),
                   Expanded(
-                    child: Container(
-                      padding: EdgeInsetsDirectional.all(5.0.sp),
-                      color: AppColors.white,
-                      child: ListView(
-                        children: [
-                          Text(
-                            removeEmptyLines(memory.desc),
-                            style: TextStyle(
-                              fontSize: 12.0.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: _buildMemoryDescription(),
                   ),
-                  SizedBox(
-                    width: context.width * 0.5,
-                    child: FilledButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(AppColors.primary),
-                      ),
-                      onPressed: () => AppDialogs.showConfirmDeleteMemory(
-                        context,
-                        onPressed: () {
-                          navigatePop(context);
-                          ProfileCubit.get(context)
-                              .deleteMemory(memory.memoryId);
-                        },
-                      ),
-                      child: condition
-                          ? CircularProgressIndicator(
-                              color: AppColors.white, strokeWidth: 1.6)
-                          : Text(
-                              AppStrings.deleteMemory,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 13.0.sp,
-                              ),
-                            ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.5.h,
-                  ),
+                  _buildDeleteMemoryButton(context, condition),
+                  SizedBox(height: 2.5.h),
                 ],
               ),
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _buildMemoryImage(BuildContext context) {
+    return Container(
+      height: context.height * 0.43,
+      decoration: BoxDecoration(
+        color: AppColors.grey,
+        borderRadius: BorderRadius.circular(10.0.sp),
+        image: DecorationImage(
+          image: NetworkImage(memory.memoryImageUrl),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPublishDate() {
+    return Padding(
+      padding: EdgeInsetsDirectional.all(4.0.sp),
+      child: Text(
+        DateFormat.yMMMd('en_US').format(
+          DateTime.parse(memory.publishTime),
+        ),
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontFamily: '',
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMemoryDescription() {
+    return Container(
+      padding: EdgeInsetsDirectional.all(5.0.sp),
+      color: AppColors.white,
+      child: ListView(
+        children: [
+          Text(
+            removeEmptyLines(memory.desc),
+            style: TextStyle(
+              fontSize: 12.0.sp,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDeleteMemoryButton(BuildContext context, bool condition) {
+    return SizedBox(
+      width: context.width * 0.5,
+      child: FilledButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(AppColors.primary),
+        ),
+        onPressed: () {
+          AppDialogs.showConfirmDeleteMemory(
+            context,
+            onPressed: () {
+              navigatePop(context);
+              ProfileCubit.get(context).deleteMemory(memory.memoryId);
+            },
+          );
+        },
+        child: condition
+            ? CircularProgressIndicator(
+                color: AppColors.white, strokeWidth: 2.0.sp)
+            : Text(
+                AppStrings.deleteMemory,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13.0.sp,
+                ),
+              ),
       ),
     );
   }

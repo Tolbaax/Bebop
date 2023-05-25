@@ -24,7 +24,7 @@ class MemoryItem extends StatelessWidget {
             height: 18.5.h,
             width: context.width * 0.32,
             decoration: BoxDecoration(
-              color: AppColors.primary.withOpacity(0.8),
+              color: AppColors.primary.withOpacity(0.7),
               borderRadius: BorderRadius.circular(10.0.sp),
               image: DecorationImage(
                 image: NetworkImage(memory.memoryImageUrl),
