@@ -9,7 +9,7 @@
 - Firebase Authentication for secure and reliable authentication
 - **Today's Reminder** mom-focused feature streamlines essential tasks for moms, including medication schedules,<br> baby feeding, and bathing routines, ensuring efficient organization and optimal care.
 - **Tips for Moms** feature within the app offers a wealth of valuable advice, practical tips, and insightful guidance,<br> all dedicated to supporting and empowering moms on their rewarding parenting journey.
-- Monthly statistics of changes in weight and height of the child in graphical form
+- Monthly statistics of changes in weight and length of the child in synchronization charts.
 
 ## Technologies Used
 
