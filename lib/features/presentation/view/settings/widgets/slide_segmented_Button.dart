@@ -4,17 +4,17 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_color.dart';
 
-class SlideSegmentedButton extends StatefulWidget {
-  @override
-  _SlideSegmentedButtonState createState() => _SlideSegmentedButtonState();
-}
+List<String> segments = ['Boy', 'Girl'];
 
-class _SlideSegmentedButtonState extends State<SlideSegmentedButton> {
-  List<String> segments = ['Boy', 'Girl'];
+class SlideSegmentedButton extends StatelessWidget {
+  final ProfileCubit cubit;
+
+  const SlideSegmentedButton({Key? key, required this.cubit}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final cubit = ProfileCubit.get(context);
+    cubit.genderGroupValue = cubit.userEntity!.gender == 'Boy' ? 0 : 1;
+
     return Container(
       decoration: BoxDecoration(
         color: AppColors.grey,

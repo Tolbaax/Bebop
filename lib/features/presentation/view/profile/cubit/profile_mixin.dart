@@ -20,8 +20,7 @@ mixin ProfileMixin on Cubit<ProfileStates> {
   UserEntity? userEntity;
   File? memoryImage;
 
-  int genderGroupValue = 0;
-  bool memoriesFetched = false;
+  late int genderGroupValue;
 
   void selectProfileImageFromGallery(BuildContext context) async {
     final pickedFile = await pickImageFromGallery(context);

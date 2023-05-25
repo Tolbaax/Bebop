@@ -20,21 +20,11 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserEntity? user = ProfileCubit.get(context).userEntity;
-    bool memoriesFetched = ProfileCubit.get(context).memoriesFetched;
-    if (!memoriesFetched) {
-      ProfileCubit.get(context).getMemories();
-      ProfileCubit.get(context).memoriesFetched = true;
-    }
 
     return BlocConsumer<ProfileCubit, ProfileStates>(
       listener: (context, state) {
         if (state is GetCurrentUserSuccessState) {
           user = ProfileCubit.get(context).userEntity;
-          ProfileCubit.get(context).getMemories();
-        }
-
-        if (state is MemoryImagePickedSuccess) {
-          ProfileCubit.get(context).getMemories();
         }
 
         if (state is DeleteMemorySuccessState) {

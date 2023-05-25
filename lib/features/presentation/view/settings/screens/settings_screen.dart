@@ -91,7 +91,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onPressed: () {
                   ProfileCubit.get(context).signOut().then((value) {
                     navigateAndRemove(context, Routes.login);
-                    ProfileCubit.get(context).memoriesFetched = false;
                   });
                   LayoutCubit.get(context).selectedIndex = 0;
                 },

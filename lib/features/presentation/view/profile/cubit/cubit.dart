@@ -78,6 +78,8 @@ class ProfileCubit extends Cubit<ProfileStates> with ProfileMixin {
     );
   }
 
+  List<MemoryEntity> memoriesList = [];
+
   Future<List<MemoryEntity>> getMemories() async {
     final result = await _getMemoriesUseCase.call(NoParams());
 
@@ -87,6 +89,7 @@ class ProfileCubit extends Cubit<ProfileStates> with ProfileMixin {
         return [];
       },
       (memories) {
+        memoriesList = memories;
         emit(GetMemoriesSuccessState(memories: memories));
         return memories;
       },

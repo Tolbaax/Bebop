@@ -26,6 +26,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
   void getCurrentUser() {
     _profileCubit.getCurrentUser();
+    _profileCubit.getMemories();
   }
 
   @override

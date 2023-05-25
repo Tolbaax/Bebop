@@ -51,6 +51,7 @@ dependencies:
   connectivity_plus: ^4.0.0
   cached_network_image: ^3.2.3
   image_cropper: ^4.0.1
+  conditional_builder_null_safety: ^0.0.6
 
 
 
