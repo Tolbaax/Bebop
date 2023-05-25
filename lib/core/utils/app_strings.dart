@@ -48,7 +48,7 @@ class AppStrings {
   static const String relation = 'Relationship';
   static const String dad = 'Dad';
   static const String mom = 'Mom';
-  static const String birthdate = 'Birthdate';
+  static const String birthdate = 'BirthDate';
   static const String whatsHeight = 'What\'s your baby\nHeight?';
   static const String whatsWeight = 'What\'s your baby\nWeight?';
 
@@ -132,7 +132,7 @@ class AppStrings {
   static const String height = 'Height';
   static const String weight = 'Weight';
   static const String lastMonth = 'Last Month';
-  static const String babyName = 'Ahmed Dyaa';
+  static const String babyName = 'Baby Name';
   static const String myAlbums = 'My Albums';
   static const String addMemory = 'Add Memory';
 

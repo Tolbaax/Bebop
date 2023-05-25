@@ -9,7 +9,7 @@ import '../../../../../core/functions/app_dialogs.dart';
 import '../../../../../core/params/baby_params.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../components/buttons/custom_button.dart';
-import '../../../components/buttons/slider_segmented_control.dart';
+import '../../../components/buttons/slide_segmented_Button.dart';
 import '../../../components/custom_input_field.dart';
 import '../../profile/cubit/cubit.dart';
 import '../../profile/cubit/states.dart';
@@ -44,7 +44,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
               children: [
                 CustomInputField(
                   controller: authCubit.babyNameController,
-                  labelText: 'Baby Name',
+                  labelText: AppStrings.babyName,
                   validator: (value) => Validators.validateName(value),
                 ),
                 SizedBox(height: 6.0.h),
@@ -52,7 +52,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                   onTap: () => authCubit.selectDate(context),
                   child: CustomInputField(
                     controller: authCubit.dateController,
-                    labelText: 'BirthDate',
+                    labelText: AppStrings.birthdate,
                     enabled: false,
                     validator: (value) => Validators.validateName(value),
                   ),
@@ -63,7 +63,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                     Expanded(
                       child: CustomInputField(
                         controller: authCubit.babyHeightController,
-                        labelText: 'Height',
+                        labelText: AppStrings.height,
                         keyboardType: TextInputType.number,
                         validator: (value) =>
                             Validators.validateBabyHeight(value),
@@ -75,7 +75,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                     Expanded(
                       child: CustomInputField(
                         controller: authCubit.babyWeightController,
-                        labelText: 'Weight',
+                        labelText: AppStrings.weight,
                         keyboardType: TextInputType.number,
                         validator: (value) =>
                             Validators.validateBabyWeight(value),
@@ -86,7 +86,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                 SizedBox(
                   height: 6.0.h,
                 ),
-                SliderSegmentedControl(),
+                SlideSegmentedButton(),
                 SizedBox(
                   height: 16.0.h,
                 ),
@@ -102,8 +102,9 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                                 authCubit.babyHeightController.text.trim()),
                             weight: double.parse(
                                 authCubit.babyWeightController.text.trim()),
-                            gender:
-                                cubit.genderGroupValue == 0 ? 'Boy' : 'Girl',
+                            gender: cubit.genderGroupValue == 0
+                                ? AppStrings.boy
+                                : AppStrings.girl,
                             profileUrl: cubit.profileImageFile != null
                                 ? cubit.profileImageFile!.path
                                 : '',

@@ -4,12 +4,12 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../core/utils/app_color.dart';
 
-class SliderSegmentedControl extends StatefulWidget {
+class SlideSegmentedButton extends StatefulWidget {
   @override
-  _SliderSegmentedControlState createState() => _SliderSegmentedControlState();
+  _SlideSegmentedButtonState createState() => _SlideSegmentedButtonState();
 }
 
-class _SliderSegmentedControlState extends State<SliderSegmentedControl> {
+class _SlideSegmentedButtonState extends State<SlideSegmentedButton> {
   List<String> segments = ['Boy', 'Girl'];
 
   @override
