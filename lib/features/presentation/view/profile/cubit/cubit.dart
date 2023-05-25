@@ -79,7 +79,6 @@ class ProfileCubit extends Cubit<ProfileStates> with ProfileMixin {
   }
 
   Future<List<MemoryEntity>> getMemories() async {
-    emit(GetMemoriesLoadingState());
     final result = await _getMemoriesUseCase.call(NoParams());
 
     return result.fold(
