@@ -54,7 +54,6 @@ class _GetLocationScreenState extends State<GetLocationScreen> {
                   Navigator.pushNamed(context, Routes.mapScreen);
                 },
                 text: AppStrings.getLocation,
-                color: AppColors.primary,
               ),
             ),
           ],

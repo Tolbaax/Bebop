@@ -101,7 +101,6 @@ class _CryingTranslateScreenState extends State<CryingTranslateScreen>
                   Navigator.pop(context);
                 },
                 text: AppStrings.stop,
-                color: AppColors.primary,
               ),
               SizedBox(
                 height: 5.h,

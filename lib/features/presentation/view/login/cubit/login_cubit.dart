@@ -30,6 +30,7 @@ class LoginCubit extends Cubit<LoginStates> with LoginMixin {
       }
       return Left(ServerFailure(e.message.toString()));
     });
+
     result.fold(
       (l) => emit(LoginErrorState()),
       (r) => emit(LoginSuccessfullyState()),

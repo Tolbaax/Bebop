@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-class StackedLineChartModel extends Equatable {
+class StackedLineChartEntity extends Equatable {
   final String day;
   final double? height;
   final double? weight;
 
-  StackedLineChartModel({
+  StackedLineChartEntity({
     required this.day,
     this.height,
     this.weight,

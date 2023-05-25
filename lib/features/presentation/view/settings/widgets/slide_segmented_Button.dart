@@ -2,7 +2,7 @@ import 'package:bebop/features/presentation/view/profile/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../core/utils/app_color.dart';
+import '../../../../../core/utils/app_color.dart';
 
 class SlideSegmentedButton extends StatefulWidget {
   @override

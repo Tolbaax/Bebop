@@ -36,7 +36,6 @@ class CustomTranslateContainer extends StatelessWidget {
                   Navigator.pushNamed(context, Routes.cryTranslate);
                 },
                 text: AppStrings.translate,
-                color: AppColors.primary,
               ),
             )
           ],

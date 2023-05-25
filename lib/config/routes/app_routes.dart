@@ -1,4 +1,6 @@
 import 'package:bebop/core/utils/media_query_values.dart';
+import 'package:bebop/features/domain/entities/memory_entity.dart';
+import 'package:bebop/features/presentation/view/profile/screens/memory_screen.dart';
 import 'package:bebop/features/presentation/view/settings/screens/baby_information_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,6 +43,7 @@ class Routes {
   static const String layout = '/layout';
   static const String tipsDetails = '/tipsDetails';
   static const String addMemory = '/addMemory';
+  static const String memory = '/memory';
   static const String cryTranslate = '/cryTranslate';
   static const String translateResult = '/translateResult';
   static const String settings = '/settings';
@@ -113,6 +116,13 @@ class AppRoutes {
           child: AddMemoryScreen(cubit: profileCubit),
         );
 
+      case Routes.memory:
+        final MemoryEntity memory = settings.arguments as MemoryEntity;
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: MemoryScreen(memory: memory),
+        );
+
       case Routes.cryTranslate:
         return PageTransition(
           type: PageTransitionType.fade,
@@ -134,7 +144,6 @@ class AppRoutes {
             child: const SettingsScreen(),
           ),
         );
-
 
       case Routes.babyInformation:
         return PageTransition(

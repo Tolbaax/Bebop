@@ -8,7 +8,6 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../config/routes/app_routes.dart';
 import '../../../../../core/functions/app_dialogs.dart';
-import '../../../../../core/utils/app_color.dart';
 import '../../../components/buttons/custom_button.dart';
 import '../../../components/custom_input_field.dart';
 import '../../../components/divider.dart';
@@ -104,7 +103,6 @@ class RegisterForm extends StatelessWidget {
                 }
               },
               text: AppStrings.signup,
-              color: AppColors.primary,
             ),
             SizedBox(height: 2.5.h),
             const DividerLine(),

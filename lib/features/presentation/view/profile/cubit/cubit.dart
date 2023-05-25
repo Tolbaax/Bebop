@@ -1,4 +1,9 @@
 import 'package:bebop/core/params/baby_params.dart';
+import 'package:bebop/core/params/memory_params.dart';
+import 'package:bebop/features/domain/entities/memory_entity.dart';
+import 'package:bebop/features/domain/usecases/user/add_memory_usecase.dart';
+import 'package:bebop/features/domain/usecases/user/delete_memory_usecase.dart';
+import 'package:bebop/features/domain/usecases/user/get_memories_usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,11 +21,17 @@ class ProfileCubit extends Cubit<ProfileStates> with ProfileMixin {
   final GetCurrentUserUseCase _getCurrentUserUseCase;
   final SignOutUseCase _signOutUseCase;
   final UpdateBabyInfoUseCase _updateBabyInfoUseCase;
+  final AddMemoryUseCase _addMemoryUseCase;
+  final GetMemoriesUseCase _getMemoriesUseCase;
+  final DeleteMemoryUseCase _deleteMemoryUseCase;
 
   ProfileCubit(
     this._signOutUseCase,
     this._getCurrentUserUseCase,
     this._updateBabyInfoUseCase,
+    this._addMemoryUseCase,
+    this._getMemoriesUseCase,
+    this._deleteMemoryUseCase,
   ) : super(ProfileInitialState());
 
   static ProfileCubit get(context) => BlocProvider.of(context);
@@ -41,10 +52,6 @@ class ProfileCubit extends Cubit<ProfileStates> with ProfileMixin {
   Future<void> updateBabyInfo(BabyParams params) async {
     emit(UpdateBabyInfoLoadingState());
     final result = await _updateBabyInfoUseCase(params).catchError((e) {
-      if (e is FirebaseAuthException) {
-        AppDialogs.showToast(msg: e.message.toString());
-        return Left(ServerFailure(e.message.toString()));
-      }
       AppDialogs.showToast(msg: e.message.toString());
       return Left(ServerFailure(e.message.toString()));
     });
@@ -52,6 +59,49 @@ class ProfileCubit extends Cubit<ProfileStates> with ProfileMixin {
     result.fold(
       (l) => emit(UpdateBabyInfoErrorState()),
       (r) => emit(UpdateBabyInfoSuccessState()),
+    );
+  }
+
+  Future<void> addMemory() async {
+    emit(AddMemoryLoadingState());
+    final result = await _addMemoryUseCase.call(
+      MemoryParams(
+        imageFile: memoryImage,
+        title: titleController.text.trim(),
+        desc: descController.text.trim(),
+      ),
+    );
+
+    result.fold(
+      (l) => emit(AddMemoryErrorState()),
+      (r) => emit(AddMemorySuccessState()),
+    );
+  }
+
+  Future<List<MemoryEntity>> getMemories() async {
+    emit(GetMemoriesLoadingState());
+    final result = await _getMemoriesUseCase.call(NoParams());
+
+    return result.fold(
+      (failure) {
+        emit(GetMemoriesErrorState(errorMessage: failure.toString()));
+        return [];
+      },
+      (memories) {
+        emit(GetMemoriesSuccessState(memories: memories));
+        return memories;
+      },
+    );
+  }
+
+  Future<void> deleteMemory(String memoryId) async {
+    emit(DeleteMemoryLoadingState());
+
+    final result = await _deleteMemoryUseCase.call(memoryId);
+
+    result.fold(
+      (l) => emit(DeleteMemoryErrorState()),
+      (r) => emit(DeleteMemorySuccessState()),
     );
   }
 

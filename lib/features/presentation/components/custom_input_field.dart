@@ -41,12 +41,13 @@ class CustomInputField extends StatelessWidget {
       textInputAction: textInputAction,
       onTap: onTap,
       enabled: enabled,
-      maxLines: keyboardType == TextInputType.multiline ? null : 1,
+      maxLines: keyboardType == TextInputType.multiline ? 5 : 1,
+      minLines: 1,
       validator: validator,
       style: TextStyle(color: AppColors.black, fontSize: 12.0.sp),
       decoration: InputDecoration(
         contentPadding:
-            EdgeInsetsDirectional.symmetric(horizontal: 4.0.w, vertical: 0.0),
+            EdgeInsetsDirectional.symmetric(horizontal: 4.0.w, vertical: 1.0.h),
         hintText: hintText,
         labelText: labelText,
         labelStyle: TextStyle(

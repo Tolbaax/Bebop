@@ -1,4 +1,4 @@
-import 'package:bebop/features/data/models/stacked_line_chart_model.dart';
+import 'package:bebop/features/domain/entities/stacked_line_chart_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -8,25 +8,25 @@ import '../../../../../core/utils/app_strings.dart';
 class StackedLineChart extends StatelessWidget {
   StackedLineChart({Key? key}) : super(key: key);
 
-  final List<StackedLineChartModel> heightData = [
-    StackedLineChartModel(day: '1', height: 40),
-    StackedLineChartModel(day: '5', height: 42.5),
-    StackedLineChartModel(day: '10', height: 42),
-    StackedLineChartModel(day: '15', height: 50),
-    StackedLineChartModel(day: '20', height: 50),
-    StackedLineChartModel(day: '25', height: 50.1),
-    StackedLineChartModel(day: '30', height: 51),
+  final List<StackedLineChartEntity> heightData = [
+    StackedLineChartEntity(day: '1', height: 40),
+    StackedLineChartEntity(day: '5', height: 42.5),
+    StackedLineChartEntity(day: '10', height: 42),
+    StackedLineChartEntity(day: '15', height: 50),
+    StackedLineChartEntity(day: '20', height: 50),
+    StackedLineChartEntity(day: '25', height: 50.1),
+    StackedLineChartEntity(day: '30', height: 51),
   ];
 
-  final List<StackedLineChartModel> weightData = [
-    StackedLineChartModel(day: '1', weight: 15),
-    StackedLineChartModel(day: '5', weight: 20),
-    StackedLineChartModel(day: '10', weight: 20),
-    StackedLineChartModel(day: '15', weight: 35),
-    StackedLineChartModel(day: '20', weight: 32),
-    StackedLineChartModel(day: '25', weight: 32),
-    StackedLineChartModel(day: '30', weight: 35),
-    StackedLineChartModel(day: '30', weight: 25),
+  final List<StackedLineChartEntity> weightData = [
+    StackedLineChartEntity(day: '1', weight: 15),
+    StackedLineChartEntity(day: '5', weight: 20),
+    StackedLineChartEntity(day: '10', weight: 20),
+    StackedLineChartEntity(day: '15', weight: 35),
+    StackedLineChartEntity(day: '20', weight: 32),
+    StackedLineChartEntity(day: '25', weight: 32),
+    StackedLineChartEntity(day: '30', weight: 35),
+    StackedLineChartEntity(day: '30', weight: 25),
   ];
 
   @override
@@ -40,8 +40,8 @@ class StackedLineChart extends StatelessWidget {
           axisLine: AxisLine(width: 0),
           majorGridLines: MajorGridLines(width: 0.5),
         ),
-        series: <LineSeries<StackedLineChartModel, String>>[
-          LineSeries<StackedLineChartModel, String>(
+        series: <LineSeries<StackedLineChartEntity, String>>[
+          LineSeries<StackedLineChartEntity, String>(
             enableTooltip: true,
             color: AppColors.primary.withOpacity(0.8),
             emptyPointSettings: EmptyPointSettings(mode: EmptyPointMode.gap),
@@ -51,7 +51,7 @@ class StackedLineChart extends StatelessWidget {
             name: AppStrings.height,
             markerSettings: const MarkerSettings(isVisible: true),
           ),
-          LineSeries<StackedLineChartModel, String>(
+          LineSeries<StackedLineChartEntity, String>(
             enableTooltip: true,
             emptyPointSettings: EmptyPointSettings(mode: EmptyPointMode.gap),
             dataSource: weightData,

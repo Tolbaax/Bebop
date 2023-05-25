@@ -1,10 +1,13 @@
 import 'dart:io';
 
 import 'package:bebop/core/params/baby_params.dart';
+import 'package:bebop/core/params/memory_params.dart';
+import 'package:bebop/features/domain/entities/memory_entity.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+import '../../models/memory_model.dart';
 import '../../models/user_model.dart';
 import 'user_remote_datasource.dart';
 
@@ -74,5 +77,76 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
       'babyWeight': params.weight,
       'gender': params.gender,
     });
+  }
+
+  @override
+  Future<void> addMemory(MemoryParams params) async {
+    final uID = await getCurrentUID();
+    final memoryDocRef =
+        firestore.collection('users').doc(uID).collection('memories').doc();
+    final memoryId = memoryDocRef.id;
+
+    final imageUrl = await _uploadFileToFirebase(
+        'memories/images/$memoryId', params.imageFile);
+
+    final post = MemoryModel(
+      memoryId: memoryId,
+      title: params.title,
+      desc: params.desc,
+      memoryImageUrl: imageUrl,
+      publishTime: DateTime.now().toString(),
+    );
+
+    await memoryDocRef.set(post.toJson());
+  }
+
+  Future<String> _uploadFileToFirebase(String path, File? file) async {
+    if (file == null) return '';
+
+    final uploadTask = firebaseStorage.ref().child(path).putFile(file);
+    final snap = await uploadTask;
+    final downloadUrl = await snap.ref.getDownloadURL();
+    return downloadUrl;
+  }
+
+  @override
+  Future<List<MemoryEntity>> getMemories() async {
+    final uID = await getCurrentUID();
+    final memoriesCollection = firestore
+        .collection('users')
+        .doc(uID)
+        .collection('memories')
+        .orderBy('publishTime', descending: true);
+
+    final snapshot = await memoriesCollection.get();
+    final memories =
+        snapshot.docs.map((doc) => MemoryModel.fromJson(doc.data())).toList();
+
+    return memories;
+  }
+
+  Future<MemoryModel> _getMemoryById(String memoryId) async {
+    final userDoc = firestore.collection('users').doc(await getCurrentUID());
+
+    final memoryDoc = await userDoc.collection('memories').doc(memoryId).get();
+
+    MemoryModel memory = MemoryModel.fromJson(memoryDoc.data()!);
+
+    return memory;
+  }
+
+  @override
+  Future<void> deleteMemory(String memoryId) async {
+    final uID = await getCurrentUID();
+
+    final userDoc = firestore.collection('users').doc(uID);
+
+    final memoryDoc = await userDoc.collection('memories').doc(memoryId);
+
+    final memory = await _getMemoryById(memoryId);
+
+    await _deleteFileFromFirebase(memory.memoryImageUrl);
+
+    await memoryDoc.delete();
   }
 }

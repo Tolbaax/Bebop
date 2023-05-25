@@ -7,9 +7,8 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../core/functions/app_dialogs.dart';
 import '../../../../../core/params/baby_params.dart';
-import '../../../../../core/utils/app_color.dart';
 import '../../../components/buttons/custom_button.dart';
-import '../../../components/buttons/slide_segmented_Button.dart';
+import 'slide_segmented_Button.dart';
 import '../../../components/custom_input_field.dart';
 import '../../profile/cubit/cubit.dart';
 import '../../profile/cubit/states.dart';
@@ -116,7 +115,6 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                     }
                   },
                   text: AppStrings.save,
-                  color: AppColors.primary,
                   condition: state is UpdateBabyInfoLoadingState,
                 ),
               ],

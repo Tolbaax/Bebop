@@ -90,7 +90,6 @@ class Validators {
     return null;
   }
 
-
   static String? validateBabyWeight(String value) {
     final RegExp _heightRegex = RegExp(r'^\d{1,3}(\.\d{1,2})?$');
 
@@ -105,6 +104,32 @@ class Validators {
     double? weight = double.tryParse(value);
     if (weight == null || weight > 100) {
       return 'Enter valid weight';
+    }
+
+    return null;
+  }
+
+  static String? validateMemoryTitle(String value) {
+    if (value.isEmpty) {
+      return 'Title cannot be empty';
+    }
+
+    if (value.length < 3) {
+      return 'Title must be at least 3 characters long';
+    } else if (value.length > 30) {
+      return 'Title cannot exceed 30 characters';
+    }
+
+    return null;
+  }
+
+  static String? validateMemoryDesc(String value) {
+    if (value.isEmpty) {
+      return 'Desc cannot be empty';
+    }
+
+    if (value.length < 10) {
+      return 'Desc must be at least 10 characters long';
     }
 
     return null;

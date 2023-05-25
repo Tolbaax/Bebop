@@ -134,7 +134,16 @@ class AppStrings {
   static const String lastMonth = 'Last Month';
   static const String babyName = 'Baby Name';
   static const String myAlbums = 'My Albums';
+  static const String addMemorySuccess = 'Add Memory Successfully';
   static const String addMemory = 'Add Memory';
+  static const String memoryImage = 'Memory Image';
+  static const String title = 'Title';
+  static const String desc = 'Description';
+  static const String changeImage = 'Change Image';
+  static const String pickImage = 'Please Pick an Image';
+  static const String deleteMemory = 'Delete Memory';
+  static const String sureDeleteMemory =
+      'Are you sure you want to delete this Memory?';
 
   //crying
   static const String cryAnalysis = 'Crying Analysis';

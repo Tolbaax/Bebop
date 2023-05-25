@@ -66,7 +66,6 @@ class ForgetPasswordScreen extends StatelessWidget {
                   Center(
                     child: CustomButton(
                       onTap: () {},
-                      color: AppColors.primary,
                       text: AppStrings.submit,
                     ),
                   )

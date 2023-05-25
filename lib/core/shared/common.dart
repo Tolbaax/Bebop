@@ -23,7 +23,7 @@ Future<File?> pickImageFromGallery(BuildContext context,
   return image;
 }
 
-Future<CroppedFile?> cropImage(String path) async {
+Future<CroppedFile?> cropImage(String path, {String? title}) async {
   return ImageCropper().cropImage(
     sourcePath: path,
     aspectRatioPresets: Platform.isAndroid
@@ -56,7 +56,7 @@ Future<CroppedFile?> cropImage(String path) async {
     uiSettings: [
       AndroidUiSettings(
         toolbarColor: AppColors.primary,
-        toolbarTitle: "Profile Image",
+        toolbarTitle: title == null ? "Profile Image" : title,
         statusBarColor: AppColors.primary,
         hideBottomControls: true,
         lockAspectRatio: true,
@@ -76,4 +76,11 @@ Future<bool> checkInternetConnectivity() async {
   } else {
     return false;
   }
+}
+
+// Remove empty lines from a string
+String removeEmptyLines(String text) {
+  List<String> lines =
+      text.trim().split('\n').where((line) => line.trim().isNotEmpty).toList();
+  return lines.join('\n');
 }

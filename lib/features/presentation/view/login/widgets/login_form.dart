@@ -1,6 +1,5 @@
 import 'package:bebop/core/functions/validation.dart';
 import 'package:bebop/core/shared/common.dart';
-import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +83,6 @@ class LoginForm extends StatelessWidget {
                   }
                 },
                 text: AppStrings.login,
-                color: AppColors.primary,
                 condition: states is LoginLoadingState,
               ),
             ),

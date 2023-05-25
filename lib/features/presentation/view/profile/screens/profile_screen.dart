@@ -1,3 +1,4 @@
+import 'package:bebop/core/functions/navigation.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/features/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';
@@ -19,16 +20,24 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserEntity? user = ProfileCubit.get(context).userEntity;
-
+    bool memoriesFetched = ProfileCubit.get(context).memoriesFetched;
+    if (!memoriesFetched) {
+      ProfileCubit.get(context).getMemories();
+      ProfileCubit.get(context).memoriesFetched = true;
+    }
+    
     return BlocConsumer<ProfileCubit, ProfileStates>(
       listener: (context, state) {
         if (state is GetCurrentUserSuccessState) {
           user = ProfileCubit.get(context).userEntity;
         }
+
+        if (state is DeleteMemorySuccessState) {
+          ProfileCubit.get(context).getMemories();
+          navigatePop(context);
+        }
       },
       builder: (context, state) {
-        final cubit = ProfileCubit.get(context);
-
         return Scaffold(
           appBar: const ProfileAppBar(),
           body: user != null
@@ -56,7 +65,7 @@ class ProfileScreen extends StatelessWidget {
                       HeightWeightRow(user: user!),
                       SizedBox(height: 2.0.h),
                       StackedLineChart(),
-                      MyAlbums(cubit: cubit),
+                      MyAlbums(),
                     ],
                   ),
                 )

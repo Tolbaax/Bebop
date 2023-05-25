@@ -153,7 +153,6 @@ class _BabyRegisterScreenState extends State<BabyRegisterScreen> {
                     text: _currentIndex == 2
                         ? AppStrings.getStarted
                         : AppStrings.continu,
-                    color: AppColors.primary,
                     condition: state is RegisterLoadingState,
                   ),
                 ],

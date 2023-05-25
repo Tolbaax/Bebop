@@ -6,7 +6,6 @@ import '../../../../core/utils/app_color.dart';
 class CustomButton extends StatelessWidget {
   final GestureTapCallback? onTap;
   final bool? condition;
-  final Color color;
   final String text;
 
   const CustomButton({
@@ -14,7 +13,6 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     required this.text,
     this.condition = false,
-    required this.color,
   });
 
   @override
@@ -25,7 +23,7 @@ class CustomButton extends StatelessWidget {
         height: 6.h,
         width: 57.w,
         decoration: BoxDecoration(
-          color: color,
+          color: AppColors.primary,
           borderRadius: BorderRadius.circular(20.0.sp),
           boxShadow: [
             BoxShadow(
