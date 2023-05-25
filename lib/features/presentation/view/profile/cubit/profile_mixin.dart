@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
+import '../../../../../core/shared/common.dart';
+import '../../../../domain/entities/user_entity.dart';
 import '../memory_model.dart';
 
 mixin ProfileMixin on Cubit<ProfileStates> {
@@ -17,7 +19,21 @@ mixin ProfileMixin on Cubit<ProfileStates> {
   final formKey = GlobalKey<FormState>();
   final List<MemoryModel> memory = [];
   final picker = ImagePicker();
+  UserEntity? userEntity;
   File? memoryImage;
+  File? profileImageFile;
+
+  void selectProfileImageFromGallery(BuildContext context) async {
+    final pickedFile = await pickImageFromGallery(context);
+    if (pickedFile != null) {
+      cropImage(pickedFile.path).then((value) {
+        if (value != null) {
+          profileImageFile = File(value.path);
+          emit(SelectProfileImageFromGalleryState());
+        }
+      });
+    }
+  }
 
   Future getMemoryImage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
@@ -51,5 +67,12 @@ mixin ProfileMixin on Cubit<ProfileStates> {
         btnController.reset();
       });
     }
+  }
+
+  int genderGroupValue = 0;
+
+  selectGenderSegment(groupValue) {
+    genderGroupValue = groupValue;
+    emit(SelectGenderSegmentState());
   }
 }

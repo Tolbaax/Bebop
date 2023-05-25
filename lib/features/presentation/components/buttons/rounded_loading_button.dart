@@ -7,9 +7,9 @@ import '../../../../core/utils/app_color.dart';
 class CustomRoundedLoadingButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final String text;
-  dynamic btnController;
+  final RoundedLoadingButtonController btnController;
 
-  CustomRoundedLoadingButton({
+  const CustomRoundedLoadingButton({
     Key? key,
     required this.onPressed,
     required this.text,
@@ -22,7 +22,7 @@ class CustomRoundedLoadingButton extends StatelessWidget {
       height: 6.h,
       width: 57.w,
       child: RoundedLoadingButton(
-        controller: btnController!,
+        controller: btnController,
         onPressed: onPressed,
         color: AppColors.primary,
         child: Text(

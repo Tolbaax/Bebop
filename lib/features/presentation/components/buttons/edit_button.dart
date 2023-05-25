@@ -1,17 +1,16 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import '../../../../core/shared/common.dart';
 import '../../../../core/utils/app_color.dart';
 
 class EditButton extends StatelessWidget {
-  const EditButton({Key? key}) : super(key: key);
+  final GestureTapCallback? onTap;
+
+  const EditButton({Key? key, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => selectProfileImageFromGallery(context),
+      onTap: onTap,
       child: Container(
         height: 25.5.sp,
         width: 25.5.sp,
@@ -33,16 +32,5 @@ class EditButton extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-void selectProfileImageFromGallery(BuildContext context) async {
-  File? image = await pickImageFromGallery(context);
-  if (image != null) {
-    cropImage(image.path).then((value) {
-      if (value != null) {
-        //UserCubit.get(context).updateProfilePic(value.path);
-      }
-    });
   }
 }

@@ -1,4 +1,3 @@
-
 class Validators {
   static String? validateName(String value) {
     if (value.isEmpty) {
@@ -67,6 +66,45 @@ class Validators {
 
     if (value != password) {
       return 'Passwords do not match';
+    }
+
+    return null;
+  }
+
+  static String? validateBabyHeight(String value) {
+    final RegExp _heightRegex = RegExp(r'^\d{1,3}(\.\d{1,2})?$');
+
+    if (value.isEmpty) {
+      return 'Enter baby height';
+    }
+
+    if (!_heightRegex.hasMatch(value)) {
+      return 'Enter valid height';
+    }
+
+    double? height = double.tryParse(value);
+    if (height == null || height > 190) {
+      return 'Enter valid height';
+    }
+
+    return null;
+  }
+
+
+  static String? validateBabyWeight(String value) {
+    final RegExp _heightRegex = RegExp(r'^\d{1,3}(\.\d{1,2})?$');
+
+    if (value.isEmpty) {
+      return 'Enter baby weight';
+    }
+
+    if (!_heightRegex.hasMatch(value)) {
+      return 'Enter valid weight';
+    }
+
+    double? weight = double.tryParse(value);
+    if (weight == null || weight > 100) {
+      return 'Enter valid weight';
     }
 
     return null;

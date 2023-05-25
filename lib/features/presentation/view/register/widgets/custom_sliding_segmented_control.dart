@@ -42,7 +42,8 @@ class CustomSlidingSegmentedButton extends StatelessWidget {
     required String text,
     required bool isSelected,
   }) {
-    final textColor = isSelected ? AppColors.white : AppColors.primary;
+
+    Color textColor = isSelected ? AppColors.white : AppColors.primary;
     return Center(
       child: DefaultTextStyle(
         style: TextStyle(

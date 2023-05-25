@@ -1,5 +1,6 @@
 import 'package:bebop/core/network/local/cache_helper.dart';
 import 'package:bebop/core/network/remote/network_info.dart';
+import 'package:bebop/features/domain/usecases/user/update_baby_info_usecase.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -38,7 +39,7 @@ Future<void> init() async {
   sl.registerLazySingleton<LayoutCubit>(() => LayoutCubit());
   sl.registerLazySingleton<LoginCubit>(() => LoginCubit(sl()));
   sl.registerLazySingleton<RegisterCubit>(() => RegisterCubit(sl()));
-  sl.registerLazySingleton<ProfileCubit>(() => ProfileCubit(sl(), sl()));
+  sl.registerLazySingleton<ProfileCubit>(() => ProfileCubit(sl(), sl(), sl()));
 
   //Core
 
@@ -54,6 +55,7 @@ Future<void> init() async {
   ///User
   sl.registerLazySingleton(() => GetCurrentUIDUseCase(sl()));
   sl.registerLazySingleton(() => GetCurrentUserUseCase(sl()));
+  sl.registerLazySingleton(() => UpdateBabyInfoUseCase(sl()));
 
   //Repository
   sl.registerLazySingleton<FirebaseAuthRepository>(
