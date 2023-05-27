@@ -43,3 +43,4 @@ topics such as feeding, sleep, and development milestones.
  - [ ] Change app language (English - Arabic) 
  - [ ] Add Videos to Memories
  - [ ] Add dark mode 
+ - [ ] Clean-up more code
