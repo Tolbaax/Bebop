@@ -25,8 +25,8 @@ class BabyInformationScreen extends StatelessWidget {
       body: BlocConsumer<ProfileCubit, ProfileStates>(
         listener: (context, state) async {
           if (state is UpdateBabyInfoSuccessState) {
-            await cubit.getCurrentUser();
             navigatePop(context);
+            await cubit.getCurrentUser();
             cubit.profileImageFile = null;
           }
         },

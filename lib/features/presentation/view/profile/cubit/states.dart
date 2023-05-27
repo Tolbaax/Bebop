@@ -26,8 +26,6 @@ class UpdateProfilePicErrorState extends ProfileStates {}
 
 class SelectProfileImageFromGalleryState extends ProfileStates {}
 
-class SelectGenderSegmentState extends ProfileStates {}
-
 //Update Baby Info
 class UpdateBabyInfoLoadingState extends ProfileStates {}
 

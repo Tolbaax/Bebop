@@ -1,19 +1,29 @@
-import 'package:bebop/features/presentation/view/profile/cubit/cubit.dart';
+import 'package:bebop/core/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_color.dart';
+import '../../profile/cubit/cubit.dart';
 
-List<String> segments = ['Boy', 'Girl'];
+class SlideSegmentedButton extends StatefulWidget {
+  @override
+  State<SlideSegmentedButton> createState() => _SlideSegmentedButtonState();
+}
 
-class SlideSegmentedButton extends StatelessWidget {
-  final ProfileCubit cubit;
+class _SlideSegmentedButtonState extends State<SlideSegmentedButton> {
+  late int genderValue;
 
-  const SlideSegmentedButton({Key? key, required this.cubit}) : super(key: key);
+  @override
+  void initState() {
+    super.initState();
+    final gender = ProfileCubit.get(context).userEntity!.gender;
+    genderValue = (gender == 'Boy') ? 0 : 1;
+  }
 
   @override
   Widget build(BuildContext context) {
-    cubit.genderGroupValue = cubit.userEntity!.gender == 'Boy' ? 0 : 1;
+    final cubit = BlocProvider.of<ProfileCubit>(context);
 
     return Container(
       decoration: BoxDecoration(
@@ -21,18 +31,23 @@ class SlideSegmentedButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0.sp),
       ),
       child: Row(
-        children: segments.asMap().entries.map((entry) {
+        children: Constants().segments.asMap().entries.map((entry) {
           final index = entry.key;
           final segment = entry.value;
 
           return Expanded(
             child: GestureDetector(
-              onTap: () => cubit.selectGenderSegment(index),
+              onTap: () {
+                setState(() {
+                  genderValue = index;
+                  cubit.genderGroupValue = index;
+                });
+              },
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
                 padding: EdgeInsets.symmetric(vertical: 6.5.sp),
                 decoration: BoxDecoration(
-                  color: cubit.genderGroupValue == index
+                  color: (genderValue == index)
                       ? AppColors.primary
                       : Colors.transparent,
                   borderRadius: BorderRadius.circular(15.0.sp),
@@ -43,7 +58,7 @@ class SlideSegmentedButton extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13.0.sp,
                     fontWeight: FontWeight.w500,
-                    color: cubit.genderGroupValue == index
+                    color: (genderValue == index)
                         ? Colors.white
                         : AppColors.primary,
                   ),

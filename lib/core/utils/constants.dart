@@ -34,4 +34,6 @@ class Constants {
     AppStrings.baby3,
     AppStrings.baby4,
   ];
+
+  final List<String> segments = ['Boy', 'Girl'];
 }

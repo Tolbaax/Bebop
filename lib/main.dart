@@ -13,6 +13,7 @@ void main() async {
   Bloc.observer = AppBlocObserver();
 
   await Firebase.initializeApp();
+
   setupCrashlytics();
 
   await di.init();

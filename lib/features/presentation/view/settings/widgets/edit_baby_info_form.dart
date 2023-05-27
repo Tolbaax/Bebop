@@ -85,7 +85,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                 SizedBox(
                   height: 6.0.h,
                 ),
-                SlideSegmentedButton(cubit: cubit),
+                SlideSegmentedButton(),
                 SizedBox(
                   height: 16.0.h,
                 ),

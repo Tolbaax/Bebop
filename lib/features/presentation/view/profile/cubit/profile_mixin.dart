@@ -20,7 +20,7 @@ mixin ProfileMixin on Cubit<ProfileStates> {
   UserEntity? userEntity;
   File? memoryImage;
 
-  late int genderGroupValue;
+  int genderGroupValue = 0;
 
   void selectProfileImageFromGallery(BuildContext context) async {
     final pickedFile = await pickImageFromGallery(context);
@@ -44,11 +44,6 @@ mixin ProfileMixin on Cubit<ProfileStates> {
         }
       });
     }
-  }
-
-  selectGenderSegment(groupValue) {
-    genderGroupValue = groupValue;
-    emit(SelectGenderSegmentState());
   }
 
   void clearMemoryControllers() {
