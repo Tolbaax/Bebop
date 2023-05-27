@@ -1,4 +1,5 @@
 import 'package:bebop/core/params/signup_params.dart';
+import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/features/domain/usecases/auth/signup_usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,9 +25,10 @@ class RegisterCubit extends Cubit<RegisterStates> with RegisterMixin {
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
         babyName: babyNameController.text.trim(),
-        gender: genderGroupValue == 0 ? 'Boy' : 'Girl',
+        gender: genderGroupValue == 0 ? AppStrings.boy : AppStrings.girl,
         birthDate: dateController.text,
-        relationship: relationshipGroupValue == 0 ? 'Dad' : 'Mom',
+        relationship:
+            relationshipGroupValue == 0 ? AppStrings.dad : AppStrings.mom,
         babyHeight: double.parse(babyHeight.toStringAsFixed(1)),
         babyWeight: double.parse(babyWeight.toStringAsFixed(1)),
       ),

@@ -81,13 +81,19 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
 
   @override
   Future<void> addMemory(MemoryParams params) async {
+    final user = await getCurrentUser();
     final uID = await getCurrentUID();
+
     final memoryDocRef =
         firestore.collection('users').doc(uID).collection('memories').doc();
+
     final memoryId = memoryDocRef.id;
 
-    final imageUrl = await _uploadFileToFirebase(
-        'memories/images/$memoryId', params.imageFile);
+    String username = user.email.substring(0, user.email.indexOf('@'));
+
+    final String memoryPath = 'memories/$username/images/$memoryId';
+
+    final imageUrl = await _uploadFileToFirebase(memoryPath, params.imageFile);
 
     final post = MemoryModel(
       memoryId: memoryId,
@@ -119,6 +125,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
         .orderBy('publishTime', descending: true);
 
     final snapshot = await memoriesCollection.get();
+
     final memories =
         snapshot.docs.map((doc) => MemoryModel.fromJson(doc.data())).toList();
 
