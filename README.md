@@ -40,4 +40,6 @@ topics such as feeding, sleep, and development milestones.
 
 ## What's Next?
  - [ ] Notifications for voice recognition warning, EHR warnings, reminder, daily tips, etc
- - [ ] Change app language {en - ar} 
+ - [ ] Change app language (English - Arabic) 
+ - [ ] Add Videos to Memories
+ - [ ] Add dark mode 
