@@ -9,7 +9,6 @@ combination of features, including the Cry Translator, voice recognition technol
 capabilities, can help reduce stress and anxiety for both parents and babies.**
 
 
-
 ## Features
 
 - User registration and login with email and password
@@ -38,3 +37,7 @@ topics such as feeding, sleep, and development milestones.
 
 ## Screenshots
 [Insert screenshots here]
+
+## What's Next?
+ - [ ] Notifications for voice recognition warning, EHR warnings, reminder, daily tips, etc
+ - [ ] Change app language {en - ar} 
