@@ -4,8 +4,7 @@ import 'package:sizer/sizer.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../../../core/utils/assets_manager.dart';
 
-
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key}) : super(key: key);
 
   @override
@@ -38,4 +37,7 @@ class CustomAppBar extends StatelessWidget {
       ],
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kMinInteractiveDimension + 5);
 }

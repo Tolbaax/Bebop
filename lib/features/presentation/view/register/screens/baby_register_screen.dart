@@ -2,7 +2,6 @@ import 'package:bebop/config/routes/app_routes.dart';
 import 'package:bebop/core/shared/common.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
-import 'package:bebop/features/presentation/view/login/cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,12 +56,13 @@ class _BabyRegisterScreenState extends State<BabyRegisterScreen> {
         if (state is RegisterSuccessState) {
           await sl<AuthLocalDataSource>()
               .setUserLoggedIn(sl<GetCurrentUIDUseCase>().toString())
-              .then((value) async {
-            print(sl<GetCurrentUIDUseCase>().toString());
-            navigateAndRemove(context, Routes.layout);
-            sl<RegisterCubit>().clearSignUpControllers();
-            sl<LoginCubit>().clearSignInControllers();
-          });
+              .then(
+            (value) async {
+              print(sl<GetCurrentUIDUseCase>().toString());
+              navigateAndRemove(context, Routes.layout);
+              sl<RegisterCubit>().clearSignUpControllers();
+            },
+          );
         }
       },
       builder: (context, state) {

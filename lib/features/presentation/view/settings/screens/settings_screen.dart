@@ -10,7 +10,6 @@ import '../../../../../core/utils/app_color.dart';
 import '../../../components/buttons/appbar_back_button.dart';
 import '../../layout/cubit/cubit.dart';
 import '../../profile/cubit/cubit.dart';
-import '../../register/cubit/register_cubit.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -92,7 +91,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onPressed: () {
                   ProfileCubit.get(context).signOut().then((value) {
                     navigateAndRemove(context, Routes.login);
-                    RegisterCubit.get(context).clearSignUpControllers();
                   });
                   LayoutCubit.get(context).selectedIndex = 0;
                 },

@@ -51,6 +51,8 @@ class AppStrings {
   static const String birthdate = 'BirthDate';
   static const String whatsHeight = 'What\'s your baby\nHeight?';
   static const String whatsWeight = 'What\'s your baby\nWeight?';
+  static const String isEmailRegistered =
+      'The email address is already in use by another account.';
 
   //Home
   static const String home = 'Home';

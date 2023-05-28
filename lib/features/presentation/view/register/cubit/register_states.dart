@@ -25,3 +25,4 @@ class RegisterErrorState extends RegisterStates {}
 class ClearSignUpControllerState extends RegisterStates {}
 
 class ClearSignUpControllersState extends RegisterStates {}
+

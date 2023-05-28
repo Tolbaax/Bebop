@@ -1,11 +1,14 @@
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/features/domain/entities/memory_entity.dart';
+import 'package:bebop/features/presentation/view/login/cubit/login_cubit.dart';
 import 'package:bebop/features/presentation/view/profile/screens/memory_screen.dart';
+import 'package:bebop/features/presentation/view/register/cubit/register_cubit.dart';
 import 'package:bebop/features/presentation/view/settings/screens/baby_information_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
+import '../../core/services/injection_container.dart';
 import '../../core/utils/app_strings.dart';
 import '../../features/presentation/view/crying/screens/crying_translate_screen.dart';
 import '../../features/presentation/view/crying/screens/translate_result_screen.dart';
@@ -71,7 +74,10 @@ class AppRoutes {
 
       case Routes.login:
         return MaterialPageRoute(builder: (context) {
-          return LoginScreen(screenHeight: context.height);
+          return BlocProvider(
+            create: (_) => sl<LoginCubit>(),
+            child: LoginScreen(screenHeight: context.height),
+          );
         });
 
       case Routes.forgetPassword:
@@ -84,13 +90,19 @@ class AppRoutes {
       case Routes.register:
         return PageTransition(
           type: PageTransitionType.fade,
-          child: RegisterScreen(screenHeight: 1.h),
+          child: BlocProvider(
+            create: (_) => sl<RegisterCubit>(),
+            child: RegisterScreen(screenHeight: 1.h),
+          ),
         );
 
       case Routes.babyRegister:
         return PageTransition(
           type: PageTransitionType.fade,
-          child: const BabyRegisterScreen(),
+          child: BlocProvider(
+            create: (_) => sl<RegisterCubit>(),
+            child: const BabyRegisterScreen(),
+          ),
         );
 
       case Routes.layout:
@@ -140,7 +152,7 @@ class AppRoutes {
         return PageTransition(
           type: PageTransitionType.rightToLeft,
           child: BlocProvider(
-            create: (context) => LayoutCubit(),
+            create: (_) => LayoutCubit(),
             child: const SettingsScreen(),
           ),
         );

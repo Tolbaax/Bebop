@@ -8,11 +8,10 @@ import 'package:sizer/sizer.dart';
 import '../../../../../core/functions/app_dialogs.dart';
 import '../../../../../core/params/baby_params.dart';
 import '../../../components/buttons/custom_button.dart';
-import 'slide_segmented_Button.dart';
 import '../../../components/custom_input_field.dart';
 import '../../profile/cubit/cubit.dart';
 import '../../profile/cubit/states.dart';
-import '../../register/cubit/register_cubit.dart';
+import 'slide_segmented_Button.dart';
 
 class EditBabyInfoForm extends StatefulWidget {
   const EditBabyInfoForm({Key? key}) : super(key: key);
@@ -26,12 +25,11 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
   Widget build(BuildContext context) {
     final cubit = ProfileCubit.get(context);
     var user = cubit.userEntity;
-    final authCubit = RegisterCubit.get(context);
     final formKey = GlobalKey<FormState>();
-    authCubit.babyNameController.text = user!.babyName.toString();
-    authCubit.babyHeightController.text = user.babyHeight.toString();
-    authCubit.babyWeightController.text = user.babyWeight.toString();
-    authCubit.dateController.text = user.birthDate.toString();
+    cubit.babyNameController.text = user!.babyName.toString();
+    cubit.babyHeightController.text = user.babyHeight.toString();
+    cubit.babyWeightController.text = user.babyWeight.toString();
+    cubit.dateController.text = user.birthDate.toString();
 
     return BlocBuilder<ProfileCubit, ProfileStates>(
       builder: (context, state) {
@@ -42,15 +40,15 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
             child: Column(
               children: [
                 CustomInputField(
-                  controller: authCubit.babyNameController,
+                  controller: cubit.babyNameController,
                   labelText: AppStrings.babyName,
                   validator: (value) => Validators.validateName(value),
                 ),
                 SizedBox(height: 6.0.h),
                 GestureDetector(
-                  onTap: () => authCubit.selectDate(context),
+                  onTap: () => cubit.selectDate(context),
                   child: CustomInputField(
-                    controller: authCubit.dateController,
+                    controller: cubit.dateController,
                     labelText: AppStrings.birthdate,
                     enabled: false,
                     validator: (value) => Validators.validateName(value),
@@ -61,7 +59,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                   children: [
                     Expanded(
                       child: CustomInputField(
-                        controller: authCubit.babyHeightController,
+                        controller: cubit.babyHeightController,
                         labelText: AppStrings.height,
                         keyboardType: TextInputType.number,
                         validator: (value) =>
@@ -73,7 +71,7 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                     ),
                     Expanded(
                       child: CustomInputField(
-                        controller: authCubit.babyWeightController,
+                        controller: cubit.babyWeightController,
                         labelText: AppStrings.weight,
                         keyboardType: TextInputType.number,
                         validator: (value) =>
@@ -95,12 +93,12 @@ class _EditBabyInfoFormState extends State<EditBabyInfoForm> {
                       if (await checkInternetConnectivity()) {
                         await cubit.updateBabyInfo(
                           BabyParams(
-                            babyName: authCubit.babyNameController.text.trim(),
-                            birthDate: authCubit.dateController.text.trim(),
+                            babyName: cubit.babyNameController.text.trim(),
+                            birthDate: cubit.dateController.text.trim(),
                             height: double.parse(
-                                authCubit.babyHeightController.text.trim()),
+                                cubit.babyHeightController.text.trim()),
                             weight: double.parse(
-                                authCubit.babyWeightController.text.trim()),
+                                cubit.babyWeightController.text.trim()),
                             gender: cubit.genderGroupValue == 0
                                 ? AppStrings.boy
                                 : AppStrings.girl,

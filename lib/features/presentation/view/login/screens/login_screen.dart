@@ -1,4 +1,3 @@
-import 'package:bebop/features/presentation/view/register/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -93,7 +92,6 @@ class LoginState extends State<LoginScreen>
               .then((value) async {
             navigateAndRemove(context, Routes.layout);
             sl<LoginCubit>().clearSignInControllers();
-            sl<RegisterCubit>().clearSignUpControllers();
           });
         }
       },

@@ -12,7 +12,8 @@ class TipsForMom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.symmetric(horizontal: 17.0.sp),
+      padding: EdgeInsetsDirectional.only(
+          end: 11.0.sp, start: 11.0.sp, bottom: 35.0.sp),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

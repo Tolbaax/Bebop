@@ -12,6 +12,7 @@ import 'register_states.dart';
 
 class RegisterCubit extends Cubit<RegisterStates> with RegisterMixin {
   final SignUpUseCase _signUpUseCase;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   RegisterCubit(this._signUpUseCase) : super(RegisterInitialState());
 
@@ -45,5 +46,17 @@ class RegisterCubit extends Cubit<RegisterStates> with RegisterMixin {
       (l) => emit(RegisterErrorState()),
       (r) => emit(RegisterSuccessState()),
     );
+  }
+
+  Future<bool> isEmailAlreadyRegistered() async {
+    final email = emailController.text.trim();
+
+    try {
+      final signInMethods = await _auth.fetchSignInMethodsForEmail(email);
+      return signInMethods.isNotEmpty;
+    } catch (e) {
+      print('Error checking email existence: $e');
+      return false;
+    }
   }
 }
