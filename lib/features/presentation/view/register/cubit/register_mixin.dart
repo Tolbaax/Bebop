@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
-import '../../../../../core/utils/app_color.dart';
+import '../../../../../core/utils/date_picker.dart';
 import 'register_states.dart';
 
 mixin RegisterMixin on Cubit<RegisterStates> {
@@ -52,27 +51,11 @@ mixin RegisterMixin on Cubit<RegisterStates> {
   }
 
   void selectDate(BuildContext context) async {
-    final pickedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2010),
-      lastDate: DateTime(2030),
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: AppColors.primary,
-            ),
-          ),
-          child: child!,
-        );
-      },
-    );
-
-    if (pickedDate != null) {
-      dateController.text = DateFormat.yMMMd().format(pickedDate);
-      emit(SelectDateState());
-    }
+    CustomDatePicker.selectDate(context, dateController).then((value) {
+      if (value != null) {
+        emit(SelectBabyInfoDateState());
+      }
+    });
   }
 
   void setBabyHeight(dynamic value) {
