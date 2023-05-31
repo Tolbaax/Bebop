@@ -2,13 +2,13 @@ import 'dart:io';
 
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/date_picker.dart';
-import 'package:bebop/features/presentation/view/profile/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../../core/shared/common.dart';
 import '../../../../domain/entities/user_entity.dart';
+import 'states.dart';
 
 mixin ProfileMixin on Cubit<ProfileStates> {
   final titleController = TextEditingController();
