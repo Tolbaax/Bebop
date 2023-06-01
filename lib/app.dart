@@ -1,3 +1,4 @@
+import 'package:bebop/features/presentation/view/home/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -18,11 +19,12 @@ class Bebop extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(create: (context) => sl<ProfileCubit>()),
+            BlocProvider(create: (context) => sl<ReminderCubit>()),
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             title: AppStrings.appName,
-            theme: appTheme(),
+            theme: appTheme(context),
             onGenerateRoute: AppRoutes.onGenerateRoute,
           ),
         );

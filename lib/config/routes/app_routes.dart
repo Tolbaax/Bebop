@@ -1,5 +1,6 @@
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/features/domain/entities/memory_entity.dart';
+import 'package:bebop/features/presentation/view/home/screens/reminder_screen.dart';
 import 'package:bebop/features/presentation/view/login/cubit/login_cubit.dart';
 import 'package:bebop/features/presentation/view/profile/screens/memory_screen.dart';
 import 'package:bebop/features/presentation/view/register/cubit/register_cubit.dart';
@@ -18,7 +19,7 @@ import '../../features/presentation/view/ehr/screens/oxygen_screen.dart';
 import '../../features/presentation/view/ehr/screens/temp_screen.dart';
 import '../../features/presentation/view/forget_password/forget_password_screen.dart';
 import '../../features/presentation/view/home/screens/tips_details_screen.dart';
-import '../../features/presentation/view/home/tips_model.dart';
+import '../../features/data/models/tips_model.dart';
 import '../../features/presentation/view/layout/cubit/cubit.dart';
 import '../../features/presentation/view/layout/screens/layout_screen.dart';
 import '../../features/presentation/view/location/cubit/map_cubit.dart';
@@ -57,6 +58,7 @@ class Routes {
   static const String temp = '/temp';
   static const String oxygen = '/oxygen';
   static const String babyInformation = '/babyInformation';
+  static const String reminder = '/reminder';
 }
 
 class AppRoutes {
@@ -202,18 +204,34 @@ class AppRoutes {
           child: const OxygenScreen(),
         );
 
+      case Routes.reminder:
+        final int initialTabIndex = settings.arguments as int;
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: ReminderScreen(initialTabIndex: initialTabIndex),
+        );
+
       default:
         return undefinedRoute();
     }
   }
 
   static Route<dynamic> undefinedRoute() {
-    return MaterialPageRoute(
-      builder: ((context) => const Scaffold(
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 150),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return FadeTransition(
+          opacity: animation,
+          child: Scaffold(
             body: Center(
-              child: Text(AppStrings.noRouteFound),
+              child: Text(
+                AppStrings.noRouteFound,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
             ),
-          )),
+          ),
+        );
+      },
     );
   }
 }

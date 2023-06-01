@@ -1,4 +1,4 @@
-import 'package:bebop/core/functions/navigation.dart';
+import 'package:bebop/core/functions/navigation/navigation.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/features/domain/entities/user_entity.dart';
 import 'package:flutter/material.dart';

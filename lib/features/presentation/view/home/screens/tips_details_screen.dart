@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_color.dart';
-import '../tips_model.dart';
+import '../../../../data/models/tips_model.dart';
 import '../widgets/custom_sliver_appbar.dart';
 
 class TipsDetailsScreen extends StatelessWidget {

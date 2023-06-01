@@ -1,15 +1,15 @@
-import 'package:bebop/core/functions/app_dialogs.dart';
 import 'package:bebop/core/utils/app_strings.dart';
-import 'package:bebop/features/presentation/view/settings/widgets/settings_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../config/routes/app_routes.dart';
-import '../../../../../core/functions/navigation.dart';
+import '../../../../../core/functions/navigation/navigation.dart';
 import '../../../../../core/utils/app_color.dart';
+import '../../../components/app_dialogs/app_dialogs.dart';
 import '../../../components/buttons/appbar_back_button.dart';
 import '../../layout/cubit/cubit.dart';
 import '../../profile/cubit/cubit.dart';
+import '../widgets/settings_list_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);

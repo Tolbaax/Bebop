@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/error/failure.dart';
-import '../../../../../core/functions/app_dialogs.dart';
+import '../../../components/app_dialogs/app_dialogs.dart';
 import 'register_mixin.dart';
 import 'register_states.dart';
 

@@ -1,3 +1,7 @@
-abstract class HomeStates {}
+abstract class ReminderStates {}
 
-class HomeInitialState extends HomeStates {}
+class ReminderInitialState extends ReminderStates {}
+
+class SelectFeedingStartDate extends ReminderStates {}
+
+class SelectFeedingStartTime extends ReminderStates {}

@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:bebop/core/functions/navigation.dart';
+import 'package:bebop/core/functions/navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:bebop/config/routes/app_routes.dart';
 import 'package:bebop/core/services/injection_container.dart' as di;

@@ -3,9 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/error/failure.dart';
-import '../../../../../core/functions/app_dialogs.dart';
 import '../../../../../core/params/signin_params.dart';
 import '../../../../domain/usecases/auth/signin_usecase.dart';
+import '../../../components/app_dialogs/app_dialogs.dart';
 import 'login_mixin.dart';
 import 'login_states.dart';
 

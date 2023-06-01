@@ -4,12 +4,12 @@ import 'package:bebop/features/domain/entities/memory_entity.dart';
 import 'package:bebop/features/domain/usecases/user/add_memory_usecase.dart';
 import 'package:bebop/features/domain/usecases/user/delete_memory_usecase.dart';
 import 'package:bebop/features/domain/usecases/user/get_memories_usecase.dart';
+import 'package:bebop/features/presentation/components/app_dialogs/app_dialogs.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/error/failure.dart';
-import '../../../../../core/functions/app_dialogs.dart';
 import '../../../../../core/usecases/usecase.dart';
 import '../../../../domain/usecases/auth/signout_usecase.dart';
 import '../../../../domain/usecases/user/get_current_user_usecase.dart';

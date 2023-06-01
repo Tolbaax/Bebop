@@ -1,9 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'reminder_mixin.dart';
 import 'states.dart';
 
-class HomeCubit extends Cubit<HomeStates> {
-  HomeCubit() : super(HomeInitialState());
+class ReminderCubit extends Cubit<ReminderStates> with ReminderMixin {
+  ReminderCubit() : super(ReminderInitialState());
 
-  static HomeCubit get(context) => BlocProvider.of(context);
+  static ReminderCubit get(context) => BlocProvider.of(context);
 }

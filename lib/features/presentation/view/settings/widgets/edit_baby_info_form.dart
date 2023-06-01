@@ -1,12 +1,12 @@
-import 'package:bebop/core/functions/validation.dart';
+import 'package:bebop/core/functions/validation/validation.dart';
 import 'package:bebop/core/shared/common.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../core/functions/app_dialogs.dart';
 import '../../../../../core/params/baby_params.dart';
+import '../../../components/app_dialogs/app_dialogs.dart';
 import '../../../components/buttons/custom_button.dart';
 import '../../../components/custom_input_field.dart';
 import '../../profile/cubit/cubit.dart';

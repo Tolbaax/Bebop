@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../../core/utils/date_picker.dart';
 import 'register_states.dart';
@@ -51,10 +52,8 @@ mixin RegisterMixin on Cubit<RegisterStates> {
   }
 
   void selectDate(BuildContext context) async {
-    CustomDatePicker.selectDate(context, dateController).then((value) {
-      if (value != null) {
-        emit(SelectBabyInfoDateState());
-      }
+    CustomDatePicker.selectDate(context).then((value) {
+      dateController.text = DateFormat.yMMMd().format(value!);
     });
   }
 

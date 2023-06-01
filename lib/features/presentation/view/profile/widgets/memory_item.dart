@@ -1,6 +1,6 @@
 import 'package:bebop/config/routes/app_routes.dart';
 import 'package:bebop/core/extensions/extensions.dart';
-import 'package:bebop/core/functions/navigation.dart';
+import 'package:bebop/core/functions/navigation/navigation.dart';
 import 'package:bebop/features/domain/entities/memory_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';

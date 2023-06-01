@@ -33,8 +33,6 @@ class UpdateBabyInfoSuccessState extends ProfileStates {}
 
 class UpdateBabyInfoErrorState extends ProfileStates {}
 
-class SelectBabyInfoDateState extends ProfileStates {}
-
 //Add Memory
 class AddMemoryLoadingState extends ProfileStates {}
 

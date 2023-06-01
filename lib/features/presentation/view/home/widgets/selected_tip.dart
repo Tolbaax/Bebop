@@ -3,7 +3,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../config/routes/app_routes.dart';
 import '../../../../../core/utils/app_color.dart';
-import '../tips_model.dart';
+import '../../../../data/models/tips_model.dart';
 
 class SelectedTip extends StatelessWidget {
   final TipsModel tipsModel;

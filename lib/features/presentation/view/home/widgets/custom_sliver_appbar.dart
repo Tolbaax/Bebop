@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_color.dart';
-import '../tips_model.dart';
+import '../../../../data/models/tips_model.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   final TipsModel tipsModel;
@@ -58,7 +58,7 @@ class CustomSliverAppBar extends StatelessWidget {
             shadows: [
               Shadow(
                 color: AppColors.spaceCadet.withOpacity(0.5),
-                offset: const Offset(0.0, 0.7),
+                offset: const Offset(0.5, 0.7),
                 blurRadius: 1.5,
               ),
             ],

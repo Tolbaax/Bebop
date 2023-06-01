@@ -5,9 +5,11 @@ import 'package:sizer/sizer.dart';
 
 import '../../core/utils/app_color.dart';
 
-ThemeData appTheme() {
+ThemeData appTheme(context) {
   return ThemeData(
     primaryColor: AppColors.primary,
+    colorScheme:
+        Theme.of(context).colorScheme.copyWith(primary: AppColors.primary),
     hintColor: AppColors.hint,
     fontFamily: AppStrings.muktaFont,
     brightness: Brightness.light,
@@ -57,16 +59,36 @@ ThemeData appTheme() {
         color: AppColors.primary,
         borderRadius: BorderRadius.circular(15.sp),
       ),
-      unselectedLabelColor: AppColors.primary,
+      labelPadding: EdgeInsetsDirectional.zero,
+      unselectedLabelColor: AppColors.black,
       labelColor: AppColors.white,
-      labelStyle: TextStyle(fontSize: 12.sp),
-      unselectedLabelStyle: TextStyle(fontSize: 12.sp),
+      labelStyle: TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.2,
+      ),
+      unselectedLabelStyle: TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w500,
+      ),
     ),
     cardTheme: CardTheme(
       color: AppColors.hint,
       elevation: 0.0,
       clipBehavior: Clip.antiAliasWithSaveLayer,
     ),
+    timePickerTheme: TimePickerThemeData(
+      dialTextStyle: TextStyle(fontFamily: ''),
+      dayPeriodShape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0.sp)),
+      hourMinuteShape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0.sp)),
+      shape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0.sp)),
+    ),
+    datePickerTheme: DatePickerThemeData(
+      shape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0.sp)),
+    ),
   );
 }
-

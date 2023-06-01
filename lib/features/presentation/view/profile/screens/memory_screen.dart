@@ -1,4 +1,3 @@
-import 'package:bebop/core/functions/app_dialogs.dart';
 import 'package:bebop/core/shared/common.dart';
 import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
@@ -11,7 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../core/functions/navigation.dart';
+import '../../../../../core/functions/navigation/navigation.dart';
+import '../../../components/app_dialogs/app_dialogs.dart';
 import '../../../components/buttons/appbar_back_button.dart';
 
 class MemoryScreen extends StatelessWidget {

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../functions/app_dialogs.dart';
+import '../../features/presentation/components/app_dialogs/app_dialogs.dart';
 import '../utils/app_color.dart';
 
 Future<File?> pickImageFromGallery(BuildContext context,
@@ -83,4 +83,11 @@ String removeEmptyLines(String text) {
   List<String> lines =
       text.trim().split('\n').where((line) => line.trim().isNotEmpty).toList();
   return lines.join('\n');
+}
+
+String formatTime(TimeOfDay time) {
+  final int hour = time.hourOfPeriod;
+  final String period = time.period == DayPeriod.am ? 'AM' : 'PM';
+  final String minute = time.minute.toString().padLeft(2, '0');
+  return '$hour:$minute $period';
 }

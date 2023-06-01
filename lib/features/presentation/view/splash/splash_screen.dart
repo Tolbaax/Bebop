@@ -1,4 +1,4 @@
-import 'package:bebop/core/functions/navigation.dart';
+import 'package:bebop/core/functions/navigation/navigation.dart';
 import 'package:bebop/core/network/local/cache_helper.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/assets_manager.dart';

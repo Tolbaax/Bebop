@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_strings.dart';
-import '../tips_model.dart';
+import '../../../../data/models/tips_model.dart';
 import 'selected_tip.dart';
 
 class TipsForMom extends StatelessWidget {

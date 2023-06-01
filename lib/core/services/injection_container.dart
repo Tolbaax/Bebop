@@ -3,6 +3,7 @@ import 'package:bebop/core/network/remote/network_info.dart';
 import 'package:bebop/features/domain/usecases/user/add_memory_usecase.dart';
 import 'package:bebop/features/domain/usecases/user/get_memories_usecase.dart';
 import 'package:bebop/features/domain/usecases/user/update_baby_info_usecase.dart';
+import 'package:bebop/features/presentation/view/home/cubit/cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -44,6 +45,7 @@ Future<void> init() async {
   sl.registerLazySingleton<RegisterCubit>(() => RegisterCubit(sl()));
   sl.registerLazySingleton<ProfileCubit>(
       () => ProfileCubit(sl(), sl(), sl(), sl(), sl(), sl()));
+  sl.registerLazySingleton<ReminderCubit>(() => ReminderCubit());
 
   //Core
 

@@ -10,8 +10,6 @@ class SelectGenderSegmentState extends RegisterStates {}
 
 class SelectRelationshipSegmentState extends RegisterStates {}
 
-class SelectBabyInfoDateState extends RegisterStates {}
-
 class SelectBabyHeight extends RegisterStates {}
 
 class SelectBabyWeight extends RegisterStates {}

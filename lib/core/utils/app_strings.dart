@@ -75,6 +75,7 @@ class AppStrings {
   static const String bathing = 'Bathing';
   static const String others = 'Others';
   static const String toadyReminder = 'Toady\'s Reminder';
+  static const String reminder = 'Reminder';
   static const String tipsForMoms = 'Tips For Moms';
   static const String viewMore = 'View More';
 
@@ -182,7 +183,7 @@ class AppStrings {
   static const String contactUs = 'Contact Us';
   static const String notification = 'Notification';
   static const String logout = 'Logout';
-  static const String cancel = 'cancel';
+  static const String cancel = 'Cancel';
   static const String save = 'Save';
   static const String checkInternet = 'Check Internet Connection!';
   static const String noInternetAccess = 'No Internet Access!';
@@ -200,4 +201,12 @@ class AppStrings {
   static const String bodyTemp = 'Body Temperature';
   static const String bloodOxygen = 'Blood Oxygen';
   static const String doingGreat = 'Your Baby Doing Great!';
+
+  //Reminder
+  static const String start = 'Start';
+  static const String finish = 'Finish';
+  static const String type = 'Type';
+  static const String details = 'Details';
+  static const String amount = 'Amount';
+  static const String contents = 'Contents';
 }

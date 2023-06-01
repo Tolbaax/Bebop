@@ -8,6 +8,7 @@ class CustomReminder extends StatelessWidget {
   final Color color;
   final IconData icon;
   final GestureTapCallback? onTap;
+
   const CustomReminder({
     Key? key,
     required this.text,

@@ -16,8 +16,10 @@ class CustomCarousalSlider extends StatefulWidget {
 class _CustomCarousalSliderState extends State<CustomCarousalSlider> {
   @override
   Widget build(BuildContext context) {
+    final images = Constants().images;
+    final imageTitles = Constants().imageTitle;
     return CarouselSlider.builder(
-      itemCount: Constants().images.length,
+      itemCount: images.length,
       itemBuilder: (context, index, pageViewIndex) {
         return Padding(
           padding: EdgeInsetsDirectional.symmetric(horizontal: 2.5.w),
@@ -26,7 +28,7 @@ class _CustomCarousalSliderState extends State<CustomCarousalSlider> {
               color: AppColors.primary.withOpacity(0.4),
               borderRadius: BorderRadius.circular(15.0.sp),
               image: DecorationImage(
-                image: AssetImage(Constants().images[index]),
+                image: AssetImage(images[index]),
                 fit: BoxFit.cover,
               ),
             ),
@@ -36,16 +38,16 @@ class _CustomCarousalSliderState extends State<CustomCarousalSlider> {
               child: Align(
                 alignment: AlignmentDirectional.bottomCenter,
                 child: Text(
-                  Constants().imageTitle[index],
+                  imageTitles[index],
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: AppColors.white,
                     fontWeight: FontWeight.w500,
-                    fontSize: 12.0.sp,
+                    fontSize: 13.0.sp,
                     shadows: [
                       Shadow(
                         color: AppColors.spaceCadet,
-                        offset: const Offset(1.0, 0.0),
+                        offset: const Offset(1.0, 1.0),
                         blurRadius: 1.5,
                       ),
                     ],
@@ -57,7 +59,7 @@ class _CustomCarousalSliderState extends State<CustomCarousalSlider> {
         );
       },
       options: CarouselOptions(
-        height: context.height * 0.2,
+        height: context.height * 0.21,
         autoPlay: true,
         aspectRatio: 2.0,
         enlargeCenterPage: true,

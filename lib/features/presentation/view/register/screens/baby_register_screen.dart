@@ -8,12 +8,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../core/functions/app_dialogs.dart';
-import '../../../../../core/functions/navigation.dart';
+import '../../../../../core/functions/navigation/navigation.dart';
 import '../../../../../core/services/injection_container.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../../data/datasources/auth/local/auth_local_data_sources.dart';
 import '../../../../domain/usecases/user/get_current_uid_usecase.dart';
+import '../../../components/app_dialogs/app_dialogs.dart';
 import '../../../components/buttons/appbar_back_button.dart';
 import '../../../components/buttons/custom_button.dart';
 import '../cubit/register_cubit.dart';

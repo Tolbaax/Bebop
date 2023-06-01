@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../config/routes/app_routes.dart';
-import '../../../../../core/functions/navigation.dart';
+import '../../../../../core/functions/navigation/navigation.dart';
 import '../../../../../core/services/injection_container.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../../data/datasources/auth/local/auth_local_data_sources.dart';
