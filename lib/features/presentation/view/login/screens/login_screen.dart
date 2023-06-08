@@ -27,6 +27,7 @@ class LoginScreen extends StatefulWidget {
 
 class LoginState extends State<LoginScreen>
     with SingleTickerProviderStateMixin {
+  late final LoginCubit _cubit;
   late final AnimationController _animationController;
   late final Animation<double> _headerTextAnimation;
   late final Animation<double> _formElementAnimation;
@@ -37,6 +38,9 @@ class LoginState extends State<LoginScreen>
   @override
   void initState() {
     super.initState();
+
+    _cubit = LoginCubit(sl());
+
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 2350),
@@ -78,88 +82,92 @@ class LoginState extends State<LoginScreen>
 
   @override
   void dispose() {
+    _cubit.close();
     _animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginStates>(
-      listener: (context, state) async {
-        if (state is LoginSuccessfullyState) {
-          await sl<AuthLocalDataSource>()
-              .setUserLoggedIn(sl<GetCurrentUIDUseCase>().toString())
-              .then((value) async {
-            navigateAndRemove(context, Routes.layout);
-            sl<LoginCubit>().clearSignInControllers();
-          });
-        }
-      },
-      builder: (context, state) {
-        return Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: AppColors.white,
-          body: Stack(
-            children: <Widget>[
-              AnimatedBuilder(
-                animation: _whiteTopClipperAnimation,
-                builder: (_, Widget? child) {
-                  return ClipPath(
-                    clipper: WhiteTopClipper(
-                      yOffset: _whiteTopClipperAnimation.value,
-                    ),
-                    child: child,
-                  );
-                },
-                child: Container(color: AppColors.grey),
-              ),
-              AnimatedBuilder(
-                animation: _greyTopClipperAnimation,
-                builder: (_, Widget? child) {
-                  return ClipPath(
-                    clipper: GreyTopClipper(
-                      yOffset: _greyTopClipperAnimation.value,
-                    ),
-                    child: child,
-                  );
-                },
-                child: Container(color: AppColors.primary),
-              ),
-              AnimatedBuilder(
-                animation: _blueTopClipperAnimation,
-                builder: (_, Widget? child) {
-                  return ClipPath(
-                    clipper: BlueTopClipper(
-                      yOffset: _blueTopClipperAnimation.value,
-                    ),
-                    child: child,
-                  );
-                },
-                child: Container(color: AppColors.white),
-              ),
-              SafeArea(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.only(top: 4.0.h),
-                    child: Column(
-                      children: [
-                        LoginHeader(animation: _headerTextAnimation),
-                        SizedBox(
-                          height: 20.9.h,
-                        ),
-                        LoginForm(
-                          animation: _formElementAnimation,
-                          states: state,
-                        ),
-                      ],
+    return BlocProvider.value(
+      value: _cubit,
+      child: BlocConsumer<LoginCubit, LoginStates>(
+        listener: (context, state) async {
+          if (state is LoginSuccessfullyState) {
+            await sl<AuthLocalDataSource>()
+                .setUserLoggedIn(sl<GetCurrentUIDUseCase>().toString())
+                .then((value) async {
+              navigateAndRemove(context, Routes.layout);
+              sl<LoginCubit>().clearSignInControllers();
+            });
+          }
+        },
+        builder: (context, state) {
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: AppColors.white,
+            body: Stack(
+              children: <Widget>[
+                AnimatedBuilder(
+                  animation: _whiteTopClipperAnimation,
+                  builder: (_, Widget? child) {
+                    return ClipPath(
+                      clipper: WhiteTopClipper(
+                        yOffset: _whiteTopClipperAnimation.value,
+                      ),
+                      child: child,
+                    );
+                  },
+                  child: Container(color: AppColors.grey),
+                ),
+                AnimatedBuilder(
+                  animation: _greyTopClipperAnimation,
+                  builder: (_, Widget? child) {
+                    return ClipPath(
+                      clipper: GreyTopClipper(
+                        yOffset: _greyTopClipperAnimation.value,
+                      ),
+                      child: child,
+                    );
+                  },
+                  child: Container(color: AppColors.primary),
+                ),
+                AnimatedBuilder(
+                  animation: _blueTopClipperAnimation,
+                  builder: (_, Widget? child) {
+                    return ClipPath(
+                      clipper: BlueTopClipper(
+                        yOffset: _blueTopClipperAnimation.value,
+                      ),
+                      child: child,
+                    );
+                  },
+                  child: Container(color: AppColors.white),
+                ),
+                SafeArea(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.only(top: 4.0.h),
+                      child: Column(
+                        children: [
+                          LoginHeader(animation: _headerTextAnimation),
+                          SizedBox(
+                            height: 20.9.h,
+                          ),
+                          LoginForm(
+                            animation: _formElementAnimation,
+                            states: state,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        );
-      },
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/features/domain/entities/memory_entity.dart';
 import 'package:bebop/features/presentation/view/home/screens/reminder_screen.dart';
-import 'package:bebop/features/presentation/view/login/cubit/login_cubit.dart';
 import 'package:bebop/features/presentation/view/profile/screens/memory_screen.dart';
 import 'package:bebop/features/presentation/view/register/cubit/register_cubit.dart';
 import 'package:bebop/features/presentation/view/settings/screens/baby_information_screen.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../core/services/injection_container.dart';
 import '../../core/utils/app_strings.dart';
 import '../../features/data/models/tips_model.dart';
 import '../../features/presentation/view/crying/screens/crying_translate_screen.dart';
@@ -77,10 +75,7 @@ class AppRoutes {
 
       case Routes.login:
         return MaterialPageRoute(builder: (context) {
-          return BlocProvider(
-            create: (_) => sl<LoginCubit>(),
-            child: LoginScreen(screenHeight: context.height),
-          );
+          return LoginScreen(screenHeight: context.height);
         });
 
       case Routes.forgetPassword:
