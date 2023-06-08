@@ -20,11 +20,13 @@ import 'have_account.dart';
 class RegisterForm extends StatelessWidget {
   final Animation<Offset> nameOffsetAnimation;
   final Animation<Offset> confirmPassOffsetAnimation;
+  final RegisterCubit cubit;
 
   const RegisterForm({
     super.key,
     required this.nameOffsetAnimation,
     required this.confirmPassOffsetAnimation,
+    required this.cubit,
   });
 
   @override
@@ -104,7 +106,11 @@ class RegisterForm extends StatelessWidget {
                           AppDialogs.showToast(
                               msg: AppStrings.isEmailRegistered);
                         } else {
-                          navigateTo(context, Routes.babyRegister);
+                          navigateTo(
+                            context,
+                            Routes.babyRegister,
+                            arguments: cubit,
+                          );
                         }
                       } else {
                         AppDialogs.showToast(msg: AppStrings.noInternetAccess);

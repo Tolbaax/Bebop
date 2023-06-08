@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../core/services/injection_container.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../components/custom_clippers/blue_top_clipper.dart';
 import '../../../components/custom_clippers/grey_top_clipper.dart';
@@ -22,6 +23,7 @@ class RegisterScreen extends StatefulWidget {
 
 class RegisterState extends State<RegisterScreen>
     with TickerProviderStateMixin {
+  late final RegisterCubit _cubit;
   late final AnimationController _animationController;
   late final Animation<double> _whiteTopClipperAnimation;
   late final Animation<double> _blueTopClipperAnimation;
@@ -34,6 +36,9 @@ class RegisterState extends State<RegisterScreen>
   @override
   void initState() {
     super.initState();
+
+    _cubit = RegisterCubit(sl());
+
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 0),
@@ -73,6 +78,7 @@ class RegisterState extends State<RegisterScreen>
 
   @override
   void dispose() {
+    _cubit.close();
     _animationController.dispose();
     _inputFiledAnimationController.dispose();
     super.dispose();
@@ -104,73 +110,77 @@ class RegisterState extends State<RegisterScreen>
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterStates>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return Scaffold(
-          backgroundColor: AppColors.white,
-          body: Stack(
-            children: <Widget>[
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 34.h,
-                    ),
-                    RegisterForm(
-                      nameOffsetAnimation: _slideAnimationNameFiled,
-                      confirmPassOffsetAnimation:
-                          _slideAnimationConfirmPassFiled,
-                    ),
-                  ],
+    return BlocProvider.value(
+      value: _cubit,
+      child: BlocConsumer<RegisterCubit, RegisterStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return Scaffold(
+            backgroundColor: AppColors.white,
+            body: Stack(
+              children: <Widget>[
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 34.h,
+                      ),
+                      RegisterForm(
+                        nameOffsetAnimation: _slideAnimationNameFiled,
+                        confirmPassOffsetAnimation:
+                            _slideAnimationConfirmPassFiled,
+                        cubit: _cubit,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              AnimatedBuilder(
-                animation: _whiteTopClipperAnimation,
-                builder: (_, Widget? child) {
-                  return ClipPath(
-                    clipper: WhiteTopClipper(
-                      yOffset: _whiteTopClipperAnimation.value,
-                    ),
-                    child: child,
-                  );
-                },
-                child: Container(color: AppColors.grey),
-              ),
-              AnimatedBuilder(
-                animation: _greyTopClipperAnimation,
-                builder: (_, Widget? child) {
-                  return ClipPath(
-                    clipper: GreyTopClipper(
-                      yOffset: _greyTopClipperAnimation.value,
-                    ),
-                    child: child,
-                  );
-                },
-                child: Container(color: AppColors.primary),
-              ),
-              AnimatedBuilder(
-                animation: _blueTopClipperAnimation,
-                builder: (_, Widget? child) {
-                  return ClipPath(
-                    clipper: BlueTopClipper(
-                      yOffset: _blueTopClipperAnimation.value,
-                    ),
-                    child: child,
-                  );
-                },
-                child: Container(color: AppColors.white),
-              ),
-              SafeArea(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.only(top: 4.0.h),
-                  child: const RegisterHeader(),
+                AnimatedBuilder(
+                  animation: _whiteTopClipperAnimation,
+                  builder: (_, Widget? child) {
+                    return ClipPath(
+                      clipper: WhiteTopClipper(
+                        yOffset: _whiteTopClipperAnimation.value,
+                      ),
+                      child: child,
+                    );
+                  },
+                  child: Container(color: AppColors.grey),
                 ),
-              ),
-            ],
-          ),
-        );
-      },
+                AnimatedBuilder(
+                  animation: _greyTopClipperAnimation,
+                  builder: (_, Widget? child) {
+                    return ClipPath(
+                      clipper: GreyTopClipper(
+                        yOffset: _greyTopClipperAnimation.value,
+                      ),
+                      child: child,
+                    );
+                  },
+                  child: Container(color: AppColors.primary),
+                ),
+                AnimatedBuilder(
+                  animation: _blueTopClipperAnimation,
+                  builder: (_, Widget? child) {
+                    return ClipPath(
+                      clipper: BlueTopClipper(
+                        yOffset: _blueTopClipperAnimation.value,
+                      ),
+                      child: child,
+                    );
+                  },
+                  child: Container(color: AppColors.white),
+                ),
+                SafeArea(
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.only(top: 4.0.h),
+                    child: const RegisterHeader(),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

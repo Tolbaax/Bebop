@@ -23,7 +23,9 @@ import '../widgets/baby_info_page.dart';
 import '../widgets/baby_weight_page.dart';
 
 class BabyRegisterScreen extends StatefulWidget {
-  const BabyRegisterScreen({Key? key}) : super(key: key);
+  final RegisterCubit cubit;
+
+  const BabyRegisterScreen({Key? key, required this.cubit}) : super(key: key);
 
   @override
   State<BabyRegisterScreen> createState() => _BabyRegisterScreenState();
@@ -51,116 +53,119 @@ class _BabyRegisterScreenState extends State<BabyRegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegisterCubit, RegisterStates>(
-      listener: (context, state) async {
-        if (state is RegisterSuccessState) {
-          await sl<AuthLocalDataSource>()
-              .setUserLoggedIn(sl<GetCurrentUIDUseCase>().toString())
-              .then(
-            (value) async {
-              print(sl<GetCurrentUIDUseCase>().toString());
-              navigateAndRemove(context, Routes.layout);
-              sl<RegisterCubit>().clearSignUpControllers();
-            },
-          );
-        }
-      },
-      builder: (context, state) {
-        final cubit = RegisterCubit.get(context);
-        Future<bool> onWillPop() async {
-          if (_pageController.page != 0) {
-            _pageController.previousPage(
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.ease,
+    return BlocProvider.value(
+      value: widget.cubit,
+      child: BlocConsumer<RegisterCubit, RegisterStates>(
+        listener: (context, state) async {
+          if (state is RegisterSuccessState) {
+            await sl<AuthLocalDataSource>()
+                .setUserLoggedIn(sl<GetCurrentUIDUseCase>().toString())
+                .then(
+              (value) async {
+                print(sl<GetCurrentUIDUseCase>().toString());
+                navigateAndRemove(context, Routes.layout);
+                sl<RegisterCubit>().clearSignUpControllers();
+              },
             );
-            return false;
           }
-          return true;
-        }
+        },
+        builder: (context, state) {
+          final cubit = RegisterCubit.get(context);
+          Future<bool> onWillPop() async {
+            if (_pageController.page != 0) {
+              _pageController.previousPage(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.ease,
+              );
+              return false;
+            }
+            return true;
+          }
 
-        return WillPopScope(
-          onWillPop: onWillPop,
-          child: Scaffold(
-            appBar: AppBar(
-              leading: _currentIndex == 0
-                  ? const AppBarBackButton()
-                  : IconButton(
-                      onPressed: () {
-                        _pageController.animateToPage(
-                          _pageController.page!.toInt() - 1,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.ease,
-                        );
-                      },
-                      icon: Icon(
-                        CupertinoIcons.back,
-                        color: AppColors.primary,
+          return WillPopScope(
+            onWillPop: onWillPop,
+            child: Scaffold(
+              appBar: AppBar(
+                leading: _currentIndex == 0
+                    ? const AppBarBackButton()
+                    : IconButton(
+                        onPressed: () {
+                          _pageController.animateToPage(
+                            _pageController.page!.toInt() - 1,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.ease,
+                          );
+                        },
+                        icon: Icon(
+                          CupertinoIcons.back,
+                          color: AppColors.primary,
+                        ),
+                      ),
+              ),
+              body: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SmoothPageIndicator(
+                      controller: _pageController,
+                      count: 3,
+                      effect: ExpandingDotsEffect(
+                        dotWidth: 12.0.w,
+                        dotHeight: 0.9.h,
+                        activeDotColor: AppColors.primary,
+                        dotColor: AppColors.black.withOpacity(0.25),
                       ),
                     ),
-            ),
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SmoothPageIndicator(
-                    controller: _pageController,
-                    count: 3,
-                    effect: ExpandingDotsEffect(
-                      dotWidth: 12.0.w,
-                      dotHeight: 0.9.h,
-                      activeDotColor: AppColors.primary,
-                      dotColor: AppColors.black.withOpacity(0.25),
+                    SizedBox(
+                      height: context.height * 0.77,
+                      child: PageView(
+                        controller: _pageController,
+                        physics: const NeverScrollableScrollPhysics(),
+                        onPageChanged: (index) {},
+                        children: [
+                          BabyInfoPage(cubit: cubit),
+                          const BabyHeightPage(),
+                          const BabyWeightPage(),
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: context.height * 0.77,
-                    child: PageView(
-                      controller: _pageController,
-                      physics: const NeverScrollableScrollPhysics(),
-                      onPageChanged: (index) {},
-                      children: [
-                        BabyInfoPage(cubit: cubit),
-                        const BabyHeightPage(),
-                        const BabyWeightPage(),
-                      ],
-                    ),
-                  ),
-                  CustomButton(
-                    onTap: () async {
-                      if (cubit.babyNameController.text.isNotEmpty &&
-                          cubit.dateController.text.isNotEmpty) {
-                        _pageController.animateToPage(
-                          _pageController.page!.toInt() + 1,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeIn,
-                        );
-                      } else {
-                        if (cubit.babyNameController.text.isEmpty) {
-                          AppDialogs.showToast(msg: 'Name can\'t be empty');
+                    CustomButton(
+                      onTap: () async {
+                        if (cubit.babyNameController.text.isNotEmpty &&
+                            cubit.dateController.text.isNotEmpty) {
+                          _pageController.animateToPage(
+                            _pageController.page!.toInt() + 1,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeIn,
+                          );
                         } else {
-                          AppDialogs.showToast(msg: 'Please Select Birthday');
+                          if (cubit.babyNameController.text.isEmpty) {
+                            AppDialogs.showToast(msg: 'Name can\'t be empty');
+                          } else {
+                            AppDialogs.showToast(msg: 'Please Select Birthday');
+                          }
                         }
-                      }
 
-                      if (_currentIndex == 2) {
-                        if (await checkInternetConnectivity()) {
-                          await cubit.register();
-                        } else {
-                          AppDialogs.showToast(
-                              msg: AppStrings.noInternetAccess);
+                        if (_currentIndex == 2) {
+                          if (await checkInternetConnectivity()) {
+                            await cubit.register();
+                          } else {
+                            AppDialogs.showToast(
+                                msg: AppStrings.noInternetAccess);
+                          }
                         }
-                      }
-                    },
-                    text: _currentIndex == 2
-                        ? AppStrings.getStarted
-                        : AppStrings.continu,
-                    condition: state is RegisterLoadingState,
-                  ),
-                ],
+                      },
+                      text: _currentIndex == 2
+                          ? AppStrings.getStarted
+                          : AppStrings.continu,
+                      condition: state is RegisterLoadingState,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

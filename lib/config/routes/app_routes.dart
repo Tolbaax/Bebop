@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../core/services/injection_container.dart';
 import '../../core/utils/app_strings.dart';
+import '../../features/data/models/tips_model.dart';
 import '../../features/presentation/view/crying/screens/crying_translate_screen.dart';
 import '../../features/presentation/view/crying/screens/translate_result_screen.dart';
 import '../../features/presentation/view/ehr/screens/ehr_screen.dart';
@@ -19,7 +21,6 @@ import '../../features/presentation/view/ehr/screens/oxygen_screen.dart';
 import '../../features/presentation/view/ehr/screens/temp_screen.dart';
 import '../../features/presentation/view/forget_password/forget_password_screen.dart';
 import '../../features/presentation/view/home/screens/tips_details_screen.dart';
-import '../../features/data/models/tips_model.dart';
 import '../../features/presentation/view/layout/cubit/cubit.dart';
 import '../../features/presentation/view/layout/screens/layout_screen.dart';
 import '../../features/presentation/view/location/cubit/map_cubit.dart';
@@ -29,9 +30,9 @@ import '../../features/presentation/view/login/screens/login_screen.dart';
 import '../../features/presentation/view/onboarding/screens/onBoardingScreen.dart';
 import '../../features/presentation/view/profile/cubit/cubit.dart';
 import '../../features/presentation/view/profile/screens/add_memory.dart';
-import '../../features/presentation/view/settings/screens/settings_screen.dart';
 import '../../features/presentation/view/register/screens/baby_register_screen.dart';
 import '../../features/presentation/view/register/screens/register_screen.dart';
+import '../../features/presentation/view/settings/screens/settings_screen.dart';
 import '../../features/presentation/view/splash/splash_screen.dart';
 
 class Routes {
@@ -92,19 +93,14 @@ class AppRoutes {
       case Routes.register:
         return PageTransition(
           type: PageTransitionType.fade,
-          child: BlocProvider(
-            create: (_) => sl<RegisterCubit>(),
-            child: RegisterScreen(screenHeight: 1.h),
-          ),
+          child: RegisterScreen(screenHeight: 1.h),
         );
 
       case Routes.babyRegister:
+        final RegisterCubit cubit = settings.arguments as RegisterCubit;
         return PageTransition(
           type: PageTransitionType.fade,
-          child: BlocProvider(
-            create: (_) => sl<RegisterCubit>(),
-            child: const BabyRegisterScreen(),
-          ),
+          child: BabyRegisterScreen(cubit: cubit),
         );
 
       case Routes.layout:
