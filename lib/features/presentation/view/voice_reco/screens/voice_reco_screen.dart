@@ -31,7 +31,7 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
       showLoadingDialog();
       loadingTimer = Timer(Duration(seconds: 3), () {
         hideLoadingDialog();
-        navigateToNextScreen();
+        navigateToVoiceRecoResult();
       });
     });
   }
@@ -82,13 +82,13 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
     Navigator.of(context).pop();
   }
 
-  void navigateToNextScreen() {
+  void navigateToVoiceRecoResult() {
     if (loadingTimer != null && loadingTimer!.isActive) {
       loadingTimer!.cancel();
     }
 
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => NextScreen()),
+      MaterialPageRoute(builder: (context) => VoiceRecoResult()),
     );
   }
 
@@ -131,16 +131,16 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
   }
 }
 
-class NextScreen extends StatelessWidget {
+class VoiceRecoResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: AppBarBackButton(),
-        title: Text('Next Screen'),
+        title: Text('Voice Reco Result'),
       ),
       body: Center(
-        child: Text('This is the next screen'),
+        child: Text('Voice Reco Result'),
       ),
     );
   }
