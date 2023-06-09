@@ -26,7 +26,7 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
       isAnimationPlaying = true;
     });
 
-    Timer(Duration(seconds: 8), () {
+    Timer(Duration(seconds: 6), () {
       stopAnimation();
       showLoadingDialog();
       loadingTimer = Timer(Duration(seconds: 3), () {
@@ -109,13 +109,10 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 20.0.h,
-            width: double.infinity,
-            child: Lottie.asset(
-              ImageAssets.voiceReco,
-              animate: isAnimationPlaying,
-            ),
+          SizedBox(height: 10.0.h),
+          Lottie.asset(
+            ImageAssets.voiceDetect,
+            animate: isAnimationPlaying,
           ),
           Spacer(),
           CustomButton(

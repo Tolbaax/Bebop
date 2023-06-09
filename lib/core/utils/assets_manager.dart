@@ -23,6 +23,8 @@ class ImageAssets {
 
   //Json
   static const String voiceReco = '$jsonPath/voice_recognition1.json';
+  static const String voiceReco1 = '$jsonPath/voice_recognition.json';
+  static const String voiceDetect = '$jsonPath/voice_detect.json';
   static const String babyFly = '$jsonPath/baby_fly.json';
   static const String sleep = '$jsonPath/baby_sleep.json';
   static const String forgetPassword = '$jsonPath/forget_password.json';
