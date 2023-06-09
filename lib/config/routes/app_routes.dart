@@ -4,6 +4,7 @@ import 'package:bebop/features/presentation/view/home/screens/reminder_screen.da
 import 'package:bebop/features/presentation/view/profile/screens/memory_screen.dart';
 import 'package:bebop/features/presentation/view/register/cubit/register_cubit.dart';
 import 'package:bebop/features/presentation/view/settings/screens/baby_information_screen.dart';
+import 'package:bebop/features/presentation/view/voice_reco/screens/voice_reco_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:page_transition/page_transition.dart';
@@ -58,6 +59,7 @@ class Routes {
   static const String oxygen = '/oxygen';
   static const String babyInformation = '/babyInformation';
   static const String reminder = '/reminder';
+  static const String voiceReco = '/voiceReco';
 }
 
 class AppRoutes {
@@ -200,6 +202,12 @@ class AppRoutes {
         return PageTransition(
           type: PageTransitionType.fade,
           child: ReminderScreen(initialTabIndex: initialTabIndex),
+        );
+
+      case Routes.voiceReco:
+        return PageTransition(
+          type: PageTransitionType.fade,
+          child: VoiceRecoScreen(),
         );
 
       default:
