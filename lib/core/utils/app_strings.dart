@@ -205,8 +205,15 @@ class AppStrings {
   //Reminder
   static const String start = 'Start';
   static const String finish = 'Finish';
+  static const String date = 'Date';
   static const String type = 'Type';
   static const String details = 'Details';
   static const String amount = 'Amount';
   static const String contents = 'Contents';
+  static const String formula = 'Formula';
+  static const String breastMilk = 'Breast milk';
+  static const String addReminder = 'Add Reminder';
+  static const String bottle = 'Bottle';
+  static const String solids = 'Solids';
+  static const String breast = 'Breast';
 }

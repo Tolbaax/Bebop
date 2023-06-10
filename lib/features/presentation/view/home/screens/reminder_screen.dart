@@ -96,6 +96,7 @@ class _ReminderScreenState extends State<ReminderScreen>
         },
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: AppStrings.addReminder,
         onPressed: () =>
             Constants().navigateToReminderScreen(context, _tabController.index),
         backgroundColor: AppColors.primary,

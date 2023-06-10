@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../core/utils/app_color.dart';
-import '../../../../../core/utils/app_strings.dart';
+import '../../../../../../core/utils/app_color.dart';
+import '../../../../../../core/utils/app_strings.dart';
 
 
 class LogoutDialog {

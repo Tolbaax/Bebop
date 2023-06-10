@@ -1,13 +1,14 @@
 import 'package:bebop/core/functions/navigation/navigation.dart';
-import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class SaveCancelButtons extends StatelessWidget {
   final VoidCallback? savePressed;
+  final Color color;
 
-  const SaveCancelButtons({Key? key, this.savePressed}) : super(key: key);
+  const SaveCancelButtons({Key? key, this.savePressed, required this.color})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class SaveCancelButtons extends StatelessWidget {
             AppStrings.cancel,
             style: TextStyle(
               fontSize: 13.5.sp,
-              color: AppColors.primary,
+              color: color,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -31,7 +32,7 @@ class SaveCancelButtons extends StatelessWidget {
             AppStrings.save,
             style: TextStyle(
               fontSize: 13.5.sp,
-              color: AppColors.primary,
+              color: color,
               fontWeight: FontWeight.w700,
             ),
           ),

@@ -1,23 +1,24 @@
-import 'package:bebop/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../core/utils/app_color.dart';
-
+import 'dialog_filed.dart';
 
 class DateTimeRow extends StatelessWidget {
-  final String text, label1, label2, value1, value2;
+  final String text, hintText1, hintText2;
+  final TextEditingController controller1, controller2;
   final VoidCallback onTap1, onTap2;
+  final Color color;
 
   const DateTimeRow({
     Key? key,
     required this.text,
-    required this.label1,
-    required this.label2,
-    required this.value1,
-    required this.value2,
+    required this.hintText1,
+    required this.hintText2,
     required this.onTap1,
     required this.onTap2,
+    required this.color,
+    required this.controller1,
+    required this.controller2,
   }) : super(key: key);
 
   @override
@@ -28,66 +29,28 @@ class DateTimeRow extends StatelessWidget {
           text,
           style: TextStyle(
             fontSize: 14.5.sp,
-            color: AppColors.teal.withOpacity(0.8),
+            color: color,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.15,
           ),
         ),
         Spacer(),
-        DateTimeField(
-          label: label1,
-          value: value1,
+        DialogField(
+          hintText: hintText1,
+          controller: controller1,
           onTap: onTap1,
+          color: color,
         ),
         SizedBox(
           width: 3.w,
         ),
-        DateTimeField(
-          label: label2,
-          value: value2,
+        DialogField(
+          hintText: hintText2,
+          controller: controller2,
           onTap: onTap2,
+          color: color,
         ),
       ],
-    );
-  }
-}
-
-class DateTimeField extends StatelessWidget {
-  final String label;
-  final String value;
-  final VoidCallback onTap;
-
-  DateTimeField({
-    required this.label,
-    required this.value,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        width: context.width * 0.2,
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: AppColors.teal.withOpacity(0.8),
-              width: 1.0,
-            ),
-          ),
-        ),
-        child: Padding(
-          padding: EdgeInsetsDirectional.only(bottom: 3.0.sp),
-          child: Text(
-            value.isNotEmpty ? value : label,
-            style: TextStyle(
-              fontSize: 12.0.sp,
-              fontFamily: '',
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

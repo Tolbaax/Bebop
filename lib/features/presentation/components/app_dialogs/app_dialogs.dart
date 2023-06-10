@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../../core/utils/app_color.dart';
-import 'widgets/confirm_delete_memory.dart';
-import 'widgets/feeding_dialog.dart';
-import 'widgets/logout_dialog.dart';
+import 'dialogs/confirm_delete_memory_dialog.dart';
+import 'dialogs/feeding_dialog.dart';
+import 'dialogs/logout_dialog.dart';
 
 class AppDialogs {
   static void showToast(

@@ -121,7 +121,7 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
                 ? 'Stop Detecting Voices'
                 : 'Start Detecting Voices',
           ),
-          SizedBox(height: 10.0.h),
+          SizedBox(height: 5.0.h),
         ],
       ),
     );

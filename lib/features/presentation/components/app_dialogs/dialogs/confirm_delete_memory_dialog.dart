@@ -2,9 +2,9 @@ import 'package:bebop/core/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../core/functions/navigation/navigation.dart';
-import '../../../../../core/utils/app_color.dart';
-import '../../../../../core/utils/app_strings.dart';
+import '../../../../../../core/functions/navigation/navigation.dart';
+import '../../../../../../core/utils/app_color.dart';
+import '../../../../../../core/utils/app_strings.dart';
 
 
 class ConfirmDeleteMemoryDialog {
