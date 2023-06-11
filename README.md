@@ -41,6 +41,7 @@ topics such as feeding, sleep, and development milestones.
 ## What's Next?
  - [ ] Notifications for voice recognition warning, EHR warnings, reminder, daily tips, etc
  - [ ] Change app language (English - Arabic) 
+ - [ ] Baby growth tracking (Weight - Height - Head)
  - [ ] Add EHR Tracking
  - [ ] Add Videos to Memories
  - [ ] Add dark mode 
