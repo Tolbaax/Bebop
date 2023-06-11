@@ -1,11 +1,13 @@
+import 'package:bebop/config/routes/app_routes.dart';
+import 'package:bebop/core/functions/navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_color.dart';
 import '../../../../../core/utils/assets_manager.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
+class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const HomeAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         GestureDetector(
-          onTap: () {},
+          onTap: () => navigateTo(context, Routes.notifications),
           child: Container(
             margin:
                 EdgeInsetsDirectional.only(end: 10.sp, top: 6.sp, bottom: 5.sp),

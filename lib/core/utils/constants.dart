@@ -50,7 +50,7 @@ class Constants {
     AppColors.primary.withOpacity(0.8),
     AppColors.teal.withOpacity(0.8),
     AppColors.darkBlue.withOpacity(0.7),
-    AppColors.spaceCadet.withOpacity(0.5),
+    AppColors.spaceCadet.withOpacity(0.6),
   ];
 
   void navigateToReminderScreen(context, int index) {
@@ -62,10 +62,10 @@ class Constants {
         AppDialogs.showFeedingDialog(context: context);
         break;
       case 2:
-        Navigator.pushNamed(context, 'Routes.addMemory');
+        AppDialogs.showLeisureDialog(context: context);
         break;
       case 3:
-        Navigator.pushNamed(context, 'Routes.addMemory');
+        AppDialogs.showOthersDialog(context: context);
         break;
       default:
         break;

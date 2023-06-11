@@ -69,7 +69,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SettingsListTile(
               onTap: () {},
               icon: FontAwesomeIcons.bell,
-              title: AppStrings.notification,
+              title: AppStrings.notifications,
               trailing: Switch(
                 value: isNotification,
                 onChanged: (bool value) {

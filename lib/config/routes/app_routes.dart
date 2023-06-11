@@ -1,6 +1,7 @@
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:bebop/features/domain/entities/memory_entity.dart';
 import 'package:bebop/features/presentation/view/home/screens/reminder_screen.dart';
+import 'package:bebop/features/presentation/view/notifications/screens/notifications_screen.dart';
 import 'package:bebop/features/presentation/view/profile/screens/memory_screen.dart';
 import 'package:bebop/features/presentation/view/register/cubit/register_cubit.dart';
 import 'package:bebop/features/presentation/view/settings/screens/baby_information_screen.dart';
@@ -60,6 +61,7 @@ class Routes {
   static const String babyInformation = '/babyInformation';
   static const String reminder = '/reminder';
   static const String voiceReco = '/voiceReco';
+  static const String notifications = '/notifications';
 }
 
 class AppRoutes {
@@ -209,6 +211,13 @@ class AppRoutes {
           type: PageTransitionType.fade,
           child: VoiceRecoScreen(),
         );
+
+      case Routes.notifications:
+        return PageTransition(
+          type: PageTransitionType.rightToLeft,
+          child: NotificationsScreen(),
+        );
+
 
       default:
         return undefinedRoute();

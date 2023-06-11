@@ -181,7 +181,7 @@ class AppStrings {
   static const String language = 'Language';
   static const String darkTheme = 'Dark Theme';
   static const String contactUs = 'Contact Us';
-  static const String notification = 'Notification';
+  static const String notifications = 'Notifications';
   static const String logout = 'Logout';
   static const String cancel = 'Cancel';
   static const String save = 'Save';
@@ -228,4 +228,10 @@ class AppStrings {
   static const String f = '°F';
   static const String c = '°C';
   static const String leisure = 'Leisure';
+  static const String hintTime = '11:37 PM';
+  static const String tummyTime = 'Tummy Time';
+  static const String playTime = 'Play Time';
+  static const String outdoors = 'Outdoors';
+  static const String bathTime = 'Bath Time';
+
 }

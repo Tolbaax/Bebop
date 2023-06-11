@@ -1,5 +1,4 @@
 import 'package:bebop/core/extensions/extensions.dart';
-import 'package:bebop/features/presentation/components/app_dialogs/app_dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -14,9 +13,9 @@ import '../widgets/date_time_filed.dart';
 import '../widgets/dialog_filed.dart';
 import '../widgets/save_cancel_buttons.dart';
 
-class HealthDialog {
+class OthersDialog {
   static void show({required BuildContext context}) {
-    final Color color = AppColors.primary.withOpacity(0.8);
+    final Color color = AppColors.spaceCadet.withOpacity(0.6);
 
     showDialog(
       context: context,
@@ -34,7 +33,7 @@ class HealthDialog {
             mainAxisSize: MainAxisSize.min,
             children: [
               BuildDialogHeader(
-                text: AppStrings.health,
+                text: AppStrings.others,
                 color: color,
               ),
               SizedBox(height: 2.0.h),
@@ -93,62 +92,11 @@ class HealthDialog {
                   ),
                   Spacer(),
                   DialogField(
-                    onTap: () {},
-                    onItemSelected: (value) =>
-                        cubit.selectHealthType(context, value),
-                    hintText: AppStrings.medication,
-                    controller: cubit.healthType,
+                    controller: cubit.othersType,
                     color: color,
                     width: context.width * 0.43,
-                    havePopupMenuButton: true,
-                    popupMenuItems: [
-                      AppStrings.medication,
-                      AppStrings.temperature,
-                      AppStrings.vaccination,
-                    ],
                   ),
                 ],
-              ),
-              Visibility(
-                visible: cubit.healthType.text == AppStrings.temperature,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          AppStrings.value,
-                          style: textStyle,
-                        ),
-                        Spacer(),
-                        DialogField(
-                          controller: cubit.tempValue,
-                          hintText: '0',
-                          color: color,
-                          keyboardType: TextInputType.number,
-                          centerText: true,
-                        ),
-                        SizedBox(
-                          width: 3.w,
-                        ),
-                        DialogField(
-                          onTap: () => AppDialogs.showValueDialog(
-                            context: context,
-                            text1: AppStrings.f,
-                            text2: AppStrings.c,
-                          ),
-                          hintText: cubit.feedingAmountType == 1
-                              ? AppStrings.f
-                              : AppStrings.c,
-                          color: color,
-                          centerText: true,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
               ),
               SizedBox(
                 height: 1.5.h,
@@ -161,7 +109,7 @@ class HealthDialog {
                   ),
                   Spacer(),
                   DialogField(
-                    controller: cubit.healthDetails,
+                    controller: cubit.leisureDetails,
                     color: color,
                     width: context.width * 0.43,
                   ),

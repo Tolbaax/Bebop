@@ -8,8 +8,10 @@ import '../../../../../core/shared/common.dart';
 import '../../../../../core/utils/date_picker.dart';
 
 mixin ReminderMixin on Cubit<ReminderStates> {
-  //Health
+  // Health
   final healthType = TextEditingController();
+  final tempValue = TextEditingController();
+  final healthDetails = TextEditingController();
 
   void selectHealthType(context, value) {
     healthType.text = value;
@@ -18,10 +20,10 @@ mixin ReminderMixin on Cubit<ReminderStates> {
   }
 
   // Feeding
-  final feedingStartDate = TextEditingController();
-  final feedingStartTime = TextEditingController();
-  final feedingFinishDate = TextEditingController();
-  final feedingFinishTime = TextEditingController();
+  final startDate = TextEditingController();
+  final startTime = TextEditingController();
+  final finishDate = TextEditingController();
+  final finishTime = TextEditingController();
   final feedingType = TextEditingController();
   final contentsType = TextEditingController();
   final feedingAmount = TextEditingController();
@@ -31,7 +33,7 @@ mixin ReminderMixin on Cubit<ReminderStates> {
   void selectStartDate(BuildContext context) {
     CustomDatePicker.selectDate(context).then((value) {
       final parsedDate = DateTime.parse(value.toString());
-      feedingStartDate.text = DateFormat.MMMMd().format(parsedDate);
+      startDate.text = DateFormat.MMMMd().format(parsedDate);
       emit(SelectDateState());
     });
   }
@@ -44,7 +46,7 @@ mixin ReminderMixin on Cubit<ReminderStates> {
 
     if (selectedTime != null) {
       final String formattedTime = formatTime(selectedTime);
-      feedingStartTime.text = formattedTime;
+      startTime.text = formattedTime;
       emit(SelectTimeState());
     }
   }
@@ -52,7 +54,7 @@ mixin ReminderMixin on Cubit<ReminderStates> {
   void selectFinishDate(BuildContext context) async {
     CustomDatePicker.selectDate(context).then((value) {
       final parsedDate = DateTime.parse(value.toString());
-      feedingFinishDate.text = DateFormat.MMMMd().format(parsedDate);
+      finishDate.text = DateFormat.MMMMd().format(parsedDate);
       emit(SelectDateState());
     });
   }
@@ -65,7 +67,7 @@ mixin ReminderMixin on Cubit<ReminderStates> {
 
     if (selectedTime != null) {
       final String formattedTime = formatTime(selectedTime);
-      feedingFinishTime.text = formattedTime;
+      finishTime.text = formattedTime;
       emit(SelectTimeState());
     }
   }
@@ -78,8 +80,8 @@ mixin ReminderMixin on Cubit<ReminderStates> {
       feedingAmountType = 1;
     }
     if (feedingType.text == AppStrings.solids) {
-      feedingFinishDate.clear();
-      feedingFinishTime.clear();
+      finishDate.clear();
+      finishTime.clear();
       feedingAmount.clear();
       contentsType.clear();
       feedingAmountType = 1;
@@ -97,4 +99,18 @@ mixin ReminderMixin on Cubit<ReminderStates> {
     feedingAmountType = value;
     emit(SelectUnitValueState());
   }
+
+  // Leisure
+  final leisureType = TextEditingController();
+  final leisureDetails = TextEditingController();
+
+  void selectLeisureType(context, value) {
+    leisureType.text = value;
+
+    emit(SelectTypeState());
+  }
+
+  // Others
+  final othersType = TextEditingController();
+  final othersDetails = TextEditingController();
 }

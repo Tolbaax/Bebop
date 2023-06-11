@@ -2,6 +2,7 @@ import 'package:bebop/core/utils/app_color.dart';
 import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/constants.dart';
 import 'package:bebop/features/presentation/view/home/cubit/cubit.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -63,6 +64,7 @@ class _ReminderScreenState extends State<ReminderScreen>
                       builder: (context, child) {
                         return TabBar(
                           controller: _tabController,
+                          dragStartBehavior: DragStartBehavior.down,
                           indicator: BoxDecoration(
                             color: indicatorColors[_tabController.index],
                             borderRadius: BorderRadius.circular(10.sp),
@@ -76,6 +78,7 @@ class _ReminderScreenState extends State<ReminderScreen>
                   Expanded(
                     child: TabBarView(
                       controller: _tabController,
+                      physics: NeverScrollableScrollPhysics(),
                       children: [
                         // Add your respective reminder screens for each tab here
                         Container(

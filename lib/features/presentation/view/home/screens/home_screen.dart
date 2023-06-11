@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../widgets/custom_appbar.dart';
+import '../widgets/home_appbar.dart';
 import '../widgets/custom_carousel_slider.dart';
 import '../widgets/tips_for_mom.dart';
 import '../widgets/toady_reminder.dart';
@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const HomeAppBar(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
