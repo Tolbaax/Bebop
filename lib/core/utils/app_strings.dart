@@ -215,5 +215,17 @@ class AppStrings {
   static const String addReminder = 'Add Reminder';
   static const String bottle = 'Bottle';
   static const String solids = 'Solids';
+  static const String ok = 'Ok';
   static const String breast = 'Breast';
+  static const String volumeUnits = 'Volume units in app';
+  static const String ml = 'ml';
+  static const String oz = 'oz';
+  static const String health = 'Health';
+  static const String medication = 'Medication';
+  static const String temperature = 'Temperature';
+  static const String vaccination = 'Vaccination';
+  static const String value = 'Value';
+  static const String f = '°F';
+  static const String c = '°C';
+  static const String leisure = 'Leisure';
 }

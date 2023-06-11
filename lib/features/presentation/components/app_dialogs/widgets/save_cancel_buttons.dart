@@ -15,25 +15,35 @@ class SaveCancelButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        TextButton(
-          onPressed: () => navigatePop(context),
-          child: Text(
-            AppStrings.cancel,
-            style: TextStyle(
-              fontSize: 13.5.sp,
-              color: color,
-              fontWeight: FontWeight.w700,
+        Theme(
+          data: ThemeData(
+            splashColor: color,
+          ),
+          child: TextButton(
+            onPressed: () => navigatePop(context),
+            child: Text(
+              AppStrings.cancel,
+              style: TextStyle(
+                fontSize: 13.5.sp,
+                color: color,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
         ),
-        TextButton(
-          onPressed: savePressed,
-          child: Text(
-            AppStrings.save,
-            style: TextStyle(
-              fontSize: 13.5.sp,
-              color: color,
-              fontWeight: FontWeight.w700,
+        Theme(
+          data: ThemeData(
+            splashColor: color,
+          ),
+          child: TextButton(
+            onPressed: savePressed,
+            child: Text(
+              AppStrings.save,
+              style: TextStyle(
+                fontSize: 13.5.sp,
+                color: color,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
         ),

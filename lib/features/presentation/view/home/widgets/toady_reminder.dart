@@ -30,7 +30,7 @@ class ToadyReminder extends StatelessWidget {
             children: [
               CustomReminder(
                 onTap: () => navigateTo(context, Routes.reminder, arguments: 0),
-                text: AppStrings.medicine,
+                text: AppStrings.health,
                 color: AppColors.primary.withOpacity(0.8),
                 icon: FontAwesomeIcons.syringe,
               ),
@@ -42,7 +42,7 @@ class ToadyReminder extends StatelessWidget {
               ),
               CustomReminder(
                 onTap: () => navigateTo(context, Routes.reminder, arguments: 2),
-                text: AppStrings.bathing,
+                text: AppStrings.leisure,
                 color: AppColors.darkBlue.withOpacity(0.7),
                 icon: FontAwesomeIcons.bath,
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import 'package:bebop/core/extensions/extensions.dart';
@@ -40,6 +41,9 @@ class DialogField extends StatelessWidget {
       keyboardType: keyboardType,
       enabled: onTap == null,
       textAlign: centerText ? TextAlign.center : TextAlign.start,
+      inputFormatters: keyboardType == TextInputType.number
+          ? [FilteringTextInputFormatter.digitsOnly]
+          : null,
       decoration: InputDecoration(
         isCollapsed: true,
         // Remove vertical padding
@@ -48,9 +52,9 @@ class DialogField extends StatelessWidget {
         labelStyle: TextStyle(color: AppColors.black),
         suffixIcon: havePopupMenuButton
             ? Icon(
-          Icons.arrow_drop_down_outlined,
-          color: AppColors.black,
-        )
+                Icons.arrow_drop_down_outlined,
+                color: AppColors.black,
+              )
             : null,
         suffixIconConstraints: BoxConstraints.loose(Size(10.0.w, 10.0.h)),
         focusedBorder: UnderlineInputBorder(
@@ -62,6 +66,7 @@ class DialogField extends StatelessWidget {
         disabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: color, width: 1),
         ),
+        contentPadding: EdgeInsetsDirectional.only(bottom: 1.0.sp),
       ),
       style: TextStyle(
         fontSize: 12.0.sp,

@@ -2,8 +2,10 @@ abstract class ReminderStates {}
 
 class ReminderInitialState extends ReminderStates {}
 
-class SelectFeedingStartDate extends ReminderStates {}
+class SelectDateState extends ReminderStates {}
 
-class SelectFeedingStartTime extends ReminderStates {}
+class SelectTimeState extends ReminderStates {}
 
-class SelectFeedingType extends ReminderStates {}
+class SelectTypeState extends ReminderStates {}
+
+class SelectUnitValueState extends ReminderStates {}

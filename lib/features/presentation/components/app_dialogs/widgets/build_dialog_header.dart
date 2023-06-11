@@ -29,8 +29,9 @@ class BuildDialogHeader extends StatelessWidget {
             text,
             style: TextStyle(
               color: AppColors.white,
-              fontSize: 20.0.sp,
-              letterSpacing: 0.4,
+              fontSize: 22.0.sp,
+              letterSpacing: 0.5,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),

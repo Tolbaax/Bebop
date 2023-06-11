@@ -79,11 +79,11 @@ class _ReminderScreenState extends State<ReminderScreen>
                       children: [
                         // Add your respective reminder screens for each tab here
                         Container(
-                            child: Center(child: Text('Medicine Reminder'))),
+                            child: Center(child: Text('Health Reminder'))),
                         Container(
                             child: Center(child: Text('Feeding Reminder'))),
                         Container(
-                            child: Center(child: Text('Bathing Reminder'))),
+                            child: Center(child: Text('Leisure Reminder'))),
                         Container(
                             child: Center(child: Text('Others Reminder'))),
                       ],

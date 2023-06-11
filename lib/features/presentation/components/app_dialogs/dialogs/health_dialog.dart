@@ -14,9 +14,9 @@ import '../widgets/date_time_filed.dart';
 import '../widgets/dialog_filed.dart';
 import '../widgets/save_cancel_buttons.dart';
 
-class FeedingDialog {
+class HealthDialog {
   static void show({required BuildContext context}) {
-    final Color color = AppColors.teal.withOpacity(0.8);
+    final Color color = AppColors.primary.withOpacity(0.8);
 
     showDialog(
       context: context,
@@ -34,7 +34,7 @@ class FeedingDialog {
             mainAxisSize: MainAxisSize.min,
             children: [
               BuildDialogHeader(
-                text: AppStrings.feeding,
+                text: AppStrings.health,
                 color: color,
               ),
               SizedBox(height: 2.0.h),
@@ -72,59 +72,18 @@ class FeedingDialog {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Visibility(
-                visible: cubit.feedingType.text != AppStrings.solids ||
-                    cubit.feedingType.text.isEmpty,
-                child: Column(
-                  children: [
-                    DateTimeRow(
-                      text: AppStrings.start,
-                      hintText1: '8:37 PM',
-                      hintText2: DateFormat.MMMMd().format(DateTime.now()),
-                      controller1: cubit.feedingStartTime,
-                      controller2: cubit.feedingStartDate,
-                      onTap1: () => cubit.selectStartTime(context),
-                      onTap2: () => cubit.selectStartDate(context),
-                      color: color,
-                    ),
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
-                    DateTimeRow(
-                      text: AppStrings.finish,
-                      hintText1: '11:37 PM',
-                      hintText2: DateFormat.MMMMd().format(DateTime.now()),
-                      controller1: cubit.feedingFinishTime,
-                      controller2: cubit.feedingFinishDate,
-                      onTap1: () => cubit.selectFinishTime(context),
-                      onTap2: () => cubit.selectFinishDate(context),
-                      color: color,
-                    ),
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
-                  ],
-                ),
+              DateTimeRow(
+                text: AppStrings.date,
+                hintText1: '11:37 PM',
+                hintText2: DateFormat.MMMMd().format(DateTime.now()),
+                controller1: cubit.feedingFinishTime,
+                controller2: cubit.feedingFinishDate,
+                onTap1: () => cubit.selectFinishTime(context),
+                onTap2: () => cubit.selectFinishDate(context),
+                color: color,
               ),
-              Visibility(
-                visible: cubit.feedingType.text == AppStrings.solids,
-                child: Column(
-                  children: [
-                    DateTimeRow(
-                      text: AppStrings.date,
-                      hintText1: '8:37 PM',
-                      hintText2: DateFormat.MMMMd().format(DateTime.now()),
-                      controller1: cubit.feedingStartTime,
-                      controller2: cubit.feedingStartDate,
-                      onTap1: () => cubit.selectStartTime(context),
-                      onTap2: () => cubit.selectStartDate(context),
-                      color: color,
-                    ),
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
-                  ],
-                ),
+              SizedBox(
+                height: 1.5.h,
               ),
               Row(
                 children: [
@@ -136,23 +95,22 @@ class FeedingDialog {
                   DialogField(
                     onTap: () {},
                     onItemSelected: (value) =>
-                        cubit.selectFeedingType(context, value),
-                    hintText: AppStrings.bottle,
-                    controller: cubit.feedingType,
+                        cubit.selectHealthType(context, value),
+                    hintText: AppStrings.medication,
+                    controller: cubit.healthType,
                     color: color,
                     width: context.width * 0.43,
                     havePopupMenuButton: true,
                     popupMenuItems: [
-                      AppStrings.bottle,
-                      AppStrings.breast,
-                      AppStrings.solids,
+                      AppStrings.medication,
+                      AppStrings.temperature,
+                      AppStrings.vaccination,
                     ],
                   ),
                 ],
               ),
               Visibility(
-                visible: cubit.feedingType.text == AppStrings.bottle ||
-                    cubit.feedingType.text.isEmpty,
+                visible: cubit.healthType.text == AppStrings.temperature,
                 child: Column(
                   children: [
                     SizedBox(
@@ -161,13 +119,12 @@ class FeedingDialog {
                     Row(
                       children: [
                         Text(
-                          AppStrings.amount,
+                          AppStrings.value,
                           style: textStyle,
                         ),
                         Spacer(),
                         DialogField(
                           hintText: '0',
-                          controller: cubit.feedingAmount,
                           color: color,
                           keyboardType: TextInputType.number,
                           centerText: true,
@@ -178,40 +135,14 @@ class FeedingDialog {
                         DialogField(
                           onTap: () => AppDialogs.showValueDialog(
                             context: context,
-                            text1: AppStrings.ml,
-                            text2: AppStrings.oz,
+                            text1: AppStrings.f,
+                            text2: AppStrings.c,
                           ),
                           hintText: cubit.feedingAmountType == 1
-                              ? AppStrings.ml
-                              : AppStrings.oz,
+                              ? AppStrings.f
+                              : AppStrings.c,
                           color: color,
                           centerText: true,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          AppStrings.contents,
-                          style: textStyle,
-                        ),
-                        Spacer(),
-                        DialogField(
-                          onTap: () {},
-                          onItemSelected: (value) =>
-                              cubit.selectContentsType(context, value),
-                          controller: cubit.contentsType,
-                          hintText: AppStrings.formula,
-                          color: color,
-                          width: context.width * 0.43,
-                          havePopupMenuButton: true,
-                          popupMenuItems: [
-                            AppStrings.formula,
-                            AppStrings.breastMilk,
-                          ],
                         ),
                       ],
                     ),

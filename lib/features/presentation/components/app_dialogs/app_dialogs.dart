@@ -1,3 +1,5 @@
+import 'package:bebop/features/presentation/components/app_dialogs/dialogs/health_dialog.dart';
+import 'package:bebop/features/presentation/components/app_dialogs/dialogs/value_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -27,4 +29,10 @@ class AppDialogs {
 
   static void showFeedingDialog({required context}) =>
       FeedingDialog.show(context: context);
+
+  static void showHealthDialog({required context, VoidCallback? onPressed}) =>
+      HealthDialog.show(context: context);
+
+  static void showValueDialog({context, text1, text2}) =>
+      ValueDialog.show(context, text1, text2);
 }

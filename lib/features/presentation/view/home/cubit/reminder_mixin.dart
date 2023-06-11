@@ -8,6 +8,16 @@ import '../../../../../core/shared/common.dart';
 import '../../../../../core/utils/date_picker.dart';
 
 mixin ReminderMixin on Cubit<ReminderStates> {
+  //Health
+  final healthType = TextEditingController();
+
+  void selectHealthType(context, value) {
+    healthType.text = value;
+
+    emit(SelectTypeState());
+  }
+
+  // Feeding
   final feedingStartDate = TextEditingController();
   final feedingStartTime = TextEditingController();
   final feedingFinishDate = TextEditingController();
@@ -15,14 +25,14 @@ mixin ReminderMixin on Cubit<ReminderStates> {
   final feedingType = TextEditingController();
   final contentsType = TextEditingController();
   final feedingAmount = TextEditingController();
-  final feedingAmountType = TextEditingController();
   final feedingDetails = TextEditingController();
+  int feedingAmountType = 1;
 
   void selectStartDate(BuildContext context) {
     CustomDatePicker.selectDate(context).then((value) {
       final parsedDate = DateTime.parse(value.toString());
       feedingStartDate.text = DateFormat.MMMMd().format(parsedDate);
-      emit(SelectFeedingStartDate());
+      emit(SelectDateState());
     });
   }
 
@@ -35,7 +45,7 @@ mixin ReminderMixin on Cubit<ReminderStates> {
     if (selectedTime != null) {
       final String formattedTime = formatTime(selectedTime);
       feedingStartTime.text = formattedTime;
-      emit(SelectFeedingStartTime());
+      emit(SelectTimeState());
     }
   }
 
@@ -43,7 +53,7 @@ mixin ReminderMixin on Cubit<ReminderStates> {
     CustomDatePicker.selectDate(context).then((value) {
       final parsedDate = DateTime.parse(value.toString());
       feedingFinishDate.text = DateFormat.MMMMd().format(parsedDate);
-      emit(SelectFeedingStartDate());
+      emit(SelectDateState());
     });
   }
 
@@ -56,30 +66,35 @@ mixin ReminderMixin on Cubit<ReminderStates> {
     if (selectedTime != null) {
       final String formattedTime = formatTime(selectedTime);
       feedingFinishTime.text = formattedTime;
-      emit(SelectFeedingStartTime());
+      emit(SelectTimeState());
     }
   }
 
   void selectFeedingType(context, value) {
     feedingType.text = value;
     if (feedingType.text == AppStrings.breast) {
-      feedingAmountType.clear();
       feedingAmount.clear();
       contentsType.clear();
+      feedingAmountType = 1;
     }
     if (feedingType.text == AppStrings.solids) {
       feedingFinishDate.clear();
       feedingFinishTime.clear();
-      feedingAmountType.clear();
       feedingAmount.clear();
       contentsType.clear();
+      feedingAmountType = 1;
     }
 
-    emit(SelectFeedingType());
+    emit(SelectTypeState());
   }
 
   void selectContentsType(context, value) {
     contentsType.text = value;
-    emit(SelectFeedingType());
+    emit(SelectTypeState());
+  }
+
+  void selectUnitValue(int value) {
+    feedingAmountType = value;
+    emit(SelectUnitValueState());
   }
 }

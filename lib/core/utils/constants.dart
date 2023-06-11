@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
-import '../../config/routes/app_routes.dart';
 import '../../features/presentation/components/app_dialogs/app_dialogs.dart';
 import 'app_color.dart';
 
@@ -41,9 +40,9 @@ class Constants {
   final List<String> segments = [AppStrings.boy, AppStrings.girl];
 
   List<Tab> reminderTabs = const [
-    Tab(text: AppStrings.medicine),
+    Tab(text: AppStrings.health),
     Tab(text: AppStrings.feeding),
-    Tab(text: AppStrings.bathing),
+    Tab(text: AppStrings.leisure),
     Tab(text: AppStrings.others),
   ];
 
@@ -57,7 +56,7 @@ class Constants {
   void navigateToReminderScreen(context, int index) {
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, Routes.getLocation);
+        AppDialogs.showHealthDialog(context: context);
         break;
       case 1:
         AppDialogs.showFeedingDialog(context: context);
