@@ -195,12 +195,19 @@ class AppStrings {
       'Your child’s safety is important\nWe are here to keep track of your\nchild location.';
 
   //EHR
-  static const String heartRate = 'Heart Rate(BPM)';
+  static const String heartRate = 'Heart Rate';
   static const String lastTime = 'Last 4 hours';
   static const String beatsPer = 'beats per minute';
   static const String bodyTemp = 'Body Temperature';
   static const String bloodOxygen = 'Blood Oxygen';
+  static const String bloodPressure = 'Blood Pressure';
   static const String doingGreat = 'Your Baby Doing Great!';
+  static const String aboutBabyTemp =
+      'The average baby\'s body temperature is typically around 36.5 to 37.5 '
+      'degrees Celsius (97.7 to 99.5 degrees Fahrenheit). It\'s important to '
+      'note that slight variations within this range can be considered normal.'
+      ' Factors such as the baby\'s age, activity level, and environment can '
+      'influence their body temperature.';
 
   //Reminder
   static const String start = 'Start';
@@ -234,4 +241,7 @@ class AppStrings {
   static const String outdoors = 'Outdoors';
   static const String bathTime = 'Bath Time';
 
+  //Voice Reco
+  static const String stopDetection = 'Stop Detecting Voices';
+  static const String startDetection = 'Start Detecting Voices';
 }

@@ -7,7 +7,7 @@ import '../../../../../core/utils/app_color.dart';
 class CustomMeasurementCard extends StatelessWidget {
   final GestureTapCallback? onTap;
   final Color? color;
-  final String title, text1, text2, image;
+  final String title, text1, text2;
   final Widget child;
 
   const CustomMeasurementCard({
@@ -16,7 +16,6 @@ class CustomMeasurementCard extends StatelessWidget {
     required this.title,
     required this.text1,
     required this.text2,
-    required this.image,
     this.color,
     required this.child,
   }) : super(key: key);

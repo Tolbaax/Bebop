@@ -1,4 +1,3 @@
-import 'package:bebop/features/presentation/view/home/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -7,6 +6,7 @@ import 'config/routes/app_routes.dart';
 import 'config/themes/app_theme.dart';
 import 'core/services/injection_container.dart';
 import 'core/utils/app_strings.dart';
+import 'features/presentation/view/home/cubit/cubit.dart';
 import 'features/presentation/view/profile/cubit/cubit.dart';
 
 class Bebop extends StatelessWidget {

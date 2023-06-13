@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:bebop/core/utils/app_color.dart';
+import 'package:bebop/core/utils/app_strings.dart';
 import 'package:bebop/core/utils/constants.dart';
 import 'package:bebop/core/utils/media_query_values.dart';
 import 'package:flutter/material.dart';
@@ -80,7 +81,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Temperature',
+                  AppStrings.temperature,
                   style: TextStyle(
                     fontSize: 18.0.sp,
                     fontWeight: FontWeight.w500,
@@ -124,11 +125,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
               child: Align(
                 alignment: AlignmentDirectional.centerStart,
                 child: Text(
-                  'The average fetal heart rate is between 110 and 160 beats per minute.'
-                  ' It can vary by 5 to 25 beats per minute.The fetal heart rate may change '
-                  'as your baby responds to conditions in your uterus.An abnormal fetal heart '
-                  'rate may mean that your baby is not getting enough oxygen or that there are'
-                  ' other problems.',
+                  AppStrings.aboutBabyTemp,
                   style: TextStyle(
                     fontSize: 10.5.sp,
                     fontWeight: FontWeight.w500,

@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/app_strings.dart';
 import '../../../components/buttons/appbar_back_button.dart';
-import '../widgets/custom_circle_indicator.dart';
+import '../widgets/blood_pressure_gauge.dart';
 
 class OxygenScreen extends StatelessWidget {
   const OxygenScreen({Key? key}) : super(key: key);
@@ -23,25 +23,20 @@ class OxygenScreen extends StatelessWidget {
             SizedBox(
               height: 2.0.h,
             ),
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                text: 'Blood\n',
-                style: TextStyle(
-                  fontSize: 24.0.sp,
-                  color: AppColors.black,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 2,
-                ),
-                children: const [
-                  TextSpan(text: 'Pressure '),
-                ],
+            Text(
+              AppStrings.bloodPressure,
+              style: TextStyle(
+                fontSize: 24.0.sp,
+                color: AppColors.black,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 2,
+                fontFamily: 'Times',
               ),
             ),
             SizedBox(
-              height: 8.0.h,
+              height: 5.0.h,
             ),
-            const CustomCircleIndicator(text1: '90/6'),
+            BloodPressureGauge(),
             SizedBox(
               height: 10.0.h,
             ),
@@ -50,6 +45,7 @@ class OxygenScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16.5.sp,
                 color: AppColors.black.withOpacity(0.7),
+                fontFamily: 'Times',
               ),
             ),
           ],

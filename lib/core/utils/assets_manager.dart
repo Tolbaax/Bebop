@@ -29,5 +29,4 @@ class ImageAssets {
   static const String sleep = '$jsonPath/baby_sleep.json';
   static const String forgetPassword = '$jsonPath/forget_password.json';
   static const String logo = '$jsonPath/logo.json';
-  static const String heartRate = '$jsonPath/heart_rate.json';
 }

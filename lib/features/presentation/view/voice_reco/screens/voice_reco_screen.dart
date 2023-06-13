@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:bebop/core/utils/app_strings.dart';
-import 'package:bebop/features/presentation/components/buttons/appbar_back_button.dart';
-import 'package:bebop/features/presentation/components/buttons/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/utils/assets_manager.dart';
+import '../../../components/buttons/appbar_back_button.dart';
+import '../../../components/buttons/custom_button.dart';
 
 class VoiceRecoScreen extends StatefulWidget {
   const VoiceRecoScreen({Key? key}) : super(key: key);
@@ -26,19 +26,23 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
       isAnimationPlaying = true;
     });
 
-    Timer(Duration(seconds: 6), () {
-      stopAnimation();
-      showLoadingDialog();
-      loadingTimer = Timer(Duration(seconds: 3), () {
-        hideLoadingDialog();
-        navigateToVoiceRecoResult();
-      });
+    Timer(Duration(seconds: 8), () {
+      if (isAnimationPlaying) {
+        stopAnimation();
+        showLoadingDialog();
+        loadingTimer = Timer(Duration(seconds: 3), () {
+          hideLoadingDialog();
+          navigateToVoiceRecoResult();
+        });
+      }
     });
   }
 
   void stopAnimation() {
     setState(() {
       isAnimationPlaying = false;
+      loadingTimer?.cancel(); // Cancel the loadingTimer if it exists
+      loadingTimer = null;
     });
   }
 
@@ -52,17 +56,21 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
       barrierDismissible: false,
       builder: (context) {
         return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25.0.sp),
+          ),
           child: Container(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(12.0.sp),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CircularProgressIndicator(),
-                SizedBox(width: 7.5.w),
+                CircularProgressIndicator(strokeWidth: 2.0.sp),
+                SizedBox(width: 6.0.w),
                 Text(
                   'Detecting Voices...',
                   style: TextStyle(
-                    fontSize: 12.0.sp,
+                    fontSize: 13.0.sp,
+                    letterSpacing: 0.35.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -118,8 +126,8 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
           CustomButton(
             onTap: isAnimationPlaying ? stopAnimation : startAnimation,
             text: isAnimationPlaying
-                ? 'Stop Detecting Voices'
-                : 'Start Detecting Voices',
+                ? AppStrings.stopDetection
+                : AppStrings.startDetection,
           ),
           SizedBox(height: 5.0.h),
         ],
