@@ -8,7 +8,7 @@ class ImageAssets {
   static const String babyHeight = '$imgPath/baby_height.svg';
   static const String babyWeight = '$imgPath/baby_weight.svg';
   static const String babyInfo = '$imgPath/baby_info.svg';
-  static const String homeLogo = '$imgPath/logo.png';
+  static const String homeLogo = '$imgPath/home_logo.png';
   static const String baby1 = '$imgPath/baby1.jpg';
   static const String baby2 = '$imgPath/baby2.jpg';
   static const String baby3 = '$imgPath/baby3.jpg';

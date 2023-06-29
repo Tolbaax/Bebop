@@ -49,7 +49,6 @@ Future<void> init() async {
 
   //Core
 
-  //TODO:USE IT
   sl.registerLazySingleton<NetworkInfo>(
       () => NetworkInfoImpl(connectionChecker: sl()));
 

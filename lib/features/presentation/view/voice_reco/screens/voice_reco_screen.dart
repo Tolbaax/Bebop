@@ -32,7 +32,7 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
         showLoadingDialog();
         loadingTimer = Timer(Duration(seconds: 3), () {
           hideLoadingDialog();
-          navigateToVoiceRecoResult();
+          showResultDialog();
         });
       }
     });
@@ -90,14 +90,49 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
     Navigator.of(context).pop();
   }
 
-  void navigateToVoiceRecoResult() {
-    if (loadingTimer != null && loadingTimer!.isActive) {
-      loadingTimer!.cancel();
-    }
-
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => VoiceRecoResult()),
+  void showResultDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0.sp),
+          ),
+          child: Container(
+            padding: EdgeInsets.all(12.0.sp),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Result',
+                  style: TextStyle(
+                    fontSize: 18.0.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 2.0.h),
+                Text(
+                  'There are no strange voices around the baby.',
+                  style: TextStyle(
+                    fontSize: 14.0.sp,
+                  ),
+                ),
+                SizedBox(height: 3.0.h),
+                CustomButton(
+                  onTap: hideResultDialog,
+                  text: 'OK',
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
+  }
+
+  void hideResultDialog() {
+    Navigator.of(context).pop();
   }
 
   @override
@@ -131,21 +166,6 @@ class _VoiceRecoScreenState extends State<VoiceRecoScreen> {
           ),
           SizedBox(height: 5.0.h),
         ],
-      ),
-    );
-  }
-}
-
-class VoiceRecoResult extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: AppBarBackButton(),
-        title: Text('Voice Reco Result'),
-      ),
-      body: Center(
-        child: Text('Voice Reco Result'),
       ),
     );
   }
